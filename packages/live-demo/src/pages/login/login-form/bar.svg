@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="111px" height="2px" viewBox="0 0 111 2" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon_横条渐变_登录页面_</title>
+    <defs>
+        <linearGradient x1="2.09867862%" y1="50%" x2="98.9656416%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#FEFFFF" offset="0%"></stop>
+            <stop stop-color="#007AFF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="登录页面" transform="translate(-756.000000, -267.000000)" fill="url(#linearGradient-1)">
+            <rect id="icon_横条渐变_登录页面_" x="756" y="267" width="111" height="2"></rect>
+        </g>
+    </g>
+</svg>

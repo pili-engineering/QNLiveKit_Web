@@ -1,0 +1,283 @@
+// common
+$border-radius: 8px;
+
+.containerCommon {
+  background-color: #1e2326;
+  border-radius: $border-radius;
+
+  & > div {
+    width: 100%;
+  }
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: 800px;
+  min-height: 500px;
+}
+
+.headerCommon {
+  height: 90px;
+  border-radius: $border-radius $border-radius 0 0;
+}
+
+.mainCommon {
+  width: 100%;
+  position: relative;
+  flex-grow: 1;
+}
+
+.footerCommon {
+  border-radius: 0 0 $border-radius $border-radius;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  align-items: flex-end;
+}
+
+.customTestPart {
+  border: 2px dashed #909092;
+  color: #909092;
+  border-radius: 6px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// page
+.page {
+  background-color: #161719;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 1440px;
+  min-width: 1000px;
+  align-items: center;
+  height: 100%;
+  padding: 10px 10px;
+}
+
+.playerContainer {
+  @extend .containerCommon;
+  margin-right: 20px;
+  flex-grow: 1;
+}
+
+// player
+.playerHeader {
+  @extend .headerCommon;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 17px;
+}
+
+.playerHeaderCustom {
+  height: 70px;
+
+  @extend .customTestPart;
+  flex-grow: 1;
+}
+
+.infoMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 310px;
+}
+
+.liveInfo {
+  display: flex;
+}
+
+.title {
+  font-size: 22px;
+  margin-bottom: 10px;
+  line-height: 1;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.data {
+  display: flex;
+  line-height: 22px;
+  font-size: 12px;
+
+  & svg {
+    font-size: 22px;
+    margin-right: 10px;
+    color: #fff;
+    transform: translateY(2px);
+  }
+
+  & > div {
+    margin-right: 27px;
+    color: #909092;
+  }
+}
+
+.avatar {
+  height: 55px;
+  width: 55px;
+  border: 2px solid #c0c0c0;
+  border-radius: 50%;
+  margin-right: 25px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.playerMain {
+  @extend .mainCommon;
+}
+
+.player {
+  position: absolute !important;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+
+.noLive {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.logo {
+  text-align: center;
+  width: 100%;
+
+  span {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 20px;
+  }
+}
+
+.playerFooter {
+  @extend .footerCommon ;
+}
+
+.playerFooterCustom {
+  height: 80px;
+  width: 100%;
+
+  @extend .customTestPart;
+}
+
+// chat
+.chatContainer {
+  width: 333.5px;
+  @extend .containerCommon;
+}
+
+.chatHeader {
+  @extend .headerCommon;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid #34393c;
+}
+
+.chatHeaderCustom {
+  height: 70px;
+  width: 313px;
+  @extend .customTestPart;
+}
+
+.chatMain {
+  @extend .mainCommon;
+  padding: 0 10px 0;
+  overflow: auto;
+  border-bottom: 2px solid #34393c;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+}
+
+.chatItem {
+  display: block;
+  margin: 9px 0;
+  border-radius: 7px;
+  align-self: flex-start;
+  word-break: break-all;
+
+  span.emphasize {
+    color: #909092;
+  }
+
+  a {
+    color: #66b1f7;
+    text-decoration: underline;
+  }
+}
+
+.chatItemNotice {
+  color: #15e5f1;
+}
+
+.chatFooter {
+  @extend .footerCommon;
+}
+
+.chatTextarea {
+  outline: none;
+  border: none;
+  background-color: #34393c;
+  color: #fff;
+  font-size: 15px;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+  resize: none;
+
+  &::-webkit-input-placeholder {
+    color: #eee;
+  }
+}
+
+.chatTextarea[disabled] {
+  background-color: #34393c;
+
+  &::-webkit-input-placeholder {
+    color: #909092;
+  }
+}
+
+.likeBtn {
+  font-size: 53px;
+  cursor: pointer;
+  position: relative;
+}
+
+.likeAnimeContainer {
+  position: absolute;
+  bottom: 85%;
+  width: 100%;
+  left: 0;
+}
