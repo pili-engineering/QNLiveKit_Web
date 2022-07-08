@@ -14,9 +14,15 @@
 
 .page {
   padding: 0.1rem 0.2rem;
+  overflow: scroll;
 }
 
-.roomList {
+.listContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.list {
   display: grid;
   grid-template-columns: 50% 50%;
 }
@@ -76,7 +82,7 @@
 }
 
 .online {
-  background-image: url('https://img.alicdn.com/imgextra/i3/O1CN01CQFulY1ehA8RbB24d_!!6000000003902-55-tps-11-14.svg');
+  background-image: url('./icon-flame.svg');
   background-size: auto 70%;
   background-repeat: no-repeat;
   background-position: 0.18rem center;
@@ -87,4 +93,23 @@
   padding: 0.05rem 0.15rem 0.05rem 0.5rem;
   border-radius: 0.22rem;
   font-size: 0.16rem;
+}
+
+.noMore {
+  text-align: center;
+  color: #807f7f;
+  font-size: 12px;
+  padding: 10px 0;
+}
+
+.empty {
+  @extend .fullContent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.emptyDescription {
+  padding: 10px 0;
 }
