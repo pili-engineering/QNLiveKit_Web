@@ -65,7 +65,7 @@ function App() {
 const WrapperApp = () => {
   return <ConfigProvider locale={zhCN}>
     <UserStore>
-      <IMStore value={{ appKey: imConfig.appKey }}>
+      <IMStore>
         <App/>
       </IMStore>
     </UserStore>

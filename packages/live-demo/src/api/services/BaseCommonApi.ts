@@ -15,7 +15,7 @@ export class BaseCommonApi {
    * @param params
    */
   static signUpOrIn(params: SignUpOrInParams) {
-    return request.post<SignUpOrInResult['data'], SignUpOrInResult['data']>(`${PREFIX}/signUpOrIn`, params);
+    return request.post<SignUpOrInResult, SignUpOrInResult>(`${PREFIX}/signUpOrIn`, params);
   }
 
   /**
@@ -23,7 +23,7 @@ export class BaseCommonApi {
    * @param params
    */
   static getSmsCode(params: GetSmsCodeParams) {
-    return request.post<GetSmsCodeResult['data'], GetSmsCodeResult['data']>(`${PREFIX}/getSmsCode`, params);
+    return request.post<GetSmsCodeResult, GetSmsCodeResult>(`${PREFIX}/getSmsCode`, params);
   }
 
   /**
@@ -32,7 +32,7 @@ export class BaseCommonApi {
    */
   static getAccountInfo(params?: GetAccountInfoAccountIdParams) {
     const url = params?.accountId ? `${PREFIX}/accountInfo/${params.accountId}` : `${PREFIX}/accountInfo`;
-    return request.get<GetAccountInfoAccountIdResult['data'], GetAccountInfoAccountIdResult['data']>(url, {
+    return request.get<GetAccountInfoAccountIdResult, GetAccountInfoAccountIdResult>(url, {
       headers: {
         Authorization: getAuthorization()
       }

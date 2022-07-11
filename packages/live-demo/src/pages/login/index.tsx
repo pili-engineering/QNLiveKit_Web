@@ -84,12 +84,12 @@ export const Login: React.FC<LoginProps> = (props) => {
       dispatchUserStoreState({
         type: 'PATCH',
         payload: {
-          loginToken: result?.loginToken || ''
+          loginToken: result?.data?.loginToken || ''
         }
       });
       dispatchIMStoreState({
         type: 'PATCH',
-        payload: result?.imConfig || {}
+        payload: result?.data?.imConfig || {}
       });
       setIsLoading(false);
       history.push(nextUrl);

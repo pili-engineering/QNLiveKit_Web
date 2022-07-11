@@ -9,7 +9,7 @@ import './index.scss';
 export const Auth: React.FC = (props) => {
   const { children } = props;
   const { dispatch: dispatchUserStoreState } = useUserStore();
-  const [loading, setLoading] = useState(true);
+  const [authenticated, setAuthenticated] = useState(false);
 
   /**
    * 初始化用户信息
@@ -17,25 +17,24 @@ export const Auth: React.FC = (props) => {
   useEffect(() => {
     let state = {};
     BaseCommonApi.getAccountInfo().then(result => {
-      state = Object.assign(state, result);
+      state = Object.assign(state, result.data);
       return LiveApi.getLiveAuthToken({
-        userID: result.accountId,
+        userID: result.data.accountId,
         deviceID: encodeURIComponent(window.navigator.userAgent)
       });
     }).then(result => {
-      state = Object.assign(state, result);
+      state = Object.assign(state, result.data);
       dispatchUserStoreState({
         type: 'PATCH',
         payload: state
       });
-    }).finally(() => {
-      setLoading(false);
+      setAuthenticated(true);
     });
   }, []);
 
   return <div className="auth">
     {
-      loading ? <Spin className="auth-loading" tip="数据正在拼命加载中..."/> : children
+      authenticated ? children : <Spin className="auth-loading" tip="数据正在拼命加载中..."/>
     }
   </div>;
 };

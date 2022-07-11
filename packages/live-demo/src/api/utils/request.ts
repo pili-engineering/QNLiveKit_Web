@@ -1,7 +1,13 @@
-import axios  from 'axios';
+import axios from 'axios';
 import { message, Modal } from 'antd';
 
-import { ApiResponseCode, liveRequestConfig, requestConfig } from '@/config';
+import { liveRequestConfig, requestConfig } from '@/config';
+
+export interface AxiosResponseData<T = any> {
+  code: number;
+  data: T;
+  request_id: string;
+}
 
 const request = axios.create(requestConfig);
 
@@ -11,26 +17,31 @@ request.interceptors.request.use(function (config) {
   return Promise.reject(error);
 });
 
-request.interceptors.response.use(function (response ) {
-  const responseCode: keyof typeof ApiResponseCode = response.data.code;
+request.interceptors.response.use<AxiosResponseData>(function (response) {
+  const responseCode = response.data.code;
   if (responseCode === 0) {
-    return response.data.data;
-  } else if ([401001, 401003].includes(responseCode)) { // 用户未登录或TOKEN过期
+    return response.data;
+  }
+  if ([401001, 401003].includes(responseCode)) {
     Modal.error({
       title: '提示',
-      content: response.data.message,
-      onOk() {
-        localStorage.clear();
-        window.location.href = '/';
-      },
-    })
-    return Promise.reject('重新登录');
-  } else {
-    message.error(response.data.message);
-    return Promise.reject(`${response.config.url} 接口响应错误: ${response.data.message}`);
+      content: '登录已过期，请重新登录',
+      onOk: () => {
+        window.location.href = '/login';
+      }
+    });
+    return Promise.reject(response.data);
   }
+  Modal.error({
+    title: '接口请求错误',
+    content: response.data.message,
+  });
+  return Promise.reject(response.data);
 }, function (error) {
-  message.error(error.message)
+  Modal.error({
+    title: '接口请求错误',
+    content: error.message,
+  });
   return Promise.reject(error);
 });
 
@@ -42,20 +53,22 @@ liveRequest.interceptors.request.use(function (config) {
   return Promise.reject(error);
 });
 
-liveRequest.interceptors.response.use(function (response ) {
+liveRequest.interceptors.response.use<AxiosResponseData>(function (response) {
   const responseCode = response.data.code;
-  if (responseCode === 200) {
-    return response.data.data;
-  } else {
-    Modal.error({
-      title: '提示',
-      content: response.data.message,
-    })
-    message.error(response.data.message);
-    return Promise.reject(`${response.config.url} 接口响应错误: ${response.data.message}`);
+  if ([0, 200].includes(responseCode)) {
+    return response.data;
   }
+  Modal.error({
+    title: '接口请求错误',
+    content: response.data.message,
+  });
+  message.error(response.data.message);
+  return Promise.reject(response.data);
 }, function (error) {
-  message.error(error.message)
+  Modal.error({
+    title: '接口请求错误',
+    content: error.message,
+  });
   return Promise.reject(error);
 });
 
