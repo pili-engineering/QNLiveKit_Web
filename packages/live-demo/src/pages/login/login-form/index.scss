@@ -4,7 +4,7 @@
   //height: 504px;
   background: #FFFFFF;
   box-shadow: 0 4px 18px 0 rgba(4, 90, 133, 0.50);
-  border-radius: 8px;
+  border-radius: 16px;
   display: flex;
   overflow: hidden;
 
@@ -52,6 +52,7 @@
 
     .text {
       margin: 0 20px;
+      white-space: nowrap;
     }
   }
 

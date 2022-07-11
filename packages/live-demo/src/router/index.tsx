@@ -10,7 +10,7 @@ const changeDocumentTitle = (path: string) => {
   if (path === '/') {
     return '欢迎登录';
   }
-  if (path === '/list') {
+  if (path === '/room-list') {
     return '房间列表';
   }
   if (path.startsWith('/room')) {
@@ -30,7 +30,7 @@ const RootRouter = () => {
   }, [location.pathname]);
 
   return <Switch>
-    <Route exact path="/login" render={() => <Login nextUrl="/room-list"/>}/>
+    <Route exact path="/login" render={() => <Login nextUrl="/room-list" version={version}/>}/>
     <Route
       path="/"
       render={() => {

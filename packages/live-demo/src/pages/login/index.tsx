@@ -27,6 +27,7 @@ const validateForm = (value: LoginData): string | null => {
 
 interface LoginProps {
   nextUrl: string;
+  version?: string | null;
 }
 
 /**
@@ -35,7 +36,7 @@ interface LoginProps {
  */
 export const Login: React.FC<LoginProps> = (props) => {
   const history = useHistory();
-  const { nextUrl } = props;
+  const { nextUrl, version } = props;
   const { dispatch: dispatchUserStoreState } = useUserStore();
   const { dispatch: dispatchIMStoreState } = useIMStore();
 
@@ -130,16 +131,18 @@ export const Login: React.FC<LoginProps> = (props) => {
     });
   };
 
-  return <div className={styles.container}>
-    <LoginForm
-      className={styles.form}
-      data={loginData}
-      onChange={onChange}
-      onSmsClick={onSmsClick}
-      onSubmit={onSubmit}
-      isSmsLoading={isSmsLoading}
-      isLoading={isLoading}
-      countdown={countdown}
-    />
+  return <div className={styles.page}>
+    <div className={styles.card}>
+      <LoginForm
+        data={loginData}
+        onChange={onChange}
+        onSmsClick={onSmsClick}
+        onSubmit={onSubmit}
+        isSmsLoading={isSmsLoading}
+        isLoading={isLoading}
+        countdown={countdown}
+      />
+      {version && <div className={styles.version}>当前版本：{version}</div>}
+    </div>
   </div>;
 };
