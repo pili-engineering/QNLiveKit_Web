@@ -4,7 +4,7 @@ import {
   GetLiveAuthTokenResult,
   GetLiveRoomHeartbeatLiveIdParams,
   GetLiveRoomHeartbeatLiveIdResult,
-  GetLiveRoomInfoLiveIdParams,
+  GetLiveRoomInfoLiveIdParams, GetLiveRoomInfoLiveIdResult,
   GetLiveRoomListParams,
   GetLiveRoomListResult,
   GetLiveRoomParams,
@@ -22,7 +22,7 @@ export class LiveApi {
    * @param params
    */
   static getLiveAuthToken(params: GetLiveAuthTokenParams) {
-    return request.get<GetLiveAuthTokenResult['data'], GetLiveAuthTokenResult['data']>(`/v1/live/auth_token`, {
+    return request.get<GetLiveAuthTokenResult, GetLiveAuthTokenResult>(`/v1/live/auth_token`, {
       headers: {
         Authorization: getAuthorization()
       },
@@ -34,10 +34,10 @@ export class LiveApi {
    * 房间用户
    * @param params
    */
-  getRoomUserList(params: GetLiveRoomUserListParams) {
+  static getRoomUserList(params: GetLiveRoomUserListParams) {
     return liveRequest.get(`${PREFIX}/room/user_list`, {
       headers: {
-        Authorization: getAuthorization()
+        Authorization: getAccessToken()
       },
       params
     });
@@ -48,9 +48,9 @@ export class LiveApi {
    * @param params
    */
   static search(params: GetLiveRoomParams) {
-    return liveRequest.get<GetLiveRoomResult['data'], GetLiveRoomResult['data']>(`${PREFIX}/room`, {
+    return liveRequest.get<GetLiveRoomResult, GetLiveRoomResult>(`${PREFIX}/room`, {
       headers: {
-        Authorization: getAuthorization()
+        Authorization: getAccessToken()
       },
       params
     });
@@ -60,10 +60,10 @@ export class LiveApi {
    * 查询直播详情
    * @param params
    */
-  getRoomInfo(params: GetLiveRoomInfoLiveIdParams) {
-    return liveRequest.get(`${PREFIX}/room/info/${params.live_id}`, {
+  static getRoomInfo(params: GetLiveRoomInfoLiveIdParams) {
+    return liveRequest.get<GetLiveRoomInfoLiveIdResult, GetLiveRoomInfoLiveIdResult>(`${PREFIX}/room/info/${params.live_id}`, {
       headers: {
-        Authorization: getAuthorization()
+        Authorization: getAccessToken()
       }
     });
   }
@@ -73,7 +73,7 @@ export class LiveApi {
    * @param params
    */
   static getRoomList(params: GetLiveRoomListParams) {
-    return liveRequest.get<GetLiveRoomListResult['data'], GetLiveRoomListResult['data']>(`${PREFIX}/room/list`, {
+    return liveRequest.get<GetLiveRoomListResult, GetLiveRoomListResult>(`${PREFIX}/room/list`, {
       headers: {
         Authorization: getAccessToken()
       },
@@ -86,10 +86,10 @@ export class LiveApi {
    * @param params
    */
   static join(params: LiveRoomUserLiveIdParams) {
-    return liveRequest.post<LiveRoomUserLiveIdResult['data'], LiveRoomUserLiveIdResult['data']>(`${PREFIX}/room/user/${params.live_id}`, {
+    return liveRequest.post<LiveRoomUserLiveIdResult, LiveRoomUserLiveIdResult>(`${PREFIX}/room/user/${params.live_id}`, null, {
       headers: {
         Authorization: getAccessToken()
-      },
+      }
     });
   }
 
@@ -110,7 +110,7 @@ export class LiveApi {
    * @param params
    */
   static heartbeat(params: GetLiveRoomHeartbeatLiveIdParams) {
-    return liveRequest.get<GetLiveRoomHeartbeatLiveIdResult['data'], GetLiveRoomHeartbeatLiveIdResult['data']>(`${PREFIX}/room/heartbeat/${params.live_id}`, {
+    return liveRequest.get<GetLiveRoomHeartbeatLiveIdResult, GetLiveRoomHeartbeatLiveIdResult>(`${PREFIX}/room/heartbeat/${params.live_id}`, {
       headers: {
         Authorization: getAccessToken()
       },

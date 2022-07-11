@@ -30,10 +30,20 @@ const RootRouter = () => {
   }, [location.pathname]);
 
   return <Switch>
-    <Route exact path="/" render={() => <Login nextUrl="/list"/>}/>
-    <Route path="/list" render={() => <Auth><RoomList/></Auth>}/>
-    <Route path="/room" component={Room}/>
-    <Redirect to="/"/>
+    <Route exact path="/login" render={() => <Login nextUrl="/room-list"/>}/>
+    <Route
+      path="/"
+      render={() => {
+        return <Auth>
+          <Switch>
+            <Route exact path="/room-list" component={RoomList}/>
+            <Route exact path="/room" component={Room}/>
+            <Redirect to="/login"/>
+          </Switch>
+        </Auth>;
+      }}
+    />
+    <Redirect to="/login"/>
   </Switch>;
 };
 

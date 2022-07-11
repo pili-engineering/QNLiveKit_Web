@@ -18,7 +18,7 @@ function getLoadMoreList(nextId: number, limit: number): Promise<Data> {
     page_size: `${limit}`,
   }).then(result => {
     return {
-      ...result,
+      ...result.data,
       nextId: page + 1
     };
   });
