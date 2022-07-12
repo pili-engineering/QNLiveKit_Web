@@ -14,7 +14,7 @@ importers:
       conventional-changelog-cli: 2.2.2
       git-cz: 4.9.0
 
-  packages/live-demo:
+  packages/qnweb-live-demo:
     specifiers:
       '@types/node': ^18.0.1
       '@types/react': ^17.0.33

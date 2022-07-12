@@ -4,7 +4,7 @@
 
 ## 介绍
 
-* [live-demo](./packages/live-demo/README.md): 互动直播标准接入示例demo
+* [qnweb-live-demo](./packages/qnweb-live-demo/README.md): 互动直播标准接入示例demo
 
 ## 规范
 
