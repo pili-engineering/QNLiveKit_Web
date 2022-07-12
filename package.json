@@ -1,0 +1,18 @@
+{
+  "name": "root",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=v14.16.1",
+    "pnpm": ">=7"
+  },
+  "keywords": [],
+  "scripts": {
+    "dev:live-demo": "pnpm -F live-demo dev",
+    "changelog": "ar-changelog",
+    "changeset": "changeset"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.23.1",
+    "ar-changelog": "^1.0.4"
+  }
+}
