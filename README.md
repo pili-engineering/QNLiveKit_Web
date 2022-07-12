@@ -6,15 +6,6 @@
 
 * [live-demo](./packages/live-demo/README.md): 互动直播标准接入示例demo
 
-## 如何运行
-
-### live-demo
-
-```shell
-$ pnpm install 
-$ pnpm run dev:live-demo
-```
-
 ## 规范
 
 ### changelog
