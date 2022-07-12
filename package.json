@@ -15,7 +15,8 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.23.1",
-    "ar-changelog": "^1.0.10",
+    "ar-changelog": "^1.0.18",
+    "conventional-changelog-cli": "^2.2.2",
     "git-cz": "^4.9.0"
   }
 }
