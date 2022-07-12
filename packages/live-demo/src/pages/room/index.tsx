@@ -48,7 +48,6 @@ export const Room = () => {
         cover: detail?.cover_url || '',
       });
       setPlayerUrl(detail?.rtmp_url || '');
-      setAnchorInfo(detail.anchor_info);
     });
   }, {
     pollingInterval: 3000,
@@ -70,7 +69,6 @@ export const Room = () => {
   const [noticeVisible, setNoticeVisible] = useState(false);
   const [playerUrl, setPlayerUrl] = useState<string>();
   const [playLoading, setPlayLoading] = useState(false);
-  const [anchorInfo, setAnchorInfo] = useState<AnchorInfo>();
 
   /**
    * 播放器
@@ -132,31 +130,7 @@ export const Room = () => {
    */
   const { state: imStoreState, dispatch: dispatchIMStoreState } = useIMStore();
   const [imManager, setIMManager] = useState<QNIMManager | null>(null);
-  const [messages, setMessages] = useState<Message[]>([
-    { nickname: 'wyf', content: '你好' },
-    { nickname: 'wyf', content: '你好' },
-    { nickname: 'wyf', content: '你好' },
-    { nickname: 'wyf', content: '你好' },
-    { nickname: 'wyf', content: '你好' },
-    { nickname: 'wyf', content: '你好' },
-    { nickname: 'wyf', content: '你好' },
-    { nickname: 'wyf', content: '你好' },
-    { nickname: 'wyf', content: '你好' },
-    { nickname: 'wyf', content: '你好' },
-    { nickname: 'wyf', content: '你好' },
-    { nickname: 'wyf', content: '你好' },
-    { nickname: 'wyf', content: '你好' },
-    { nickname: 'wyf', content: '你好' },
-    { nickname: 'wyf', content: '你好' },
-    { nickname: 'wyf', content: '你好' },
-    { nickname: 'wyf', content: '你好' },
-    { nickname: 'wyf', content: '你好' },
-    { nickname: 'wyf', content: '你好' },
-    { nickname: 'wyf', content: '你好' },
-    { nickname: 'wyf', content: '你好' },
-    { nickname: 'wyf', content: '你好' },
-    { nickname: 'wyf', content: '最后一句' },
-  ]);
+  const [messages, setMessages] = useState<Message[]>([]);
 
   /**
    * 初始化im
