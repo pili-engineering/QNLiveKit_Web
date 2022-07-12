@@ -19,3 +19,10 @@
 $ pnpm install 
 $ pnpm run dev
 ```
+
+## 如何打包
+
+```shell
+$ pnpm install 
+$ pnpm run build
+```
