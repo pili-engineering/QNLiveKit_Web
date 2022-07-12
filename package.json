@@ -7,6 +7,12 @@
   },
   "keywords": [],
   "scripts": {
-    "dev:live-demo": "pnpm -F live-demo dev"
+    "dev:live-demo": "pnpm -F live-demo dev",
+    "changelog": "ar-changelog",
+    "changeset": "changeset"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.23.1",
+    "ar-changelog": "^1.0.4"
   }
 }
