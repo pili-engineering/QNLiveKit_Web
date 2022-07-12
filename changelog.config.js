@@ -1,5 +1,5 @@
 const packages = [
-  'live-demo',
+  'qnweb-live-demo',
 ];
 
 module.exports = {
