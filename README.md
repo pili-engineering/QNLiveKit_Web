@@ -13,7 +13,7 @@
 使用以下工具来生成changelog:
 
 * [changesets](https://github.com/changesets/changesets/blob/main/packages/cli/README.md)
-* [ar-cahngelog](https://github.com/Spencer17x/arca/tree/main/packages/scripts/ar-changelog)
+* [ar-changelog](https://github.com/Spencer17x/arca/tree/main/packages/scripts/ar-changelog)
 * [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-cli)
 
 ### 主依赖
