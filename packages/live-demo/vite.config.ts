@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
   return {
     define: {
-      version: JSON.stringify(packageJson.version),
+      mainVersion: JSON.stringify(packageJson.version),
     },
     plugins: [react()],
     resolve: {

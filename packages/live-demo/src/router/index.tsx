@@ -6,6 +6,8 @@ import { RoomList } from '@/pages/room-list';
 import { Room } from '@/pages/room';
 import { Auth } from '@/layouts';
 
+const MAIN_VERSION = mainVersion;
+
 const changeDocumentTitle = (path: string) => {
   if (path === '/') {
     return '欢迎登录';
@@ -30,7 +32,7 @@ const RootRouter = () => {
   }, [location.pathname]);
 
   return <Switch>
-    <Route exact path="/login" render={() => <Login nextUrl="/room-list" version={version}/>}/>
+    <Route exact path="/login" render={() => <Login nextUrl="/room-list" version={MAIN_VERSION}/>}/>
     <Route
       path="/"
       render={() => {
