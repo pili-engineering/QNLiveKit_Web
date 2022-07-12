@@ -6,6 +6,15 @@
 
 * [live-demo](./packages/live-demo/README.md): 互动直播标准接入示例demo
 
+## 如何运行
+
+### live-demo
+
+```shell
+$ pnpm install 
+$ pnpm run dev:live-demo
+```
+
 ## 规范
 
 ### changelog
@@ -22,11 +31,7 @@
 * react-router-dom: 5.3.3
 * @types/react-router-dom: 5.3.3
 
-### 多环境配置
-
 ### SDK打包工具
 
 * [tsup](https://github.com/egoist/tsup)
 * [rollup](https://github.com/rollup/rollup)
-
-
