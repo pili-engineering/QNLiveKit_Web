@@ -10,10 +10,12 @@
     "dev:live-demo": "pnpm -F live-demo dev",
     "build:live-demo": "pnpm -F live-demo build",
     "changelog": "ar-changelog",
-    "changeset": "changeset"
+    "changeset": "changeset",
+    "cz": "git-cz"
   },
   "devDependencies": {
     "@changesets/cli": "^2.23.1",
-    "ar-changelog": "^1.0.10"
+    "ar-changelog": "^1.0.10",
+    "git-cz": "^4.9.0"
   }
 }
