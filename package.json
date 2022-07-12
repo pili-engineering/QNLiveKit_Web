@@ -8,6 +8,7 @@
   "keywords": [],
   "scripts": {
     "dev:live-demo": "pnpm -F live-demo dev",
+    "build:live-demo": "pnpm -F live-demo build",
     "changelog": "ar-changelog",
     "changeset": "changeset"
   },
