@@ -1,4 +1,4 @@
-# live-demo
+# qnweb-live-demo
 
 ## 0.0.2
 

@@ -7,8 +7,8 @@
   },
   "keywords": [],
   "scripts": {
-    "dev:live-demo": "pnpm -F live-demo dev",
-    "build:live-demo": "pnpm -F live-demo build",
+    "dev:qnweb-live-demo": "pnpm -F qnweb-live-demo dev",
+    "build:qnweb-live-demo": "pnpm -F qnweb-live-demo build",
     "changelog": "ar-changelog",
     "changeset": "changeset",
     "cz": "git-cz"
