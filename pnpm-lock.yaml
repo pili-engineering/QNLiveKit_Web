@@ -5,10 +5,10 @@ importers:
   .:
     specifiers:
       '@changesets/cli': ^2.23.1
-      ar-changelog: ^1.0.4
+      ar-changelog: ^1.0.10
     devDependencies:
       '@changesets/cli': 2.23.1
-      ar-changelog: 1.0.4
+      ar-changelog: 1.0.10
 
   packages/live-demo:
     specifiers:
@@ -960,8 +960,8 @@ packages:
       picomatch: 2.3.1
     dev: true
 
-  /ar-changelog/1.0.4:
-    resolution: {integrity: sha512-bvt5wOEdvsxvzsf9jFDY7n6OD69mvvdqVazR+SLh2fFZYsoRmeMa3pRu6w0Hc4u7j3nDZ4VMIRCCe4sksv8liQ==}
+  /ar-changelog/1.0.10:
+    resolution: {integrity: sha512-rvB7tqwQ2T2RykIlmbFZGlLlmrAEpINdwi31FbeYExPN0RAJRbc8gnIMeoDs5nR1ZMU5/lee+oE4Znno3OujrQ==}
     hasBin: true
     dev: true
 
