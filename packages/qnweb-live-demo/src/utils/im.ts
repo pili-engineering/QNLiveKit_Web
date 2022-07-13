@@ -64,6 +64,7 @@ export class QNIMManager {
        * @param message
        */
       onGroupMessage: (message: QNIM.IGroupMessage) => {
+        console.log('onGroupMessage', message);
         const cuid = this.im.userManage.getUid() + '';
         const isRemoteMessage = cuid !== message.from;
         if (isRemoteMessage) { // 收到远端消息，触发消息接收回调
@@ -276,7 +277,7 @@ export class QNIMManager {
    */
   joinChannel(channelId: string, callback?: RtmCallBack) {
     return this.im.chatroomManage.join(channelId).then(() => {
-      console.log('join after');
+      console.log('joinChannel join success');
       return new Promise(resolve => {
         this.joinChannelSuccessCallback = (data: unknown) => {
           if (callback?.onSuccess) callback?.onSuccess(data);

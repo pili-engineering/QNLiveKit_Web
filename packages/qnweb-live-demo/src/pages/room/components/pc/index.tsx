@@ -106,7 +106,11 @@ export const RoomPC: React.FC<RoomProps & {
               backgroundImage: `url(${roomDetail?.cover})`
             }}
           >
-            {playBtnVisible && <Button loading={playLoading} type="primary" onClick={onPlay}>点击播放</Button>}
+            {
+              playBtnVisible && <Button loading={playLoading} type="primary" onClick={onPlay}>
+                {playLoading ? '加载中...' : '点击播放'}
+              </Button>
+            }
           </div>
         }
         <div

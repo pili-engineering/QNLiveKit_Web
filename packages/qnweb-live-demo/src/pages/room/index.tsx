@@ -4,7 +4,7 @@ import { message, Modal } from 'antd';
 import { useHistory } from 'react-router-dom';
 
 import { getUrlQuery, IMMessage, QNIMManager, UA } from '@/utils';
-import { LiveApi, LiveRoomUserLiveIdResult } from '@/api';
+import { LiveApi } from '@/api';
 import { curConfig } from '@/config';
 import { useIMStore, useUserStore } from '@/store';
 import {
@@ -12,7 +12,7 @@ import {
   RoomMobile, RoomPC, useQNRTPlayer, UseQNRTPlayerProps
 } from './components';
 
-type AnchorInfo = LiveRoomUserLiveIdResult['data']['anchor_info'];
+const imClient = QNIMManager.create();
 
 export const Room = () => {
   const history = useHistory();
@@ -129,8 +129,36 @@ export const Room = () => {
    * im
    */
   const { state: imStoreState, dispatch: dispatchIMStoreState } = useIMStore();
-  const [imManager, setIMManager] = useState<QNIMManager | null>(null);
   const [messages, setMessages] = useState<Message[]>([]);
+  const [imJoined, setIMJoined] = useState(false);
+
+  /**
+   * 发送消息通用方法
+   * @param action
+   * @param content
+   */
+  const sendMessage = (action: string, content: string) => {
+    const json: IMMessage = {
+      action,
+      data: {
+        action,
+        content,
+        sendUser: {
+          avatar: roomDetail?.avatar,
+          im_userid: imStoreState?.imUid,
+          im_username: imStoreState?.imUsername,
+          nick: userStoreState.nickname,
+          user_id: userStoreState.accountId,
+        },
+        senderRoomId: urlQueryRef.current.roomId
+      }
+    };
+    return imClient.sendChannelMsg(
+      JSON.stringify(json),
+      imStoreState.imGroupId || '',
+      true
+    );
+  };
 
   /**
    * 初始化im
@@ -147,24 +175,22 @@ export const Room = () => {
       duration: 0,
       content: 'im初始化中...'
     });
-    const imManager = QNIMManager.create();
-    imManager.init({
+    imClient.init({
       appid: curConfig.imConfig.appKey
     }).then(() => {
-      setIMManager(imManager);
-      return imManager.connect({
+      return imClient.connect({
         name,
         password,
       });
     }).then(() => {
-      return imManager.joinChannel(imGroupId);
+      return imClient.joinChannel(imGroupId);
     }).then(() => {
+      setIMJoined(true);
       message.success('im初始化成功');
     }).catch(error => {
       Modal.error({
         title: 'im初始化出错',
         content: `错误信息: ${JSON.stringify(error)}`,
-
       });
     }).finally(() => {
       hide();
@@ -178,47 +204,60 @@ export const Room = () => {
    * 消息监听
    */
   useEffect(() => {
-    if (imManager) {
-      const handleChannelListener = (msg: string) => {
-        const json = JSON.parse(msg) as IMMessage;
-        if (json.action === 'liveroom-pubchat') {
-          setMessages(prevMessages => {
-            return prevMessages.concat({
-              nickname: json.data?.sendUser?.nick || '',
-              content: json.data?.content || ''
-            });
+    const handleChannelListener = (msg: string) => {
+      const json = JSON.parse(msg) as IMMessage;
+      if (
+        json.action &&
+        ['liveroom-pubchat', 'liveroom-welcome'].includes(json.action)
+      ) {
+        setMessages(prevMessages => {
+          return prevMessages.concat({
+            nickname: json.data?.sendUser?.nick || '',
+            content: json.data?.content || ''
           });
-        }
-      };
-      imManager.addRtmChannelListener(handleChannelListener);
-      return () => {
-        imManager.removeRtmChannelListener(handleChannelListener);
-      };
+        });
+      }
+    };
+    imClient.addRtmChannelListener(handleChannelListener);
+    return () => {
+      imClient.removeRtmChannelListener(handleChannelListener);
+    };
+  }, []);
+
+  /**
+   * 加入/离开发送im消息
+   */
+  useEffect(() => {
+    if (!imJoined) {
+      return;
     }
-  }, [imManager]);
+    sendMessage('liveroom-welcome', '进入了房间').then(() => {
+      console.log('发送加入im消息成功');
+      Modal.info({
+        title: '提示',
+        content: '点击确认观看直播',
+        okText: '确认',
+        onOk() {
+          onReplay();
+        }
+      });
+    });
+    return () => {
+      sendMessage('liveroom-welcome', '离开了房间').then(() => {
+        console.log('发送离开im消息成功');
+        return imClient.leaveChannel(imStoreState.imGroupId || '');
+      }).then(() => {
+        console.log('离开im');
+      });
+    };
+  }, [imJoined]);
 
   /**
    * 发送消息
    */
   const onSendComment = () => {
-    const imGroupId = imStoreState?.imGroupId || '';
-    if (!messageValue || !imManager || !imGroupId) return;
-    const json: IMMessage = {
-      action: 'liveroom-pubchat',
-      data: {
-        action: 'liveroom-pubchat',
-        content: messageValue,
-        sendUser: {
-          avatar: roomDetail?.avatar,
-          im_userid: imStoreState?.imUid,
-          im_username: imStoreState?.imUsername,
-          nick: userStoreState.nickname,
-          user_id: userStoreState.accountId,
-        },
-        senderRoomId: urlQueryRef.current.roomId
-      }
-    };
-    imManager.sendChannelMsg(JSON.stringify(json), imGroupId, true).then(() => {
+    if (!messageValue || !imJoined) return;
+    return sendMessage('liveroom-pubchat', messageValue).then(() => {
       setMessageValue('');
     }).catch(error => {
       return Modal.error({
@@ -232,7 +271,6 @@ export const Room = () => {
    * 播放出错重播
    */
   const onReplay = () => {
-    console.log('onReplay');
     const url = playerConfig?.url;
     const container = playerConfig?.container;
     if (!url || !container || !player) {
@@ -240,11 +278,12 @@ export const Room = () => {
     }
     setPlayLoading(true);
     player.play(url, container).catch(error => {
+      setIsPlaying(false);
       Modal.error({
         title: '播放出错',
         content: `错误信息：${error.message}`,
         onOk() {
-          setIsPlaying(false);
+          onReplay();
         }
       });
     }).finally(() => {
