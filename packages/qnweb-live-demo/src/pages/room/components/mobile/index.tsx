@@ -126,7 +126,10 @@ export const RoomMobile: React.FC<RoomProps & {
               />
               <span>主播正在路上，请稍等～</span>
             </div>
-            {playBtnVisible && <Button loading={playLoading} type="primary" onClick={onPlay}>点击播放</Button>}
+            {
+              playBtnVisible && <Button loading={playLoading} type="primary" onClick={onPlay}>
+                {playLoading ? '加载中...' : '点击播放'}
+              </Button>}
           </div>
         )
       }
