@@ -47,7 +47,7 @@ export const Room = () => {
         roomId: detail?.live_id || '',
         cover: detail?.cover_url || '',
       });
-      setPlayerUrl(detail?.rtmp_url || '');
+      setPlayerUrl(detail?.flv_url || '');
     });
   }, {
     pollingInterval: 3000,
