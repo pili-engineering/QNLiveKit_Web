@@ -26,3 +26,9 @@ $ pnpm run dev
 $ pnpm install 
 $ pnpm run build
 ```
+
+## FAQ(常见问题)
+
+### 如何体验 Demo？
+
+地址：https://live-web.qiniu.com
