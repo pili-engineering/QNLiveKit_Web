@@ -1,6 +1,9 @@
-const packages = [
-  'qnweb-live-demo',
-];
+const fs = require('fs');
+
+const projects = fs.readdirSync('./packages').filter(projectName => {
+  return fs.statSync(`./packages/${projectName}`).isDirectory();
+});
+
 
 module.exports = {
   disableEmoji: true,
@@ -9,7 +12,7 @@ module.exports = {
   maxMessageLength: 64,
   minMessageLength: 3,
   questions: ['type', 'scope', 'subject', 'body', 'breaking', 'issues', 'lerna'],
-  scopes: packages.concat(''),
+  scopes: projects.concat(''),
   types: {
     chore: {
       description: 'Build process or auxiliary tool changes',
