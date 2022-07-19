@@ -5,12 +5,12 @@ importers:
   .:
     specifiers:
       '@changesets/cli': ^2.23.1
-      ar-changelog: ^1.0.18
+      ar-changelog: ^4.0.0
       conventional-changelog-cli: ^2.2.2
       git-cz: ^4.9.0
     devDependencies:
       '@changesets/cli': 2.23.1
-      ar-changelog: 1.0.18_3u3bztnv34xpapk67lcdq6fnmm
+      ar-changelog: 4.0.0
       conventional-changelog-cli: 2.2.2
       git-cz: 4.9.0
 
@@ -981,12 +981,11 @@ packages:
       picomatch: 2.3.1
     dev: true
 
-  /ar-changelog/1.0.18_3u3bztnv34xpapk67lcdq6fnmm:
-    resolution: {integrity: sha512-jZEdtosNovXEia3UisjXxGqJVuiWubufESXpMob/lP0HnK2jPjnih8T4BegsmRsX5wSv5o00/bugdYM0o6AtGg==}
+  /ar-changelog/4.0.0:
+    resolution: {integrity: sha512-8EG7m2P8ZOQ+MdTK8ROOdwqttsGOjwkMRanKEmwl8d3MQTgVco1r7B7RzuPPB+jtw6ma70FQUuCzSLP3TEd9SA==}
     hasBin: true
-    peerDependencies:
-      conventional-changelog-cli: ^2.2.2
     dependencies:
+      commander: 9.4.0
       conventional-changelog-cli: 2.2.2
     dev: true
 
@@ -1325,6 +1324,11 @@ packages:
     engines: {node: '>= 0.8'}
     dependencies:
       delayed-stream: 1.0.0
+
+  /commander/9.4.0:
+    resolution: {integrity: sha512-sRPT+umqkz90UA8M1yqYfnHlZA7fF6nSphDtxeywPZ49ysjxDQybzk13CL+mXekDRG92skbcqCLVovuCusNmFw==}
+    engines: {node: ^12.20.0 || >=14}
+    dev: true
 
   /compare-func/2.0.0:
     resolution: {integrity: sha512-zHig5N+tPWARooBnb0Zx1MFcdfpyJrfTJ3Y5L+IFvUm8rM74hHz66z0gw0x4tijh5CorKkKUCnW82R2vmpeCRA==}

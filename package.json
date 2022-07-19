@@ -9,13 +9,13 @@
   "scripts": {
     "dev:qnweb-live-demo": "pnpm -F qnweb-live-demo dev",
     "build:qnweb-live-demo": "pnpm -F qnweb-live-demo build",
-    "changelog": "ar-changelog",
+    "release": "ar-changelog release",
     "changeset": "changeset",
     "cz": "git-cz"
   },
   "devDependencies": {
     "@changesets/cli": "^2.23.1",
-    "ar-changelog": "^1.0.18",
+    "ar-changelog": "^4.0.0",
     "conventional-changelog-cli": "^2.2.2",
     "git-cz": "^4.9.0"
   }
