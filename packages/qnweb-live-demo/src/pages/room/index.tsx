@@ -68,7 +68,7 @@ export const Room = () => {
   const [roomDetail, setRoomDetail] = useState<RoomDetail>();
   const [noticeVisible, setNoticeVisible] = useState(false);
   const [playerUrl, setPlayerUrl] = useState<string>();
-  const [playLoading, setPlayLoading] = useState(false);
+  const [playLoading, setPlayLoading] = useState(true);
 
   /**
    * 播放器
