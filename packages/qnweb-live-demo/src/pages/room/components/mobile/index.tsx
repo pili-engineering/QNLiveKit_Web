@@ -3,20 +3,33 @@ import Clipboard from 'clipboard';
 import { Button, message } from 'antd';
 import classNames from 'classnames';
 
-import { RoomProps } from '../_types';
+import { PlayerType, RoomProps } from '../_types';
 import IconNoLive from '../_images/icon-nolive.svg';
 import IconShare from '../_images/icon-share.svg';
 
 import styles from './index.module.scss';
+
+const playerTypeMap = {
+  'flv.js': 'FLV播放器',
+  'qn-rtplayer-web': '七牛低延时直播播放器'
+};
+
+const nextPlayerTypeMap: {
+  [key in PlayerType]: PlayerType
+} = {
+  'flv.js': 'qn-rtplayer-web',
+  'qn-rtplayer-web': 'flv.js'
+};
 
 export const RoomMobile: React.FC<RoomProps & {
   onMessageValueKeyDown?: React.KeyboardEventHandler<HTMLInputElement>;
 }> = (props) => {
   const {
     isPlaying, playBtnVisible = true, playLoading,
+    playerType = 'flv.js',
     roomDetail, messages = [], messageValue, noticeVisible,
     onMessageValueChange, onMessageValueKeyDown, onClose, onNoticeVisibleChange,
-    onPlay
+    onPlay, onPlayerChange
   } = props;
   const chatMainEl = useRef<HTMLDivElement>(null);
 
@@ -48,12 +61,33 @@ export const RoomMobile: React.FC<RoomProps & {
   return (
     <div className={styles.page}>
       <div className={styles.playerContainer}>
-        <div
-          className={classNames({
-            hidden: !isPlaying
-          }, styles.player)}
-          id="player"
-        />
+        <div className={styles.player}>
+          {
+            playerType === 'qn-rtplayer-web' ? <div
+              id="player"
+              className={classNames({
+                hidden: !isPlaying
+              }, styles.player)}
+            /> : null
+          }
+          {
+            playerType === 'flv.js' ? <video
+              id="player"
+              className={classNames({
+                hidden: !isPlaying
+              }, styles.player)}
+            /> : null
+          }
+        </div>
+        <Button
+          className={styles.playerChangeBtn}
+          type="primary"
+          disabled={playLoading}
+          onClick={() => onPlayerChange?.(nextPlayerTypeMap[playerType])}
+        >
+          <div>点击切换播放器</div>
+          <div>当前播放器：{playerTypeMap[playerType]}</div>
+        </Button>
       </div>
       <div className={styles.liveContainer}>
         <div className={styles.top}>
@@ -90,7 +124,7 @@ export const RoomMobile: React.FC<RoomProps & {
               messages.map((data, index) => (
                 <div className={styles.chatItem} key={index}>
                   <span className={styles.emphasize}>{data.nickname ? data.nickname + '：' : ''}</span>
-                  <span dangerouslySetInnerHTML={{ __html: data.content }}></span>
+                  <span>{data.content}</span>
                 </div>
               ))
             }

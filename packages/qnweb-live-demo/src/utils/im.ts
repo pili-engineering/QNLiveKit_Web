@@ -4,8 +4,8 @@ import * as QNIM from 'qnweb-im';
  * im操作回调
  */
 export interface RtmCallBack {
-  onSuccess?: (res?: unknown) => void;
-  onFailure?: (error?: unknown) => void;
+  onSuccess?: (res?: any) => void;
+  onFailure?: (error?: any) => void;
 }
 
 export type RtmManagerLister = (msg: string, peerId: string) => void;
@@ -27,7 +27,7 @@ export class QNIMManager {
     msg: string,
     channelId: string
   }[] = [];
-  private joinChannelSuccessCallback: ((res?: unknown) => void) | undefined;
+  private joinChannelSuccessCallback: ((res?: any) => void) | undefined;
   private config: QNIM.QNIMConfig & { maxInitCount?: number } = {
     autoLogin: false,
     appid: '',
@@ -47,7 +47,7 @@ export class QNIMManager {
    */
   private addListener() {
     this.im.on({
-      imGroupJoined: (data: unknown) => {
+      imGroupJoined: (data: any) => {
         console.log('imGroupJoined', data);
         /**
          * 聊天室加入成功
@@ -114,6 +114,7 @@ export class QNIMManager {
        * @param res
        */
       loginSuccess: (res: any) => {
+        console.log('loginSuccess', res);
         if (this.loginCallback?.onSuccess) {
           this.loginCallback?.onSuccess(res);
         }
@@ -123,6 +124,7 @@ export class QNIMManager {
        * @param error
        */
       loginFail: (error: any) => {
+        console.log('loginFail', error);
         if (this.loginCallback?.onFailure) {
           this.loginCallback?.onFailure(error);
         }
@@ -276,15 +278,16 @@ export class QNIMManager {
    * @param callback
    */
   joinChannel(channelId: string, callback?: RtmCallBack) {
-    return this.im.chatroomManage.join(channelId).then(() => {
-      console.log('joinChannel join success');
+    return this.im.chatroomManage.join(channelId).then((result: { result: string }) => {
+      console.log('joinChannel join then', result);
       return new Promise(resolve => {
-        this.joinChannelSuccessCallback = (data: unknown) => {
+        this.joinChannelSuccessCallback = (data: any) => {
           if (callback?.onSuccess) callback?.onSuccess(data);
           resolve(data);
         };
       });
     }).catch((error: any) => {
+      console.log('joinChannel join catch', error);
       if (error.code === 20017) {
         if (callback?.onSuccess) return callback.onSuccess(error);
         return Promise.resolve(error);
@@ -346,7 +349,7 @@ export class QNIMManager {
   sendC2cMsg(
     msg: string, peerId: string, isDispatchToLocal: boolean,
     callback?: RtmCallBack
-  ): Promise<unknown> {
+  ): Promise<any> {
     return Promise.resolve(undefined);
   }
 
@@ -357,7 +360,7 @@ export class QNIMManager {
    */
   createChannel(
     channelId: string, callback?: RtmCallBack
-  ): Promise<unknown> {
+  ): Promise<any> {
     return Promise.resolve(undefined);
   }
 
@@ -368,7 +371,7 @@ export class QNIMManager {
    */
   releaseChannel(
     channelId: string, callback?: RtmCallBack
-  ): Promise<unknown> {
+  ): Promise<any> {
     return Promise.resolve(undefined);
   }
 }

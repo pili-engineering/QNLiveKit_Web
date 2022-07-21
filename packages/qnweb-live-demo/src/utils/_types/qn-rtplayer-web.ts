@@ -1,39 +1,39 @@
-export interface BrowserReport {
+export interface QNRtPlayerBrowserReport {
   osName: string;
   osVersion: string;
   browserName: string;
   browserVersion: string;
 }
 
-export interface PlayerSupport {
+export interface QNRtPlayerPlayerSupport {
   peerConnection: boolean;
   H264: boolean;
   getStats: boolean;
 }
 
-export interface PullStreamRequestBody {
+export interface QNRtPlayerPullStreamRequestBody {
   streamurl: string;
   clientip: string;
   sdp: string;
 }
 
-export interface PullStreamResponseBody {
+export interface QNRtPlayerPullStreamResponseBody {
   code: number;
   msg: string;
   sessionid: string;
   sdp: string;
 }
 
-export type LogLevel = 'disable' | 'error' | 'warning' | 'debug' | 'log';
+export type QNRtPlayerLogLevel = 'disable' | 'error' | 'warning' | 'debug' | 'log';
 
-export interface SDKLogInfo {
+export interface QNRtPlayerSDKLogInfo {
   time: string;
-  level: LogLevel;
+  level: QNRtPlayerLogLevel;
   msg: string;
   id: string;
 }
 
-export interface Config {
+export interface QNRtPlayerConfig {
   className?: string;
   width?: string;
   height?: string;
@@ -44,7 +44,7 @@ export interface Config {
   audioOnly?: boolean;
 }
 
-export interface StatReport {
+export interface QNRtPlayerStatReport {
   audioBitrate: number;
   videoBitrate: number;
   frameWidth: number;
@@ -52,13 +52,13 @@ export interface StatReport {
   frameRate: number;
 }
 
-export interface SDKError {
+export interface QNRtPlayerSDKError {
   code: 20001 | 20002 | 20003 | 20004 | 20005 | 20006 | 30001;
   errorType: 'networkError' | 'authFailed' | 'playStreamNotExist' | 'playRequestFailed' | 'descriptionError' | 'connectFailed' | 'rtcNotSupport';
   msg: string;
 }
 
-export enum PlayerState {
+export enum QNRtPlayerPlayerState {
   STATE_IDLE = 0,
   STATE_INIT = 1,
   STATE_READY = 2,

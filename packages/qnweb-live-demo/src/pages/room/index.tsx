@@ -3,13 +3,21 @@ import { useRequest } from 'ahooks';
 import { message, Modal } from 'antd';
 import { useHistory } from 'react-router-dom';
 
-import { getUrlQuery, IMMessage, QNIMManager, UA } from '@/utils';
+import {
+  getUrlQuery,
+  IMMessage,
+  InfoChangeListenerCallback,
+  PlayerManager,
+  PlayerType,
+  QNIMManager,
+  UA
+} from '@/utils';
 import { LiveApi } from '@/api';
 import { curConfig } from '@/config';
 import { useIMStore, useUserStore } from '@/store';
 import {
-  Message, PlayerState, RoomDetail,
-  RoomMobile, RoomPC, useQNRTPlayer, UseQNRTPlayerProps
+  Message, RoomDetail,
+  RoomMobile, RoomPC, RoomProps
 } from './components';
 
 const imClient = QNIMManager.create();
@@ -73,35 +81,44 @@ export const Room = () => {
   /**
    * 播放器
    */
-  const [playerConfig, setPlayerConfig] = useState<UseQNRTPlayerProps | null>();
-  const {
-    player,
-    playerState,
-  } = useQNRTPlayer(playerConfig);
-
-  /**
-   * 初始化播放器配置
-   */
-  useEffect(() => {
-    const container = document.querySelector<HTMLDivElement>('#player');
-    if (!playerUrl || !container) {
-      return;
-    }
-    setPlayerConfig({
-      url: playerUrl,
-      container,
-    });
-  }, [playerUrl, player]);
-
-  /**
-   * 播放状态
-   */
-  useEffect(() => {
-    if (playerState === PlayerState.STATE_PLAYING) {
+  const [playerType, setPlayerType] = useState<PlayerType>('flv.js');
+  const playerManagerRef = useRef<PlayerManager | null>(null);
+  const isPlayerChangeRef = useRef<boolean>(false);
+  const handleInfoChanged: InfoChangeListenerCallback = (info) => {
+    if (info.state === 'complete') {
       setIsPlaying(true);
       setPlayLoading(false);
     }
-  }, [playerState]);
+    if (info.state === 'error') {
+      console.error(info.result);
+      Modal.error({
+        title: '播放器出错',
+        content: JSON.stringify(info)
+      });
+    }
+  };
+  useEffect(() => {
+    const element = document.getElementById('player');
+    if (!playerUrl || !element) {
+      return;
+    }
+    const manager = PlayerManager.create({
+      type: playerType,
+      url: playerUrl,
+      element
+    });
+    manager.addInfoChange(handleInfoChanged);
+    playerManagerRef.current = manager;
+    if (isPlayerChangeRef.current) {
+      onReplay();
+    }
+    return () => {
+      manager.removeInfoChange(handleInfoChanged);
+      manager.destroy();
+      playerManagerRef.current = null;
+    };
+  }, [playerType, playerUrl]);
+
 
   /**
    * 加入/离开房间
@@ -271,17 +288,15 @@ export const Room = () => {
    * 播放出错重播
    */
   const onReplay = () => {
-    const url = playerConfig?.url;
-    const container = playerConfig?.container;
-    if (!url || !container || !player) {
-      return;
-    }
+    const manager = playerManagerRef.current;
+    if (!manager) return;
     setPlayLoading(true);
-    player.play(url, container).catch(error => {
+    setIsPlaying(false);
+    manager.play().catch(error => {
       setIsPlaying(false);
       Modal.error({
         title: '播放出错',
-        content: `错误信息：${error.message}`,
+        content: `错误信息：${JSON.stringify(error)}`,
         onOk() {
           onReplay();
         }
@@ -298,12 +313,22 @@ export const Room = () => {
     history.push('/room-list');
   };
 
+  /**
+   * 切换播放器
+   * @param playerType
+   */
+  const onPlayerChange: RoomProps['onPlayerChange'] = playerType => {
+    isPlayerChangeRef.current = true;
+    setPlayerType(playerType);
+  };
+
   return UA.isPC ? <RoomPC
-    messages={messages}
+    playerType={playerType}
+    isPlaying={isPlaying}
     playLoading={playLoading}
     playerUrl={playerUrl}
+    messages={messages}
     noticeVisible={noticeVisible}
-    isPlaying={isPlaying}
     roomDetail={roomDetail}
     messageValue={messageValue}
     onMessageValueChange={setMessageValue}
@@ -315,12 +340,14 @@ export const Room = () => {
         onSendComment();
       }
     }}
+    onPlayerChange={onPlayerChange}
   /> : <RoomMobile
-    messages={messages}
+    playerType={playerType}
+    isPlaying={isPlaying}
     playLoading={playLoading}
     playerUrl={playerUrl}
+    messages={messages}
     noticeVisible={noticeVisible}
-    isPlaying={isPlaying}
     roomDetail={roomDetail}
     messageValue={messageValue}
     onMessageValueChange={setMessageValue}
@@ -333,5 +360,6 @@ export const Room = () => {
       }
     }}
     onClose={onClose}
+    onPlayerChange={onPlayerChange}
   />;
 };

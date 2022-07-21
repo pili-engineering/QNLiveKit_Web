@@ -15,7 +15,10 @@ export interface Message {
   content: string;
 }
 
+export type PlayerType = 'flv.js' | 'qn-rtplayer-web';
+
 export interface RoomProps {
+  playerType: PlayerType;
   playLoading?: boolean;
   playerUrl?: string;
   playBtnVisible?: boolean;
@@ -32,4 +35,5 @@ export interface RoomProps {
   onSendComment?: React.MouseEventHandler<HTMLElement>;
   onClose?: React.MouseEventHandler<HTMLDivElement>;
   onPlay?: React.MouseEventHandler<HTMLElement>;
+  onPlayerChange?: (value: PlayerType) => void;
 }

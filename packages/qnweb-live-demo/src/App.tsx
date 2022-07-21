@@ -4,7 +4,6 @@ import zhCN from 'antd/es/locale/zh_CN';
 import 'antd/dist/antd.css';
 
 import { IMStore, IMStoreState, useIMStore, UserStore, useUserStore } from '@/store';
-import { imConfig } from '@/config';
 import Router from './router';
 
 import './styles';

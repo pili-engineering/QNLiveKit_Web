@@ -155,9 +155,17 @@ $border-radius: 8px;
   height: 100%;
   transform: translate(-50%, -50%);
 
-  > video {
+  video {
     object-fit: cover !important;
   }
+}
+
+.playerChangeBtn {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: auto;
+  z-index: 1;
 }
 
 .noLive {
