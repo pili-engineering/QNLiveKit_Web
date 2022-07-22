@@ -1,0 +1,23 @@
+name: webhook
+
+on: [ push, pull_request ]
+
+jobs:
+  notification:
+    runs-on: ubuntu-latest
+    steps:
+      - name: webhook
+        run: |
+          curl ${{ secrets.WEBHOOK }} \
+          -H 'Content-Type: application/json' \
+          -d '
+          {
+            "msgtype": "markdown",
+            "markdown": {
+                "content": "通知\n
+                 >repo: <font color=\"comment\">[${{github.repository}}](https://github.com/${{github.repository}})</font>
+                 >branch: <font color=\"comment\">[${{github.ref_name}}](https://github.com/${{github.repository}})</font>
+                 >commit id: <font color=\"comment\">[${{github.sha}}](https://github.com/${{github.repository}})</font>
+                 >commit message: <font color=\"comment\">[${{github.event.head_commit.message}}](https://github.com/${{github.repository}})</font>"
+            }
+          }'
