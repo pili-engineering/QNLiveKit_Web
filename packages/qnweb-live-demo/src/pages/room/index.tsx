@@ -260,6 +260,7 @@ export const Room = () => {
       });
     });
     return () => {
+      Modal.destroyAll();
       sendMessage('liveroom-welcome', '离开了房间').then(() => {
         console.log('发送离开im消息成功');
         return imClient.leaveChannel(imStoreState.imGroupId || '');
