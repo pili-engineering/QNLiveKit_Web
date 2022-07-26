@@ -3,23 +3,11 @@ import Clipboard from 'clipboard';
 import { Button, message } from 'antd';
 import classNames from 'classnames';
 
-import { PlayerType, RoomProps } from '../_types';
+import { nextPlayerTypeMap, playerTypeMap, RoomProps } from '../_types';
 import IconNoLive from '../_images/icon-nolive.svg';
 import IconShare from '../_images/icon-share.svg';
 
 import styles from './index.module.scss';
-
-const playerTypeMap = {
-  'flv.js': 'FLV播放器',
-  'qn-rtplayer-web': '七牛低延时直播播放器'
-};
-
-const nextPlayerTypeMap: {
-  [key in PlayerType]: PlayerType
-} = {
-  'flv.js': 'qn-rtplayer-web',
-  'qn-rtplayer-web': 'flv.js'
-};
 
 export const RoomMobile: React.FC<RoomProps & {
   onMessageValueKeyDown?: React.KeyboardEventHandler<HTMLInputElement>;

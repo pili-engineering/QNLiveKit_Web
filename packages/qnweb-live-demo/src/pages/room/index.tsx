@@ -107,13 +107,13 @@ export const Room = () => {
       url: playerUrl,
       element
     });
-    manager.addInfoChange(handleInfoChanged);
+    manager.addInfoChangeListener(handleInfoChanged);
     playerManagerRef.current = manager;
     if (isPlayerChangeRef.current) {
       onReplay();
     }
     return () => {
-      manager.removeInfoChange(handleInfoChanged);
+      manager.removeInfoChangeListener(handleInfoChanged);
       manager.destroy();
       playerManagerRef.current = null;
     };

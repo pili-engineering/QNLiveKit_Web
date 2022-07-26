@@ -3,21 +3,9 @@ import { message, Input, Button } from 'antd';
 import Clipboard from 'clipboard';
 import classNames from 'classnames';
 
-import { RoomProps, PlayerType } from '../_types';
+import { nextPlayerTypeMap, playerTypeMap, RoomProps } from '../_types';
 
 import styles from './index.module.scss';
-
-const playerTypeMap = {
-  'flv.js': 'FLV播放器',
-  'qn-rtplayer-web': '七牛低延时直播播放器'
-};
-
-const nextPlayerTypeMap: {
-  [key in PlayerType]: PlayerType
-} = {
-  'flv.js': 'qn-rtplayer-web',
-  'qn-rtplayer-web': 'flv.js'
-};
 
 export const RoomPC: React.FC<RoomProps & {
   onMessageValueKeyDown?: React.KeyboardEventHandler<HTMLTextAreaElement>;

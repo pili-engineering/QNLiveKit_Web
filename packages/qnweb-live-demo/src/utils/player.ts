@@ -114,7 +114,7 @@ export class PlayerManager<T = null> {
    * 添加infoChange监听器
    * @param listener
    */
-  addInfoChange(listener: InfoChangeListenerCallback) {
+  addInfoChangeListener(listener: InfoChangeListenerCallback) {
     this.infoChangeListeners = this.infoChangeListeners.concat(listener);
   }
 
@@ -122,7 +122,7 @@ export class PlayerManager<T = null> {
    * 移除infoChange监听器
    * @param listener
    */
-  removeInfoChange(listener: InfoChangeListenerCallback) {
+  removeInfoChangeListener(listener: InfoChangeListenerCallback) {
     this.infoChangeListeners = this.infoChangeListeners.filter(
       item => item !== listener
     );
