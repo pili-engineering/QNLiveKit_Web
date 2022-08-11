@@ -1,3 +1,13 @@
+## [0.0.5](https://github.com/pili-engineering/QNLiveKit_Web/compare/qnweb-live-demo@0.0.4...qnweb-live-demo@0.0.5) (2022-08-11)
+
+
+### Bug Fixes
+
+* **qnweb-live-demo:** 修复播放器video元素大小不同 ([70884bb](https://github.com/pili-engineering/QNLiveKit_Web/commit/70884bb0eae06ff775a68a100ed20cfa12f4ea2a))
+* **qnweb-live-demo:** 修复退出房间modal存在 ([34018fc](https://github.com/pili-engineering/QNLiveKit_Web/commit/34018fcb851a37dd3a2ca30bfd44affeed1cf367))
+
+
+
 ## [0.0.4](https://github.com/pili-engineering/QNLiveKit_Web/compare/qnweb-live-demo@0.0.3...qnweb-live-demo@0.0.4) (2022-07-22)
 
 
