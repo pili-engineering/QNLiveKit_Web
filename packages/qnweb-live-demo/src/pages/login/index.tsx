@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { message } from 'antd';
 
-import { BaseCommonApi } from '@/api';
+import { BaseApi } from '@/api';
 import { useUserStore, useIMStore } from '@/store';
 import { LoginData, LoginForm } from './login-form';
 
@@ -78,7 +78,7 @@ export const Login: React.FC<LoginProps> = (props) => {
         return message.error(errMsg);
       }
       setIsLoading(true);
-      const result = await BaseCommonApi.signUpOrIn({
+      const result = await BaseApi.signUpOrIn({
         phone: data.phone,
         smsCode: data.smsCode
       });
@@ -110,7 +110,7 @@ export const Login: React.FC<LoginProps> = (props) => {
         return;
       }
       setIsSmsLoading(true);
-      await BaseCommonApi.getSmsCode({ phone: loginData.phone });
+      await BaseApi.getSmsCode({ phone: loginData.phone });
       setCountdown(60);
       message.success('验证码发送成功');
     } catch (error) {

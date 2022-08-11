@@ -3,12 +3,6 @@ import { message, Modal } from 'antd';
 
 import { liveRequestConfig, requestConfig } from '@/config';
 
-export interface AxiosResponseData<T = any> {
-  code: number;
-  data: T;
-  request_id: string;
-}
-
 const request = axios.create(requestConfig);
 
 request.interceptors.request.use(function (config) {
@@ -17,7 +11,7 @@ request.interceptors.request.use(function (config) {
   return Promise.reject(error);
 });
 
-request.interceptors.response.use<AxiosResponseData>(function (response) {
+request.interceptors.response.use(function (response) {
   const responseCode = response.data.code;
   if (responseCode === 0) {
     return response.data;
@@ -53,7 +47,7 @@ liveRequest.interceptors.request.use(function (config) {
   return Promise.reject(error);
 });
 
-liveRequest.interceptors.response.use<AxiosResponseData>(function (response) {
+liveRequest.interceptors.response.use(function (response) {
   const responseCode = response.data.code;
   if ([0, 200].includes(responseCode)) {
     return response.data;

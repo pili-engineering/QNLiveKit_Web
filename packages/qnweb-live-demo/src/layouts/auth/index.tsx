@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Spin } from 'antd';
 
-import { BaseCommonApi, LiveApi } from '@/api';
+import { BaseApi, LiveApi } from '@/api';
 import { useUserStore } from '@/store';
 
 import './index.scss';
@@ -16,7 +16,7 @@ export const Auth: React.FC = (props) => {
    */
   useEffect(() => {
     let state = {};
-    BaseCommonApi.getAccountInfo().then(result => {
+    BaseApi.getAccountInfo().then(result => {
       state = Object.assign(state, result.data);
       return LiveApi.getLiveAuthToken({
         userID: result.data.accountId,

@@ -88,7 +88,7 @@ export interface GetAuthTokenResult {
  * @请求头 `POST /live/room/instance`
  * @更新时间 `2022-05-31 11:48:47`
  */
-export interface LiveRoomInstanceParams {
+export interface PostLiveRoomInstanceParams {
   title: string
   /**
    * 公告
@@ -112,7 +112,7 @@ export interface LiveRoomInstanceParams {
  * @请求头 `POST /live/room/instance`
  * @更新时间 `2022-05-31 11:48:47`
  */
-export interface LiveRoomInstanceResult {
+export interface PostLiveRoomInstanceResult {
   code: number
   message: string
   data: {
@@ -163,7 +163,7 @@ export interface LiveRoomInstanceResult {
  * @请求头 `DELETE /live/room/instance/{live_id}`
  * @更新时间 `2022-05-30 14:48:56`
  */
-export interface LiveRoomInstanceLiveIdParams {
+export interface DeleteLiveRoomInstanceLiveIdParams {
   live_id: string
 }
 
@@ -175,7 +175,7 @@ export interface LiveRoomInstanceLiveIdParams {
  * @请求头 `DELETE /live/room/instance/{live_id}`
  * @更新时间 `2022-05-30 14:48:56`
  */
-export interface LiveRoomInstanceLiveIdResult {
+export interface DeleteLiveRoomInstanceLiveIdResult {
   code: number
   message: string
   request_id: string
@@ -256,7 +256,7 @@ export interface GetLiveRoomInfoLiveIdResult {
  * @请求头 `DELETE /live/room/{live_id}`
  * @更新时间 `2022-05-30 10:35:15`
  */
-export interface LiveRoomLiveIdParams {
+export interface DeleteLiveRoomLiveIdParams {
   live_id: string
 }
 
@@ -268,7 +268,7 @@ export interface LiveRoomLiveIdParams {
  * @请求头 `DELETE /live/room/{live_id}`
  * @更新时间 `2022-05-30 10:35:15`
  */
-export interface LiveRoomLiveIdResult {
+export interface DeleteLiveRoomLiveIdResult {
   code: number
   message: string
   request_id: string
@@ -282,7 +282,7 @@ export interface LiveRoomLiveIdResult {
  * @请求头 `PUT /live/room/{live_id}`
  * @更新时间 `2022-05-31 11:49:16`
  */
-export interface LiveRoomLiveIdParams {
+export interface PutLiveRoomLiveIdParams {
   live_id: string
 }
 
@@ -294,7 +294,7 @@ export interface LiveRoomLiveIdParams {
  * @请求头 `PUT /live/room/{live_id}`
  * @更新时间 `2022-05-31 11:49:16`
  */
-export interface LiveRoomLiveIdResult {
+export interface PutLiveRoomLiveIdResult {
   code: number
   message: string
   data: {
@@ -418,7 +418,7 @@ export interface GetLiveRoomResult {
  * @请求头 `POST /live/room/user/{live_id}`
  * @更新时间 `2022-05-31 11:49:44`
  */
-export interface LiveRoomUserLiveIdParams {
+export interface PostLiveRoomUserLiveIdParams {
   live_id: string
 }
 
@@ -430,7 +430,7 @@ export interface LiveRoomUserLiveIdParams {
  * @请求头 `POST /live/room/user/{live_id}`
  * @更新时间 `2022-05-31 11:49:44`
  */
-export interface LiveRoomUserLiveIdResult {
+export interface PostLiveRoomUserLiveIdResult {
   code: number
   message: string
   data: {
@@ -550,7 +550,7 @@ export interface GetLiveRoomListResult {
  * @请求头 `DELETE /live/room/user/{live_id}`
  * @更新时间 `2022-05-30 14:51:51`
  */
-export interface LiveRoomUserLiveIdParams {
+export interface DeleteLiveRoomUserLiveIdParams {
   live_id: string
 }
 
@@ -562,7 +562,7 @@ export interface LiveRoomUserLiveIdParams {
  * @请求头 `DELETE /live/room/user/{live_id}`
  * @更新时间 `2022-05-30 14:51:51`
  */
-export interface LiveRoomUserLiveIdResult {
+export interface DeleteLiveRoomUserLiveIdResult {
   code: number
   message: string
   request_id: string
@@ -605,7 +605,7 @@ export interface GetLiveRoomHeartbeatLiveIdResult {
  * @请求头 `PUT /live/room/extends`
  * @更新时间 `2022-05-31 11:50:52`
  */
-export interface LiveRoomExtendsParams {
+export interface PutLiveRoomExtendsParams {
   live_id: string
   extends: {}
 }
@@ -618,7 +618,7 @@ export interface LiveRoomExtendsParams {
  * @请求头 `PUT /live/room/extends`
  * @更新时间 `2022-05-31 11:50:52`
  */
-export interface LiveRoomExtendsResult {
+export interface PutLiveRoomExtendsResult {
   code: number
   message: string
   request_id: string
@@ -677,7 +677,7 @@ export interface GetLiveRoomUserListResult {
  * @请求头 `DELETE /mic/live`
  * @更新时间 `2022-05-30 21:55:47`
  */
-export interface MicLiveParams {
+export interface DeleteMicLiveParams {
   live_id: string
   user_id: string
 }
@@ -690,7 +690,7 @@ export interface MicLiveParams {
  * @请求头 `DELETE /mic/live`
  * @更新时间 `2022-05-30 21:55:47`
  */
-export interface MicLiveResult {
+export interface DeleteMicLiveResult {
   code: number
   message: string
   data: {
@@ -707,7 +707,7 @@ export interface MicLiveResult {
  * @请求头 `POST /mic`
  * @更新时间 `2022-06-01 11:14:00`
  */
-export interface MicParams {
+export interface PostMicParams {
   live_id: string
   mic: boolean
   camera: boolean
@@ -725,7 +725,7 @@ export interface MicParams {
  * @请求头 `POST /mic`
  * @更新时间 `2022-06-01 11:14:00`
  */
-export interface MicResult {
+export interface PostMicResult {
   code: number
   message: string
   data: {
@@ -742,7 +742,7 @@ export interface MicResult {
  * @请求头 `DELETE /mic`
  * @更新时间 `2022-06-01 11:14:11`
  */
-export interface MicParams {
+export interface DeleteMicParams {
   live_id: string
   mic: boolean
   camera: boolean
@@ -756,7 +756,7 @@ export interface MicParams {
  * @请求头 `DELETE /mic`
  * @更新时间 `2022-06-01 11:14:11`
  */
-export interface MicResult {
+export interface DeleteMicResult {
   code: number
   message: string
   request_id: string
@@ -770,7 +770,7 @@ export interface MicResult {
  * @请求头 `PUT /mic/live`
  * @更新时间 `2022-05-30 21:55:34`
  */
-export interface MicLiveParams {
+export interface PutMicLiveParams {
   live_id: string
   user_id: string
 }
@@ -783,7 +783,7 @@ export interface MicLiveParams {
  * @请求头 `PUT /mic/live`
  * @更新时间 `2022-05-30 21:55:34`
  */
-export interface MicLiveResult {
+export interface PutMicLiveResult {
   code: number
   message: string
   data: {
@@ -877,7 +877,7 @@ export interface GetMicRoomListLiveIdResult {
  * @请求头 `PUT /mic/extension`
  * @更新时间 `2022-05-31 15:45:42`
  */
-export interface MicExtensionParams {
+export interface PutMicExtensionParams {
   live_id: string
   user_id: string
   extends: {}
@@ -891,7 +891,7 @@ export interface MicExtensionParams {
  * @请求头 `PUT /mic/extension`
  * @更新时间 `2022-05-31 15:45:42`
  */
-export interface MicExtensionResult {
+export interface PutMicExtensionResult {
   code: number
   message: string
   request_id: string
@@ -905,7 +905,7 @@ export interface MicExtensionResult {
  * @请求头 `PUT /mic/switch`
  * @更新时间 `2022-05-31 15:21:00`
  */
-export interface MicSwitchParams {
+export interface PutMicSwitchParams {
   live_id: string
   user_id: string
   /**
@@ -926,7 +926,7 @@ export interface MicSwitchParams {
  * @请求头 `PUT /mic/switch`
  * @更新时间 `2022-05-31 15:21:00`
  */
-export interface MicSwitchResult {
+export interface PutMicSwitchResult {
   code: string
   message: string
   request_id: string
@@ -939,7 +939,7 @@ export interface MicSwitchResult {
  * @请求头 `PUT /client/user/user`
  * @更新时间 `2022-06-08 10:06:48`
  */
-export interface ClientUserUserParams {
+export interface PutClientUserUserParams {
   /**
    * 用户头像
    */
@@ -969,7 +969,7 @@ export interface ClientUserUserParams {
  * @请求头 `PUT /client/user/user`
  * @更新时间 `2022-06-08 10:06:48`
  */
-export interface ClientUserUserResult {
+export interface PutClientUserUserResult {
   /**
    * 错误码，0 成功，其他失败
    */
@@ -1226,7 +1226,7 @@ export interface GetClientUserImusersResult {
  * @请求头 `POST /client/relay/start`
  * @更新时间 `2022-06-08 13:06:47`
  */
-export interface ClientRelayStartParams {
+export interface PostClientRelayStartParams {
   /**
    * 目的房间ID
    */
@@ -1248,7 +1248,7 @@ export interface ClientRelayStartParams {
  * @请求头 `POST /client/relay/start`
  * @更新时间 `2022-06-08 13:06:47`
  */
-export interface ClientRelayStartResult {
+export interface PostClientRelayStartResult {
   /**
    * 错误码，0 成功，其他失败
    */
@@ -1287,7 +1287,7 @@ export interface ClientRelayStartResult {
  * @请求头 `POST /client/relay/{id}/agree`
  * @更新时间 `2022-05-18 16:35:26`
  */
-export interface ClientRelayIdAgreeParams {
+export interface PostClientRelayIdAgreeParams {
   /**
    * 跨房会话ID
    */
@@ -1301,7 +1301,7 @@ export interface ClientRelayIdAgreeParams {
  * @请求头 `POST /client/relay/{id}/agree`
  * @更新时间 `2022-05-18 16:35:26`
  */
-export interface ClientRelayIdAgreeResult {
+export interface PostClientRelayIdAgreeResult {
   /**
    * 错误码，0 成功，其他失败
    */
@@ -1340,7 +1340,7 @@ export interface ClientRelayIdAgreeResult {
  * @请求头 `POST /client/relay/{id}/stop`
  * @更新时间 `2022-05-18 16:35:26`
  */
-export interface ClientRelayIdStopParams {
+export interface PostClientRelayIdStopParams {
   /**
    * 跨房会话ID
    */
@@ -1354,7 +1354,7 @@ export interface ClientRelayIdStopParams {
  * @请求头 `POST /client/relay/{id}/stop`
  * @更新时间 `2022-05-18 16:35:26`
  */
-export interface ClientRelayIdStopResult {
+export interface PostClientRelayIdStopResult {
   /**
    * 错误码，0 成功，其他失败
    */
@@ -1429,7 +1429,7 @@ export interface GetClientRelayIdTokenResult {
  * @请求头 `POST /client/relay/{id}/started`
  * @更新时间 `2022-06-02 14:18:03`
  */
-export interface ClientRelayIdStartedParams {
+export interface PostClientRelayIdStartedParams {
   /**
    * 跨房会话ID
    */
@@ -1443,7 +1443,7 @@ export interface ClientRelayIdStartedParams {
  * @请求头 `POST /client/relay/{id}/started`
  * @更新时间 `2022-06-02 14:18:03`
  */
-export interface ClientRelayIdStartedResult {
+export interface PostClientRelayIdStartedResult {
   /**
    * 错误码，0 成功，其他失败
    */
@@ -1556,7 +1556,7 @@ export interface GetClientRelayIdResult {
  * @请求头 `POST /server/user`
  * @更新时间 `2022-05-18 16:37:04`
  */
-export type ServerUserParams = {
+export type PostServerUserParams = {
   /**
    * 用户头像
    */
@@ -1586,7 +1586,7 @@ export type ServerUserParams = {
  * @请求头 `POST /server/user`
  * @更新时间 `2022-05-18 16:37:04`
  */
-export interface ServerUserResult {
+export interface PostServerUserResult {
   /**
    * 错误码，0 成功，其他失败
    */
@@ -1793,7 +1793,7 @@ export interface GetServerUserIdResult {
  * @请求头 `PUT /server/user/{id}`
  * @更新时间 `2022-05-18 16:37:04`
  */
-export interface ServerUserIdParams {
+export interface PutServerUserIdParams {
   /**
    * 用户头像
    */
@@ -1823,7 +1823,7 @@ export interface ServerUserIdParams {
  * @请求头 `PUT /server/user/{id}`
  * @更新时间 `2022-05-18 16:37:04`
  */
-export interface ServerUserIdResult {
+export interface PutServerUserIdResult {
   /**
    * 错误码，0 成功，其他失败
    */

@@ -15,7 +15,7 @@ type FileData = File
  * @请求头 `POST /v1/signUpOrIn`
  * @更新时间 `2021-11-16 11:14:03`
  */
-export interface SignUpOrInParams {
+export interface PostSignUpOrInParams {
   /**
    * 手机号
    */
@@ -34,7 +34,7 @@ export interface SignUpOrInParams {
  * @请求头 `POST /v1/signUpOrIn`
  * @更新时间 `2021-11-16 11:14:03`
  */
-export interface SignUpOrInResult {
+export interface PostSignUpOrInResult {
   code?: number
   message?: string
   data?: {
@@ -91,7 +91,7 @@ export interface SignUpOrInResult {
  * @请求头 `POST /v1/getSmsCode`
  * @更新时间 `2021-04-20 22:45:08`
  */
-export interface GetSmsCodeParams {
+export interface PostGetSmsCodeParams {
   phone: string
 }
 
@@ -103,7 +103,7 @@ export interface GetSmsCodeParams {
  * @请求头 `POST /v1/getSmsCode`
  * @更新时间 `2021-04-20 22:45:08`
  */
-export interface GetSmsCodeResult {
+export interface PostGetSmsCodeResult {
   code?: number
   message?: string
   data?: {}
@@ -117,7 +117,7 @@ export interface GetSmsCodeResult {
  * @请求头 `POST /v1/signOut`
  * @更新时间 `2021-04-22 22:15:33`
  */
-export interface SignOutParams {}
+export interface PostSignOutParams {}
 
 /**
  * 接口 [登出↗](http://pili-yapi.aslan.qa.qiniu.io/project/51/interface/api/1277) 的 **返回类型**
@@ -127,7 +127,7 @@ export interface SignOutParams {}
  * @请求头 `POST /v1/signOut`
  * @更新时间 `2021-04-22 22:15:33`
  */
-export interface SignOutResult {
+export interface PostSignOutResult {
   code?: number
   message?: string
   /**
@@ -329,7 +329,7 @@ export interface GetSolutionResult {
  * @请求头 `POST /v1/accountInfo/{accountId}`
  * @更新时间 `2021-04-26 13:54:56`
  */
-export interface AccountInfoAccountIdParams {
+export interface PostAccountInfoAccountIdParams {
   nickname: string
   /**
    * 不传则通过登录TOKEN获取，为后续HR修改他人信息预留
@@ -345,7 +345,7 @@ export interface AccountInfoAccountIdParams {
  * @请求头 `POST /v1/accountInfo/{accountId}`
  * @更新时间 `2021-04-26 13:54:56`
  */
-export interface AccountInfoAccountIdResult {
+export interface PostAccountInfoAccountIdResult {
   code: number
   message: string
   data?: {}
@@ -359,7 +359,7 @@ export interface AccountInfoAccountIdResult {
  * @请求头 `POST /v1/signInWithToken`
  * @更新时间 `2021-04-22 13:48:17`
  */
-export interface SignInWithTokenParams {}
+export interface PostSignInWithTokenParams {}
 
 /**
  * 接口 [token登录↗](http://pili-yapi.aslan.qa.qiniu.io/project/51/interface/api/1293) 的 **返回类型**
@@ -369,7 +369,7 @@ export interface SignInWithTokenParams {}
  * @请求头 `POST /v1/signInWithToken`
  * @更新时间 `2021-04-22 13:48:17`
  */
-export interface SignInWithTokenResult {
+export interface PostSignInWithTokenResult {
   code: number
   message: string
   data: {
@@ -418,7 +418,7 @@ export interface SignInWithTokenResult {
  * @请求头 `POST /v1/token/getToken`
  * @更新时间 `2021-09-27 16:57:24`
  */
-export interface TokenGetTokenParams {
+export interface PostTokenGetTokenParams {
   /**
    * 内容
    */
@@ -433,7 +433,7 @@ export interface TokenGetTokenParams {
  * @请求头 `POST /v1/token/getToken`
  * @更新时间 `2021-09-27 16:57:24`
  */
-export interface TokenGetTokenResult {
+export interface PostTokenGetTokenResult {
   code?: number
   message?: string
   data?: {
@@ -480,7 +480,7 @@ export interface GetRecentImageResult {
  * @请求头 `POST /v1/upload`
  * @更新时间 `2021-12-08 17:38:34`
  */
-export interface UploadParams {
+export interface PostUploadParams {
   file: FileData
 }
 
@@ -492,7 +492,7 @@ export interface UploadParams {
  * @请求头 `POST /v1/upload`
  * @更新时间 `2021-12-08 17:38:34`
  */
-export interface UploadResult {
+export interface PostUploadResult {
   code?: number
   message?: string
   data?: {
@@ -633,7 +633,7 @@ export interface GetSolutionResult {
  * @请求头 `POST /v2/app/updates`
  * @更新时间 `2022-03-09 10:49:57`
  */
-export interface AppUpdatesParams {
+export interface PostAppUpdatesParams {
   version: string
   msg: string
   packagePage: string
@@ -652,7 +652,7 @@ export interface AppUpdatesParams {
  * @请求头 `POST /v2/app/updates`
  * @更新时间 `2022-03-09 10:49:57`
  */
-export interface AppUpdatesResult {
+export interface PostAppUpdatesResult {
   code: number
   message: string
   data: {
@@ -830,7 +830,7 @@ export interface GetWatchMoviesTogetherSelectedMovieListResult {
  * @请求头 `POST /v1/watchMoviesTogether/movieOperation`
  * @更新时间 `2021-12-08 11:41:45`
  */
-export interface WatchMoviesTogetherMovieOperationParams {
+export interface PostWatchMoviesTogetherMovieOperationParams {
   roomId: string
   movieId: string
   /**
@@ -847,7 +847,7 @@ export interface WatchMoviesTogetherMovieOperationParams {
  * @请求头 `POST /v1/watchMoviesTogether/movieOperation`
  * @更新时间 `2021-12-08 11:41:45`
  */
-export interface WatchMoviesTogetherMovieOperationResult {
+export interface PostWatchMoviesTogetherMovieOperationResult {
   code?: number
   message?: string
   data?: boolean
@@ -904,7 +904,7 @@ export interface GetWatchMoviesTogetherMovieInfoResult {
  * @请求头 `POST /v1/watchMoviesTogether/switchMovie`
  * @更新时间 `2021-11-24 14:16:41`
  */
-export interface WatchMoviesTogetherSwitchMovieParams {
+export interface PostWatchMoviesTogetherSwitchMovieParams {
   roomId: string
   movieId: string
 }
@@ -917,7 +917,7 @@ export interface WatchMoviesTogetherSwitchMovieParams {
  * @请求头 `POST /v1/watchMoviesTogether/switchMovie`
  * @更新时间 `2021-11-24 14:16:41`
  */
-export interface WatchMoviesTogetherSwitchMovieResult {
+export interface PostWatchMoviesTogetherSwitchMovieResult {
   code?: number
   message?: string
   data?: boolean
@@ -932,7 +932,7 @@ export interface WatchMoviesTogetherSwitchMovieResult {
  * @请求头 `POST /v1/exam/create`
  * @更新时间 `2022-01-12 10:31:54`
  */
-export interface ExamCreateParams {
+export interface PostExamCreateParams {
   name: string
   startTime: number
   endTime: number
@@ -953,7 +953,7 @@ export interface ExamCreateParams {
  * @请求头 `POST /v1/exam/create`
  * @更新时间 `2022-01-12 10:31:54`
  */
-export interface ExamCreateResult {
+export interface PostExamCreateResult {
   code?: number
   message?: string
   data?: {
@@ -1023,7 +1023,7 @@ export interface GetExamListStudentResult {
  * @请求头 `POST /v1/exam/join`
  * @更新时间 `2022-01-12 16:47:59`
  */
-export interface ExamJoinParams {
+export interface PostExamJoinParams {
   examId: string
   roomId: string
 }
@@ -1036,7 +1036,7 @@ export interface ExamJoinParams {
  * @请求头 `POST /v1/exam/join`
  * @更新时间 `2022-01-12 16:47:59`
  */
-export interface ExamJoinResult {
+export interface PostExamJoinResult {
   /**
    * 401011:时间不匹配 401012:已退出而又参加
    */
@@ -1056,7 +1056,7 @@ export interface ExamJoinResult {
  * @请求头 `POST /v1/exam/leave`
  * @更新时间 `2022-01-12 10:29:07`
  */
-export interface ExamLeaveParams {
+export interface PostExamLeaveParams {
   examId: string
 }
 
@@ -1068,7 +1068,7 @@ export interface ExamLeaveParams {
  * @请求头 `POST /v1/exam/leave`
  * @更新时间 `2022-01-12 10:29:07`
  */
-export interface ExamLeaveResult {
+export interface PostExamLeaveResult {
   code: number
   message: string
   data: {
@@ -1122,7 +1122,7 @@ export interface GetExamPaperExamIdResult {
  * @请求头 `POST /v1/exam/answer`
  * @更新时间 `2022-01-12 10:29:15`
  */
-export interface ExamAnswerParams {
+export interface PostExamAnswerParams {
   examId: string
   answerList: {
     questionId: string
@@ -1138,7 +1138,7 @@ export interface ExamAnswerParams {
  * @请求头 `POST /v1/exam/answer`
  * @更新时间 `2022-01-12 10:29:15`
  */
-export interface ExamAnswerResult {
+export interface PostExamAnswerResult {
   code: number
   message: string
   data: {
@@ -1199,7 +1199,7 @@ export interface GetExamAnswerDetailsExamIdUserIdResult {
  * @请求头 `POST /v1/exam/paper/mark`
  * @更新时间 `2022-01-12 10:29:32`
  */
-export interface ExamPaperMarkParams {
+export interface PostExamPaperMarkParams {
   examId: string
   userId: string
   questionId: string
@@ -1214,7 +1214,7 @@ export interface ExamPaperMarkParams {
  * @请求头 `POST /v1/exam/paper/mark`
  * @更新时间 `2022-01-12 10:29:32`
  */
-export interface ExamPaperMarkResult {
+export interface PostExamPaperMarkResult {
   code: number
   message: string
   data: boolean
@@ -1229,7 +1229,7 @@ export interface ExamPaperMarkResult {
  * @请求头 `POST /v1/exam/questions/add`
  * @更新时间 `2022-01-14 10:43:45`
  */
-export interface ExamQuestionsAddParams {
+export interface PostExamQuestionsAddParams {
   questions: {
     question: {
       type: string
@@ -1251,7 +1251,7 @@ export interface ExamQuestionsAddParams {
  * @请求头 `POST /v1/exam/questions/add`
  * @更新时间 `2022-01-14 10:43:45`
  */
-export interface ExamQuestionsAddResult {
+export interface PostExamQuestionsAddResult {
   code: number
   message: string
   data: boolean
@@ -1266,7 +1266,7 @@ export interface ExamQuestionsAddResult {
  * @请求头 `POST /v1/exam/questions/update`
  * @更新时间 `2022-01-14 11:44:02`
  */
-export interface ExamQuestionsUpdateParams {
+export interface PostExamQuestionsUpdateParams {
   questions: {
     questionId: string
     question: {
@@ -1289,7 +1289,7 @@ export interface ExamQuestionsUpdateParams {
  * @请求头 `POST /v1/exam/questions/update`
  * @更新时间 `2022-01-14 11:44:02`
  */
-export interface ExamQuestionsUpdateResult {
+export interface PostExamQuestionsUpdateResult {
   code?: number
   message?: string
   data?: boolean
@@ -1450,7 +1450,7 @@ export interface GetExamQuestionListTypeResult {
  * @请求头 `POST /v1/exam/update`
  * @更新时间 `2022-01-12 10:30:52`
  */
-export interface ExamUpdateParams {
+export interface PostExamUpdateParams {
   examId: string
   name?: string
   startTime?: number
@@ -1472,7 +1472,7 @@ export interface ExamUpdateParams {
  * @请求头 `POST /v1/exam/update`
  * @更新时间 `2022-01-12 10:30:52`
  */
-export interface ExamUpdateResult {
+export interface PostExamUpdateResult {
   code: number
   message: string
   data: {
@@ -1489,7 +1489,7 @@ export interface ExamUpdateResult {
  * @请求头 `POST /v1/exam/delete`
  * @更新时间 `2022-02-23 10:56:59`
  */
-export interface ExamDeleteParams {
+export interface PostExamDeleteParams {
   examId: string
 }
 
@@ -1501,7 +1501,7 @@ export interface ExamDeleteParams {
  * @请求头 `POST /v1/exam/delete`
  * @更新时间 `2022-02-23 10:56:59`
  */
-export interface ExamDeleteResult {
+export interface PostExamDeleteResult {
   code: number
   message: string
   data: {
@@ -1608,7 +1608,7 @@ export interface GetExamExamineesExamIdResult {
  * @请求头 `POST /v1/exam/question/delete`
  * @更新时间 `2022-01-14 11:20:08`
  */
-export interface ExamQuestionDeleteParams {
+export interface PostExamQuestionDeleteParams {
   questionId: string
 }
 
@@ -1620,7 +1620,7 @@ export interface ExamQuestionDeleteParams {
  * @请求头 `POST /v1/exam/question/delete`
  * @更新时间 `2022-01-14 11:20:08`
  */
-export interface ExamQuestionDeleteResult {
+export interface PostExamQuestionDeleteResult {
   code?: number
   message?: string
   data?: {
@@ -1637,7 +1637,7 @@ export interface ExamQuestionDeleteResult {
  * @请求头 `POST /v1/exam/eventLog`
  * @更新时间 `2022-01-25 13:56:10`
  */
-export interface ExamEventLogParams {
+export interface PostExamEventLogParams {
   examId: string
   userId: string
   event: {
@@ -1654,7 +1654,7 @@ export interface ExamEventLogParams {
  * @请求头 `POST /v1/exam/eventLog`
  * @更新时间 `2022-01-25 13:56:10`
  */
-export interface ExamEventLogResult {
+export interface PostExamEventLogResult {
   code: number
   message: string
   data: {
@@ -1671,7 +1671,7 @@ export interface ExamEventLogResult {
  * @请求头 `POST /v1/exam/eventLog/more`
  * @更新时间 `2022-02-09 14:55:13`
  */
-export interface ExamEventLogMoreParams {
+export interface PostExamEventLogMoreParams {
   userList: string[]
   /**
    * 首次查询传-1
@@ -1688,7 +1688,7 @@ export interface ExamEventLogMoreParams {
  * @请求头 `POST /v1/exam/eventLog/more`
  * @更新时间 `2022-02-09 14:55:13`
  */
-export interface ExamEventLogMoreResult {
+export interface PostExamEventLogMoreResult {
   code: number
   message: string
   data: {
@@ -1779,7 +1779,7 @@ export interface GetPandoraTokenResult {
  * @请求头 `POST /api/channelchoice`
  * @更新时间 `2022-03-09 16:23:26`
  */
-export interface ApiChannelchoiceParams {
+export interface PostApiChannelchoiceParams {
   template_id: string
   region: string
   region_name: string
@@ -1799,7 +1799,7 @@ export interface ApiChannelchoiceParams {
  * @请求头 `POST /api/channelchoice`
  * @更新时间 `2022-03-09 16:23:26`
  */
-export interface ApiChannelchoiceResult {}
+export interface PostApiChannelchoiceResult {}
 
 /**
  * 接口 [更新通道选择↗](http://pili-yapi.aslan.qa.qiniu.io/project/51/interface/api/2787) 的 **请求类型**
@@ -1809,7 +1809,7 @@ export interface ApiChannelchoiceResult {}
  * @请求头 `PUT /api/channelchoice/{id}`
  * @更新时间 `2022-03-09 16:23:49`
  */
-export interface ApiChannelchoiceIdParams {
+export interface PutApiChannelchoiceIdParams {
   template_id: string
   region: string
   region_name: string
@@ -1827,7 +1827,7 @@ export interface ApiChannelchoiceIdParams {
  * @请求头 `PUT /api/channelchoice/{id}`
  * @更新时间 `2022-03-09 16:23:49`
  */
-export interface ApiChannelchoiceIdResult {}
+export interface PutApiChannelchoiceIdResult {}
 
 /**
  * 接口 [列举通道选择↗](http://pili-yapi.aslan.qa.qiniu.io/project/51/interface/api/2796) 的 **请求类型**
@@ -1887,7 +1887,7 @@ export interface GetApiChannelchoiceResult {
  * @请求头 `DELETE /api/channelchoice/{id}`
  * @更新时间 `2022-03-08 15:01:24`
  */
-export interface ApiChannelchoiceIdParams {
+export interface DeleteApiChannelchoiceIdParams {
   id: string
 }
 
@@ -1899,7 +1899,7 @@ export interface ApiChannelchoiceIdParams {
  * @请求头 `DELETE /api/channelchoice/{id}`
  * @更新时间 `2022-03-08 15:01:24`
  */
-export interface ApiChannelchoiceIdResult {}
+export interface DeleteApiChannelchoiceIdResult {}
 
 /**
  * 接口 [互动直播获取令牌↗](http://pili-yapi.aslan.qa.qiniu.io/project/51/interface/api/3069) 的 **请求类型**
@@ -1933,6 +1933,60 @@ export interface GetLiveAuthTokenResult {
     accessToken?: string
     expiresAt?: number
   }
+  requestId?: string
+}
+
+/**
+ * 接口 [是否已填写过 七牛云账号是否注册等信息↗](http://pili-yapi.aslan.qa.qiniu.io/project/51/interface/api/3081) 的 **请求类型**
+ *
+ * @分类 [V1互动直播↗](http://pili-yapi.aslan.qa.qiniu.io/project/51/interface/api/cat_420)
+ * @请求头 `GET /v1/live/IsRegister`
+ * @更新时间 `2022-08-08 15:06:29`
+ */
+export interface GetLiveIsRegisterParams {}
+
+/**
+ * 接口 [是否已填写过 七牛云账号是否注册等信息↗](http://pili-yapi.aslan.qa.qiniu.io/project/51/interface/api/3081) 的 **返回类型**
+ *
+ * @分类 [V1互动直播↗](http://pili-yapi.aslan.qa.qiniu.io/project/51/interface/api/cat_420)
+ * @请求头 `GET /v1/live/IsRegister`
+ * @更新时间 `2022-08-08 15:06:29`
+ */
+export interface GetLiveIsRegisterResult {
+  code?: number
+  message?: string
+  /**
+   * true:已填写过，不用再次填写；false：没有填写过
+   */
+  data?: boolean
+  requestId?: string
+}
+
+/**
+ * 接口 [统计注册与否信息和账号↗](http://pili-yapi.aslan.qa.qiniu.io/project/51/interface/api/3084) 的 **请求类型**
+ *
+ * @分类 [V1互动直播↗](http://pili-yapi.aslan.qa.qiniu.io/project/51/interface/api/cat_420)
+ * @标签 `v1`
+ * @请求头 `POST /v1/live/statistics`
+ * @更新时间 `2022-08-08 16:02:09`
+ */
+export interface PostLiveStatisticsParams {
+  isQiniuUser?: boolean
+  userName?: string
+}
+
+/**
+ * 接口 [统计注册与否信息和账号↗](http://pili-yapi.aslan.qa.qiniu.io/project/51/interface/api/3084) 的 **返回类型**
+ *
+ * @分类 [V1互动直播↗](http://pili-yapi.aslan.qa.qiniu.io/project/51/interface/api/cat_420)
+ * @标签 `v1`
+ * @请求头 `POST /v1/live/statistics`
+ * @更新时间 `2022-08-08 16:02:09`
+ */
+export interface PostLiveStatisticsResult {
+  code?: number
+  message?: string
+  data?: null
   requestId?: string
 }
 
@@ -2022,7 +2076,7 @@ export interface GetInterviewResult {
  * @请求头 `POST /v1/interview`
  * @更新时间 `2021-04-23 11:41:59`
  */
-export interface InterviewParams {
+export interface PostInterviewParams {
   /**
    * 标题
    */
@@ -2081,7 +2135,7 @@ export interface InterviewParams {
  * @请求头 `POST /v1/interview`
  * @更新时间 `2021-04-23 11:41:59`
  */
-export interface InterviewResult {
+export interface PostInterviewResult {
   code: number
   message: string
   data: {
@@ -2164,7 +2218,7 @@ export interface GetInterviewInterviewIdResult {
  * @请求头 `POST /v1/endInterview/{interviewId}`
  * @更新时间 `2021-04-27 14:42:08`
  */
-export interface EndInterviewInterviewIdParams {
+export interface PostEndInterviewInterviewIdParams {
   /**
    * {"userId":"xxx"} 做base64编码
    */
@@ -2183,7 +2237,7 @@ export interface EndInterviewInterviewIdParams {
  * @请求头 `POST /v1/endInterview/{interviewId}`
  * @更新时间 `2021-04-27 14:42:08`
  */
-export interface EndInterviewInterviewIdResult {
+export interface PostEndInterviewInterviewIdResult {
   code: number
   message: string
   data: {
@@ -2202,7 +2256,7 @@ export interface EndInterviewInterviewIdResult {
  * @请求头 `POST /v1/cancelInterview/{inteviewId}`
  * @更新时间 `2021-04-23 02:18:28`
  */
-export interface CancelInterviewInteviewIdParams {
+export interface PostCancelInterviewInteviewIdParams {
   /**
    * 面试ID
    */
@@ -2217,7 +2271,7 @@ export interface CancelInterviewInteviewIdParams {
  * @请求头 `POST /v1/cancelInterview/{inteviewId}`
  * @更新时间 `2021-04-23 02:18:28`
  */
-export interface CancelInterviewInteviewIdResult {
+export interface PostCancelInterviewInteviewIdResult {
   code: number
   message: string
   data: {
@@ -2236,7 +2290,7 @@ export interface CancelInterviewInteviewIdResult {
  * @请求头 `POST /v1/joinInterview/{interviewId}`
  * @更新时间 `2021-11-16 11:19:52`
  */
-export interface JoinInterviewInterviewIdParams {
+export interface PostJoinInterviewInterviewIdParams {
   /**
    * {"userId":"xxx"} 做base64编码
    */
@@ -2255,7 +2309,7 @@ export interface JoinInterviewInterviewIdParams {
  * @请求头 `POST /v1/joinInterview/{interviewId}`
  * @更新时间 `2021-11-16 11:19:52`
  */
-export interface JoinInterviewInterviewIdResult {
+export interface PostJoinInterviewInterviewIdResult {
   code: number
   message: string
   data: {
@@ -2346,7 +2400,7 @@ export interface JoinInterviewInterviewIdResult {
  * @请求头 `POST /v1/leaveInterview/{interviewId}`
  * @更新时间 `2021-04-27 14:32:34`
  */
-export interface LeaveInterviewInterviewIdParams {
+export interface PostLeaveInterviewInterviewIdParams {
   /**
    * {"userId":"xxx"} 做base64编码
    */
@@ -2365,7 +2419,7 @@ export interface LeaveInterviewInterviewIdParams {
  * @请求头 `POST /v1/leaveInterview/{interviewId}`
  * @更新时间 `2021-04-27 14:32:34`
  */
-export interface LeaveInterviewInterviewIdResult {
+export interface PostLeaveInterviewInterviewIdResult {
   code: number
   message: string
   data: {}
@@ -2424,7 +2478,7 @@ export interface GetHeartBeatInterviewIdResult {
  * @请求头 `POST /v1/interview/{interviewId}`
  * @更新时间 `2021-04-26 17:48:28`
  */
-export interface InterviewInterviewIdParams {
+export interface PostInterviewInterviewIdParams {
   /**
    * 标题
    */
@@ -2457,7 +2511,7 @@ export interface InterviewInterviewIdParams {
  * @请求头 `POST /v1/interview/{interviewId}`
  * @更新时间 `2021-04-26 17:48:28`
  */
-export interface InterviewInterviewIdResult {
+export interface PostInterviewInterviewIdResult {
   code: number
   message: string
   data: {
@@ -2473,7 +2527,7 @@ export interface InterviewInterviewIdResult {
  * @请求头 `POST /v1/base/createRoom`
  * @更新时间 `2022-04-18 18:07:59`
  */
-export interface BaseCreateRoomParams {
+export interface PostBaseCreateRoomParams {
   /**
    * 房间名称
    */
@@ -2514,7 +2568,7 @@ export interface BaseCreateRoomParams {
  * @请求头 `POST /v1/base/createRoom`
  * @更新时间 `2022-04-18 18:07:59`
  */
-export interface BaseCreateRoomResult {
+export interface PostBaseCreateRoomResult {
   message?: string
   data?: {
     roomInfo?: {
@@ -2568,9 +2622,9 @@ export interface BaseCreateRoomResult {
  * @分类 [V1房间相关通用接口↗](http://pili-yapi.aslan.qa.qiniu.io/project/51/interface/api/cat_371)
  * @标签 `v1`
  * @请求头 `POST /v1/base/joinRoom`
- * @更新时间 `2022-03-02 15:09:03`
+ * @更新时间 `2022-08-08 16:44:51`
  */
-export interface BaseJoinRoomParams {
+export interface PostBaseJoinRoomParams {
   /**
    * 房间ID
    */
@@ -2583,8 +2637,8 @@ export interface BaseJoinRoomParams {
    * 保留
    */
   params?: {
-    'key[0]'?: string
-    'value[0]': string
+    key: string
+    value: string
   }[]
 }
 
@@ -2594,9 +2648,9 @@ export interface BaseJoinRoomParams {
  * @分类 [V1房间相关通用接口↗](http://pili-yapi.aslan.qa.qiniu.io/project/51/interface/api/cat_371)
  * @标签 `v1`
  * @请求头 `POST /v1/base/joinRoom`
- * @更新时间 `2022-03-02 15:09:03`
+ * @更新时间 `2022-08-08 16:44:51`
  */
-export interface BaseJoinRoomResult {
+export interface PostBaseJoinRoomResult {
   code?: number
   data?: {
     rtcInfo?: {
@@ -2632,8 +2686,8 @@ export interface BaseJoinRoomResult {
       userId?: string
       nickname?: string
       attrs?: {
-        'key[0]'?: string
-        'value[0]'?: string
+        key?: string
+        value?: string
       }[]
     }
     roomInfo?: {
@@ -2648,12 +2702,12 @@ export interface BaseJoinRoomResult {
       desc?: string
       creator?: string
       params?: {
-        'key[0]'?: string
-        'value[0]'?: string
+        key?: string
+        value?: string
       }[]
       attrs?: {
-        'key[0]'?: string
-        'value[0]'?: string
+        key?: string
+        value?: string
       }[]
       totalUsers?: number
     }
@@ -2670,7 +2724,7 @@ export interface BaseJoinRoomResult {
  * @请求头 `POST /v1/base/leaveRoom`
  * @更新时间 `2022-03-02 15:09:11`
  */
-export interface BaseLeaveRoomParams {
+export interface PostBaseLeaveRoomParams {
   roomId: string
   /**
    * ktv classroom show movie onlineExam voiceChatRoom
@@ -2686,7 +2740,7 @@ export interface BaseLeaveRoomParams {
  * @请求头 `POST /v1/base/leaveRoom`
  * @更新时间 `2022-03-02 15:09:11`
  */
-export interface BaseLeaveRoomResult {
+export interface PostBaseLeaveRoomResult {
   code?: number
   message?: string
   data?: boolean
@@ -2890,7 +2944,7 @@ export interface GetBaseGetRoomInfoResult {
  * @请求头 `POST /v1/base/upMic`
  * @更新时间 `2022-06-15 15:38:26`
  */
-export interface BaseUpMicParams {
+export interface PostBaseUpMicParams {
   roomId: string
   /**
    * ktv classroom show movie onlineExam voiceChatRoom
@@ -2921,7 +2975,7 @@ export interface BaseUpMicParams {
  * @请求头 `POST /v1/base/upMic`
  * @更新时间 `2022-06-15 15:38:26`
  */
-export interface BaseUpMicResult {
+export interface PostBaseUpMicResult {
   code?: number
   message?: string
   data?: {
@@ -2949,7 +3003,7 @@ export interface BaseUpMicResult {
  * @请求头 `POST /v1/base/updateRoomAttr`
  * @更新时间 `2022-03-02 15:09:49`
  */
-export interface BaseUpdateRoomAttrParams {
+export interface PostBaseUpdateRoomAttrParams {
   /**
    * ktv classroom show movie onlineExam voiceChatRoom
    */
@@ -2969,7 +3023,7 @@ export interface BaseUpdateRoomAttrParams {
  * @请求头 `POST /v1/base/updateRoomAttr`
  * @更新时间 `2022-03-02 15:09:49`
  */
-export interface BaseUpdateRoomAttrResult {
+export interface PostBaseUpdateRoomAttrResult {
   code?: number
   message?: string
   data?: {
@@ -3015,7 +3069,7 @@ export interface BaseUpdateRoomAttrResult {
  * @请求头 `POST /v1/base/updateMicAttr`
  * @更新时间 `2022-03-02 15:09:56`
  */
-export interface BaseUpdateMicAttrParams {
+export interface PostBaseUpdateMicAttrParams {
   roomId: string
   uid: string
   /**
@@ -3036,7 +3090,7 @@ export interface BaseUpdateMicAttrParams {
  * @请求头 `POST /v1/base/updateMicAttr`
  * @更新时间 `2022-03-02 15:09:56`
  */
-export interface BaseUpdateMicAttrResult {
+export interface PostBaseUpdateMicAttrResult {
   code?: number
   message?: string
   data?: boolean
@@ -3051,7 +3105,7 @@ export interface BaseUpdateMicAttrResult {
  * @请求头 `POST /v1/base/downMic`
  * @更新时间 `2022-06-15 15:36:19`
  */
-export interface BaseDownMicParams {
+export interface PostBaseDownMicParams {
   roomId: string
   /**
    * ktv classroom show movie onlineExam voiceChatRoom
@@ -3068,7 +3122,7 @@ export interface BaseDownMicParams {
  * @请求头 `POST /v1/base/downMic`
  * @更新时间 `2022-06-15 15:36:19`
  */
-export interface BaseDownMicResult {
+export interface PostBaseDownMicResult {
   code?: number
   message?: string
   data?: boolean
@@ -3259,7 +3313,7 @@ export interface GetRecordRoomResult {
  * @请求头 `POST /v1/ktv/songList`
  * @更新时间 `2021-11-11 16:05:40`
  */
-export interface KtvSongListParams {
+export interface PostKtvSongListParams {
   roomId: string
   pageNum?: string
   pageSize?: string
@@ -3273,7 +3327,7 @@ export interface KtvSongListParams {
  * @请求头 `POST /v1/ktv/songList`
  * @更新时间 `2021-11-11 16:05:40`
  */
-export interface KtvSongListResult {
+export interface PostKtvSongListResult {
   code?: number
   message?: string
   data?: {
@@ -3307,7 +3361,7 @@ export interface KtvSongListResult {
  * @请求头 `POST /v1/ktv/selectedSongList`
  * @更新时间 `2021-11-11 16:05:27`
  */
-export interface KtvSelectedSongListParams {
+export interface PostKtvSelectedSongListParams {
   roomId: string
   pageNum?: number
   pageSize?: string
@@ -3321,7 +3375,7 @@ export interface KtvSelectedSongListParams {
  * @请求头 `POST /v1/ktv/selectedSongList`
  * @更新时间 `2021-11-11 16:05:27`
  */
-export interface KtvSelectedSongListResult {
+export interface PostKtvSelectedSongListResult {
   code?: number
   message?: string
   data?: {
@@ -3359,7 +3413,7 @@ export interface KtvSelectedSongListResult {
  * @请求头 `POST /v1/ktv/operateSong`
  * @更新时间 `2021-11-03 12:04:24`
  */
-export interface KtvOperateSongParams {
+export interface PostKtvOperateSongParams {
   /**
    * 房间ID
    */
@@ -3382,7 +3436,7 @@ export interface KtvOperateSongParams {
  * @请求头 `POST /v1/ktv/operateSong`
  * @更新时间 `2021-11-03 12:04:24`
  */
-export interface KtvOperateSongResult {
+export interface PostKtvOperateSongResult {
   code?: number
   message?: string
   data?: boolean
@@ -3397,7 +3451,7 @@ export interface KtvOperateSongResult {
  * @请求头 `POST /v1/ktv/songInfo`
  * @更新时间 `2021-11-11 16:05:06`
  */
-export interface KtvSongInfoParams {
+export interface PostKtvSongInfoParams {
   /**
    * 房间ID
    */
@@ -3416,7 +3470,7 @@ export interface KtvSongInfoParams {
  * @请求头 `POST /v1/ktv/songInfo`
  * @更新时间 `2021-11-11 16:05:06`
  */
-export interface KtvSongInfoResult {
+export interface PostKtvSongInfoResult {
   code?: number
   message?: string
   data?: {
@@ -3519,7 +3573,7 @@ export interface GetBoardInterviewIdResult {
  * @请求头 `POST /v1/board/{interviewId}`
  * @更新时间 `2021-05-17 14:15:02`
  */
-export interface BoardInterviewIdParams {
+export interface PostBoardInterviewIdParams {
   /**
    * cmd-open/cmd-close/cmd-reset
    */
@@ -3537,7 +3591,7 @@ export interface BoardInterviewIdParams {
  * @请求头 `POST /v1/board/{interviewId}`
  * @更新时间 `2021-05-17 14:15:02`
  */
-export interface BoardInterviewIdResult {
+export interface PostBoardInterviewIdResult {
   code?: number
   message?: string
   data?: {
@@ -3577,7 +3631,7 @@ export interface BoardInterviewIdResult {
  * @请求头 `POST /v1/repair/createRoom`
  * @更新时间 `2021-10-25 15:02:54`
  */
-export interface RepairCreateRoomParams {
+export interface PostRepairCreateRoomParams {
   /**
    * 房间名称
    */
@@ -3596,7 +3650,7 @@ export interface RepairCreateRoomParams {
  * @请求头 `POST /v1/repair/createRoom`
  * @更新时间 `2021-10-25 15:02:54`
  */
-export interface RepairCreateRoomResult {
+export interface PostRepairCreateRoomResult {
   message?: string
   requestId?: string
   data?: {
@@ -3634,7 +3688,7 @@ export interface RepairCreateRoomResult {
  * @请求头 `POST /v1/repair/joinRoom`
  * @更新时间 `2021-11-16 11:24:24`
  */
-export interface RepairJoinRoomParams {
+export interface PostRepairJoinRoomParams {
   /**
    * 房间ID
    */
@@ -3653,7 +3707,7 @@ export interface RepairJoinRoomParams {
  * @请求头 `POST /v1/repair/joinRoom`
  * @更新时间 `2021-11-16 11:24:24`
  */
-export interface RepairJoinRoomResult {
+export interface PostRepairJoinRoomResult {
   message?: string
   requestId?: string
   data?: {
@@ -3879,7 +3933,7 @@ export interface GetRepairGetRoomInfoRoomIdResult {
  * @请求头 `POST /v1/repair/circuitboard/check`
  * @更新时间 `2021-12-21 11:08:40`
  */
-export interface RepairCircuitboardCheckParams {
+export interface PostRepairCircuitboardCheckParams {
   image: FileData
 }
 
@@ -3891,7 +3945,7 @@ export interface RepairCircuitboardCheckParams {
  * @请求头 `POST /v1/repair/circuitboard/check`
  * @更新时间 `2021-12-21 11:08:40`
  */
-export interface RepairCircuitboardCheckResult {
+export interface PostRepairCircuitboardCheckResult {
   code: number
   message: string
   data: {

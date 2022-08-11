@@ -56,8 +56,7 @@ export const curEnv = import.meta.env.VITE_NODE_ENV || 'dev';
 export const curConfig = envConfig[curEnv];
 
 /**
- * 融云IM配置
- * @link https://developer.rongcloud.cn/app/appService/XaKs3DkxBidRWBKYfdx0TA
+ * IM配置
  */
 export const imConfig = curConfig.imConfig;
 
