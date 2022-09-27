@@ -1,0 +1,23 @@
+.audit-detail-modal {
+  &-header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+
+    &-flex-end {
+      justify-content: flex-end;
+    }
+  }
+
+  &-live-preview {
+    &-player {
+      margin: auto;
+    }
+  }
+}
