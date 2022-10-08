@@ -9,6 +9,9 @@
   "scripts": {
     "dev:qnweb-live-demo": "pnpm -F qnweb-live-demo dev",
     "build:qnweb-live-demo": "pnpm -F qnweb-live-demo build",
+    "qnweb-audit-admin:dev": "pnpm -F qnweb-audit-admin run dev",
+    "qnweb-audit-admin:build:staging": "pnpm -F qnweb-audit-admin run build:staging",
+    "qnweb-audit-admin:build:prod": "pnpm -F qnweb-audit-admin run build:prod",
     "release": "ar-changelog release",
     "changeset": "changeset",
     "cz": "git-cz"
