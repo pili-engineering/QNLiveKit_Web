@@ -79,6 +79,6 @@ export class AdminApi {
    * @param params
    */
   static postManagerLogin(params: PostManagerLoginParams) {
-    return request.get<PostManagerLoginResult, PostManagerLoginResult>('/manager/login', { params });
+    return request.post<PostManagerLoginResult, PostManagerLoginResult>('/manager/login', params);
   }
 }

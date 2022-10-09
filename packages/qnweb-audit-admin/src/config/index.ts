@@ -9,7 +9,7 @@ const configMap: Record<ImportMetaEnv['VITE_NODE_ENV'], {
 }> = {
   dev: {
     request: {
-      baseURL: '/',
+      baseURL: 'http://10.200.20.28:8099',
       timeout: 3000,
     },
     defaultLogin: {
