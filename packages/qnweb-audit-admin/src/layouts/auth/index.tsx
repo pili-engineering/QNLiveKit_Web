@@ -16,9 +16,6 @@ const MAIN_VERSION = mainVersion;
 
 export const Auth: React.FC = (props) => {
   const { loading } = useRequest(() => {
-    if (localStorage.getItem('Authorization')) {
-      return Promise.resolve();
-    }
     return AdminApi.postManagerLogin({
       user_name: defaultLoginConfig.username,
       password: defaultLoginConfig.password,
