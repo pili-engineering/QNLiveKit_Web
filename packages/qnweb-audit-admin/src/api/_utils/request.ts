@@ -5,6 +5,21 @@ import { requestConfig } from '@/config';
 
 const request = axios.create(requestConfig);
 
+/**
+ * 登录失效弹窗
+ */
+const loginModal = () => {
+  Modal.error({
+    content: '登录失败，点击确定重新登录',
+    okText: '确定',
+    onOk() {
+      localStorage.clear();
+      window.location.href = '/login';
+      Modal.destroyAll();
+    }
+  });
+};
+
 request.interceptors.request.use((config) => {
   const Authorization = localStorage.getItem('Authorization');
   return {
@@ -25,22 +40,23 @@ request.interceptors.response.use((response) => {
   if ([0, 200].includes(responseCode)) {
     return response.data;
   }
+  if (responseCode === 499) {
+    loginModal();
+    return Promise.reject(response.data);
+  }
   Modal.error({
-    title: '接口请求出错',
-    content: `url: ${url}，message：${response.data.message}`,
-    onOk() {
-      // 登录失效，清除登录信息并重新登录
-      if (responseCode === 499) {
-        localStorage.clear();
-        window.location.reload();
-      }
-    }
+    content: `url: ${url}，message：${response.data.message}`
   });
   return Promise.reject(response.data);
 }, (error) => {
+  const { response: errorResponse } = error;
+  // 登录失效，清除登录信息并重新登录
+  if (errorResponse.status === 401) {
+    loginModal();
+    return Promise.reject(error);
+  }
   Modal.error({
-    title: '接口请求出错',
-    content: error.message,
+    content: `status: ${errorResponse.status}, statusText: ${errorResponse.statusText}, url: ${errorResponse.config.url}, message：${errorResponse.data.message}`,
   });
   return Promise.reject(error);
 });

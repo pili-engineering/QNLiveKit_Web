@@ -29,14 +29,12 @@ $ pnpm dev
 * [src/router](./src/router): 路由
 * [src/styles](./src/styles): 通用/全局样式
 
-[src/config](./src/config)，主要包含 axios 请求配置以及默认登录使用的账号.
+[src/config](./src/config)，主要包含 axios 请求配置以及默认登录使用的账号。
 
-demo中采用默认账号登录，账号信息在 [src/config](./src/config) 中的 `defaultLogin` 中配置.
+demo中采用默认账号登录，账号信息在 [src/config](./src/config) 中的 `defaultLogin` 中配置。
 
-登录方式为 auth 组件内判断 localStorage 中是否存在 `Authorization`
-，如果存在则直接加载页面，不存在先请求登录接口，登录成功后将 `Authorization` 存入 localStorage 再加载页面.
+登录成功后将 `Authorization` 存入 localStorage，后续请求都会带上 `Authorization`。
 
-当登录状态过期后，请求拦截器（axios拦截器）会通过自定义的错误码（499）来判断登录状态是否失效，如果失效则清除 localStorage
-并重新登录.
+当登录状态过期后，请求拦截器（axios拦截器）会拦截响应值来判断登录状态是否失效，如果失效则跳转到登录页（/login）自动登录。
 
 用户可以根据自己的需求修改登录逻辑。
