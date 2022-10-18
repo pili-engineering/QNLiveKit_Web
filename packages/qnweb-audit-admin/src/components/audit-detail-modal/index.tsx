@@ -18,11 +18,11 @@ import 'xgplayer';
 import FlvPlayer from 'xgplayer-flv';
 import classNames from 'classnames';
 
+import { DataEmpty } from '@/components';
 import { AuditImageCard } from './audit-image-card';
 import { getTags } from './utils';
 
 import './index.scss';
-import { DataEmpty } from '@/components';
 
 const prefixCls = 'audit-detail-modal';
 
@@ -240,9 +240,7 @@ export const AuditDetailModal: React.FC<AuditDetailModalProps> = (props) => {
     });
   };
 
-  const onAuditImageCardChange = (checked: boolean, item: listRequestServiceResultListItem) => {
-
-  };
+  const isPlayerVisible = livePreviewProps?.url && status === 'living';
 
   return <Modal
     className={classNames(prefixCls, className)}
@@ -273,7 +271,7 @@ export const AuditDetailModal: React.FC<AuditDetailModalProps> = (props) => {
             }
           </Radio.Group>
           {
-            !isClosed && <Button
+            isClosed ? null : <Button
               type="primary"
               danger={true}
               onClick={onEndLiveClick}
@@ -308,34 +306,33 @@ export const AuditDetailModal: React.FC<AuditDetailModalProps> = (props) => {
         }
 
         {
-          tab === 'livePreview' && <div className={`${prefixCls}-live-preview`}>
-            {
-              livePreviewProps?.url && status === 'living' ? <div>
-                <div id="player" className={`${prefixCls}-live-preview-player`}/>
-                <div style={{ textAlign: 'center', paddingTop: 24 }}>直播总时长：{livePreviewProps.duration}</div>
-              </div> : <div
-                style={{
-                  width: 560, height: 376,
-                  border: '1px solid #E5E5E5',
-                  margin: 'auto',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexDirection: 'column'
-                }}>
-                <div>当前无直播</div>
-                <div>建议查看截图记录</div>
-              </div>
-            }
-          </div>
+          tab === 'livePreview' ? <div className={`${prefixCls}-live-preview`}>
+            <div style={{ display: isPlayerVisible ? 'block' : 'none' }}>
+              <div id="player" className={`${prefixCls}-live-preview-player`}/>
+              <div style={{ textAlign: 'center', paddingTop: 24 }}>直播总时长：{livePreviewProps?.duration}</div>
+            </div>
+            <div
+              style={{
+                width: 560, height: 376,
+                border: '1px solid #E5E5E5',
+                margin: 'auto',
+                display: isPlayerVisible ? 'none' : 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexDirection: 'column'
+              }}>
+              <div>当前无直播</div>
+              <div>建议查看截图记录</div>
+            </div>
+          </div> : null
         }
 
         <div className={classNames(`${prefixCls}-footer`, {
           [`${prefixCls}-footer-flex-end`]: tab === 'screenshotRecord'
         })}>
-          {tab === 'done' && <span>违规次数：{illegalCount}</span>}
+          {tab === 'done' ? <span>违规次数：{illegalCount}</span> : null}
           {
-            tab === 'todo' && <Space>
+            tab === 'todo' ? <Space>
               <Checkbox
                 checked={checkedAll}
                 onChange={event => {
@@ -347,9 +344,9 @@ export const AuditDetailModal: React.FC<AuditDetailModalProps> = (props) => {
                 <Button onClick={onPassClick} disabled={isForceClosed}>通过</Button>
                 <Button onClick={onViolationClick} disabled={isForceClosed}>违规</Button>
               </Space>
-            </Space>
+            </Space> : null
           }
-          {listTab.includes(tab) && <Pagination simple={true} {...pagination}/>}
+          {listTab.includes(tab) ? <Pagination simple={true} {...pagination}/> : null}
         </div>
       </Space>
     </Spin>

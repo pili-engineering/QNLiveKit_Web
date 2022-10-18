@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { Modal } from 'antd';
 
 import { requestConfig } from '@/config';
@@ -49,15 +49,21 @@ request.interceptors.response.use((response) => {
   });
   return Promise.reject(response.data);
 }, (error) => {
-  const { response: errorResponse } = error;
-  // 登录失效，清除登录信息并重新登录
-  if (errorResponse.status === 401) {
-    loginModal();
+  if (error instanceof AxiosError) {
+    const { response: errorResponse } = error;
+    if (!errorResponse) {
+      return Promise.reject(error);
+    }
+    // 登录失效，清除登录信息并重新登录
+    if (errorResponse.status === 401) {
+      loginModal();
+      return Promise.reject(error);
+    }
+    Modal.error({
+      content: `status: ${errorResponse.status}, statusText: ${errorResponse.statusText}, url: ${errorResponse.config.url}, message：${errorResponse.data.message}`,
+    });
     return Promise.reject(error);
   }
-  Modal.error({
-    content: `status: ${errorResponse.status}, statusText: ${errorResponse.statusText}, url: ${errorResponse.config.url}, message：${errorResponse.data.message}`,
-  });
   return Promise.reject(error);
 });
 
