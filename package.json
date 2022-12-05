@@ -8,10 +8,11 @@
   "keywords": [],
   "scripts": {
     "qnweb-live-demo:dev": "pnpm -F qnweb-live-demo dev",
+    "qnweb-live-demo:build:staging": "pnpm -F qnweb-live-demo build:staging",
     "qnweb-live-demo:build": "pnpm -F qnweb-live-demo build",
-    "qnweb-audit-admin:dev": "pnpm -F qnweb-audit-admin run dev",
-    "qnweb-audit-admin:build:staging": "pnpm -F qnweb-audit-admin run build:staging",
-    "qnweb-audit-admin:build": "pnpm -F qnweb-audit-admin run build:prod",
+    "qnweb-audit-admin:dev": "pnpm -F qnweb-audit-admin dev",
+    "qnweb-audit-admin:build:staging": "pnpm -F qnweb-audit-admin build:staging",
+    "qnweb-audit-admin:build": "pnpm -F qnweb-audit-admin build:prod",
     "release": "ar-changelog release",
     "changeset": "changeset",
     "cz": "git-cz"

@@ -7,6 +7,8 @@ const packageJson = require('./package.json');
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
+  console.log('当前环境: ', process.env.VITE_NODE_ENV);
+
   return {
     define: {
       mainVersion: JSON.stringify(packageJson.version),

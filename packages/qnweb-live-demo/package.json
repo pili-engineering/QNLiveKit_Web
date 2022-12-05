@@ -3,7 +3,9 @@
   "version": "0.0.5",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build --mode prod",
+    "build:staging": "tsc --skipLibCheck && vite build --mode staging",
+    "build:prod": "tsc --skipLibCheck && vite build --mode prod",
+    "build": "npm run build:prod",
     "preview": "vite preview"
   },
   "dependencies": {
