@@ -1,0 +1,65 @@
+@import "../_styles/variables";
+@import "../_styles/mixins";
+
+.#{$prefixCls}-room-header {
+  display: flex;
+  width: 100%;
+  padding: 8px;
+  justify-content: space-between;
+  align-items: center;
+
+  &-main {
+    width: 160px;
+    background-color: #0000003F;
+    border-radius: 52px;
+    height: 38px;
+    display: flex;
+
+    &-avatar {
+      margin-right: 8px;
+      flex-shrink: 0;
+    }
+
+    &-title {
+      color: #fff;
+      font-size: 12px;
+
+      &-main, &-sub {
+        @include text-overflow-single();
+        max-width: 100px;
+      }
+
+      &-sub {
+        font-size: 8px;
+      }
+    }
+  }
+
+  &-users {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1;
+    margin: 0 10px;
+    overflow: hidden;
+
+    &-avatar {
+      margin-right: 4px;
+      flex-shrink: 0;
+    }
+
+    &-count {
+      flex-shrink: 0;
+      color: #fff;
+      font-size: 12px;
+      min-width: 28px;
+      padding: 0 6px;
+      text-align: center;
+      line-height: 28px;
+      height: 28px;
+      background-color: #0000003F;
+      border-radius: 52px;
+      box-sizing: border-box;
+    }
+  }
+}

@@ -1,13 +1,12 @@
 import {
-  request,
-  getAuthorization,
   GetAccountInfoAccountIdParams,
   GetAccountInfoAccountIdResult,
+  getAuthorization,
   PostGetSmsCodeParams,
   PostGetSmsCodeResult,
   PostSignUpOrInParams,
-  PostSignUpOrInResult
-} from '@/api';
+  PostSignUpOrInResult,
+  request} from '@/api';
 
 export class BaseApi {
   /**

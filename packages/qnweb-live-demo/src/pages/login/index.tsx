@@ -1,12 +1,13 @@
+import { message } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { message } from 'antd';
 
 import { BaseApi } from '@/api';
-import { useUserStore, useIMStore } from '@/store';
-import { LoginData, LoginForm } from './login-form';
+import { useIMStore, useUserStore } from '@/store';
 
 import styles from './index.module.scss';
+import { LoginData, LoginForm } from './login-form';
+
 
 /**
  * 表单校验

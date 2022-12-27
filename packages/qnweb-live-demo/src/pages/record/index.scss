@@ -1,0 +1,39 @@
+.record {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: linear-gradient(226.42deg, #1B4963 8.93%, #09152F 110.98%);
+
+  &-player {
+    position: relative;
+    z-index: 0;
+  }
+
+  &-header {
+    position: fixed;
+    z-index: 0;
+    left: 0;
+    top: 0;
+    right: 0;
+  }
+
+  &-footer {
+    position: fixed;
+    bottom: 80px;
+    width: 100%;
+    padding: 0 8px;
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  &-popup {
+    position: absolute;
+    right: 8px;
+    bottom: 120px;
+  }
+
+  &-button {
+    border-radius: 16px;
+  }
+}

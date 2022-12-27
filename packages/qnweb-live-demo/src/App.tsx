@@ -1,12 +1,13 @@
-import React, { useEffect } from 'react';
+import 'antd/dist/antd.css';
+import './styles';
+
 import { ConfigProvider } from 'antd';
 import zhCN from 'antd/es/locale/zh_CN';
-import 'antd/dist/antd.css';
+import React, { useEffect } from 'react';
 
 import { IMStore, IMStoreState, useIMStore, UserStore, useUserStore } from '@/store';
-import Router from './router';
 
-import './styles';
+import { Root as RootRouter } from './router';
 
 /**
  * 加载im数据缓存
@@ -40,7 +41,7 @@ function App() {
         accessToken: localStorage.getItem('accessToken') || '',
       }
     });
-  }, []);
+  }, [dispatchIMStoreState, dispatchUserStoreState]);
 
   /**
    * 缓存authorization
@@ -58,7 +59,7 @@ function App() {
     localStorage.setItem('imStoreState', JSON.stringify(restStore));
   }, [imStoreState]);
 
-  return <Router/>;
+  return <RootRouter/>;
 }
 
 const WrapperApp = () => {

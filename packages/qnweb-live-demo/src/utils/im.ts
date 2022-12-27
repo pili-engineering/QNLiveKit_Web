@@ -12,21 +12,86 @@ export type RtmManagerLister = (msg: string, peerId: string) => void;
 
 export type InitConfig = QNIM.QNIMConfig & { maxInitCount?: number };
 
+/**
+ * 消息体
+ */
+interface Meta {
+  /**
+   * 消息ID
+   */
+  id?: string;
+  /**
+   * 发送者
+   */
+  from?: string;
+  /**
+   * 接收者
+   */
+  to?: string;
+  /**
+   * 消息内容
+   */
+  content?: string;
+  /**
+   * 消息类型
+   *  text - 文本, image - 图片， audio - 语音, video - 视频，file - 文件, location - 位置， command - 命令, forward - 转发
+   */
+  type?: string;
+  /**
+   * 扩展字段
+   */
+  ext?: string | Record<any, any>;
+  /**
+   * SDK扩展字段
+   */
+  config?: string | Record<any, any>;
+  /**
+   * 附件信息
+   */
+  attach?: string | Record<any, any>;
+  /**
+   *  消息状态
+   * 0 - 未读, 1 - 已投递, 2 - 已读
+   */
+  status?: number;
+  /**
+   * 消息发送时间戳（毫秒）
+   */
+  timestamp?: string;
+  /**
+   * 接收者类型
+   * roster - 好友， group - 群组
+   */
+  toType?: string;
+}
+
 export class QNIMManager {
   public im: any;
   public loginCallback?: RtmCallBack | null;
-  public maxInitCount: number = 3;
+  public maxInitCount = 3;
   public initCount: number;
   public mRtmC2cListeners: RtmManagerLister[] = [];
   public mRtmChannelListeners: RtmManagerLister[] = [];
-  // 本地消息暂存队列
-  public localMessageQueue: {
+  /**
+   * 本地频道消息暂存队列
+   */
+  public localChannelMessageTaskQueue: Array<{
     clientMId: number;
     callback?: RtmCallBack;
     isDispatchToLocal: boolean,
     msg: string,
     channelId: string
-  }[] = [];
+  }> = [];
+  /**
+   * 本地单聊消息暂存队列
+   */
+  public localC2cMessageTaskQueue: Array<{
+    clientMId: number;
+    callback?: RtmCallBack;
+    isDispatchToLocal: boolean,
+    msg: string,
+    peerId: string
+  }> = [];
   private joinChannelSuccessCallback: ((res?: any) => void) | undefined;
   private config: QNIM.QNIMConfig & { maxInitCount?: number } = {
     autoLogin: false,
@@ -58,20 +123,35 @@ export class QNIMManager {
         }
       },
       /**
-       * 监听群聊消息
-       * 能接受到本地发送的消息
-       * 通过 isDispatchToLocal 来控制本地发送的消息是否接收
-       * @param message
+       * 收到群消息
+       * @param result
        */
-      onGroupMessage: (message: QNIM.IGroupMessage) => {
-        console.log('onGroupMessage', message);
-        const cuid = this.im.userManage.getUid() + '';
-        const isRemoteMessage = cuid !== message.from;
+      onGroupMessage: (result: QNIM.IGroupMessage) => {
+        console.log('onGroupMessage', result);
+        const cUid = this.im.userManage.getUid() + '';
+        const isRemoteMessage = cUid !== result.from;
         if (isRemoteMessage) { // 收到远端消息，触发消息接收回调
           this.mRtmChannelListeners.forEach(listener => {
             listener(
-              message.content || '',
-              message.to || ''
+              result.content || '',
+              result.to || ''
+            );
+          });
+        }
+      },
+      /**
+       * 收到单聊消息
+       * @param result
+       */
+      onRosterMessage: (result: Meta) => {
+        console.log('onRosterMessage', result);
+        const cUid = this.im.userManage.getUid() + '';
+        const isRemoteMessage = cUid !== result.from;
+        if (isRemoteMessage) { // 收到远端消息，触发消息接收回调
+          this.mRtmC2cListeners.forEach(listener => {
+            listener(
+              result.content || '',
+              result.from || ''
             );
           });
         }
@@ -82,29 +162,49 @@ export class QNIMManager {
        */
       onSendingMessageStatusChanged: (res: QNIM.ISendingMessageStatusChangedRes) => {
         console.log('onSendingMessageStatusChanged res', res);
-        const task = this.localMessageQueue.find(
+        const channelMessageTask = this.localChannelMessageTaskQueue.find(
           item => item.clientMId === res.mid
         );
-        if (res.status === 'sent' && task?.callback?.onSuccess) {
-          // 发送成功, 触发本地消息发送回收
-          task.callback.onSuccess(res);
-          this.localMessageQueue = this.localMessageQueue.filter(
+        const c2cMessageTask = this.localC2cMessageTaskQueue.find(
+          item => item.clientMId === res.mid
+        );
+
+        if (res.status === 'sent') {
+          channelMessageTask?.callback?.onSuccess?.(res);
+          this.localChannelMessageTaskQueue = this.localChannelMessageTaskQueue.filter(
             item => item.clientMId !== res.mid
           );
-          // 需要将本地消息回调给消息接收监听器
-          if (task.isDispatchToLocal) {
+          if (channelMessageTask?.isDispatchToLocal) {
             this.mRtmChannelListeners.forEach(listener => {
               listener(
-                task.msg,
-                task.channelId
+                channelMessageTask.msg,
+                channelMessageTask.channelId
+              );
+            });
+          }
+
+          c2cMessageTask?.callback?.onSuccess?.(res);
+          this.localC2cMessageTaskQueue = this.localC2cMessageTaskQueue.filter(
+            item => item.clientMId !== res.mid
+          );
+          if (c2cMessageTask?.isDispatchToLocal) {
+            this.mRtmC2cListeners.forEach(listener => {
+              listener(
+                c2cMessageTask.msg,
+                c2cMessageTask.peerId
               );
             });
           }
         }
-        if (res.status === 'failed' && task?.callback?.onFailure) {
-          // 发送失败, 触发本地消息发送回收
-          task.callback.onFailure(res);
-          this.localMessageQueue = this.localMessageQueue.filter(
+
+        if (res.status === 'failed') {
+          channelMessageTask?.callback?.onFailure?.(res);
+          this.localChannelMessageTaskQueue = this.localChannelMessageTaskQueue.filter(
+            item => item.clientMId !== res.mid
+          );
+
+          c2cMessageTask?.callback?.onFailure?.(res);
+          this.localC2cMessageTaskQueue = this.localC2cMessageTaskQueue.filter(
             item => item.clientMId !== res.mid
           );
         }
@@ -167,7 +267,7 @@ export class QNIMManager {
       gid: channelId,
     });
     // 本地发送消息暂存队列
-    this.localMessageQueue.push({
+    this.localChannelMessageTaskQueue.push({
       clientMId,
       callback,
       isDispatchToLocal,
@@ -286,7 +386,7 @@ export class QNIMManager {
           resolve(data);
         };
       });
-    }).catch((error: any) => {
+    }).catch((error: { code: number; message: string; url: string }) => {
       console.log('joinChannel join catch', error);
       if (error.code === 20017) {
         if (callback?.onSuccess) return callback.onSuccess(error);
@@ -322,35 +422,77 @@ export class QNIMManager {
    * @param callback
    */
   sendChannelMsg(
-    msg: string, channelId: string, isDispatchToLocal: boolean,
+    msg: string,
+    channelId: string,
+    isDispatchToLocal: boolean,
     callback?: RtmCallBack
-  ) {
+  ): Promise<{
+    mid: number;
+    status: string;
+  }> {
     return new Promise((resolve, reject) => {
-      this._sendChannelMsg(msg, channelId, isDispatchToLocal, {
-        onSuccess(res) {
-          if (callback?.onSuccess) callback.onSuccess(res);
-          resolve(res);
+      const clientMId = this.im.sysManage.sendGroupMessage({
+        content: msg,
+        gid: channelId,
+      });
+      // 本地发送消息暂存队列
+      this.localChannelMessageTaskQueue.push({
+        clientMId,
+        callback: {
+          onSuccess(res) {
+            console.log('sendChannelMsg onSuccess', res);
+            if (callback?.onSuccess) callback.onSuccess(res);
+            resolve(res);
+          },
+          onFailure(error) {
+            if (callback?.onFailure) callback.onFailure(error);
+            reject(error);
+          }
         },
-        onFailure(error) {
-          if (callback?.onFailure) callback.onFailure(error);
-          reject(error);
-        }
+        isDispatchToLocal,
+        msg,
+        channelId
       });
     });
   }
 
   /**
-   * TODO
+   * 发送点对点消息
    * @param msg
    * @param peerId
    * @param isDispatchToLocal
    * @param callback
    */
   sendC2cMsg(
-    msg: string, peerId: string, isDispatchToLocal: boolean,
+    msg: string,
+    peerId: string,
+    isDispatchToLocal: boolean,
     callback?: RtmCallBack
-  ): Promise<any> {
-    return Promise.resolve(undefined);
+  ) {
+    return new Promise((resolve, reject) => {
+      const clientMId = this.im.sysManage.sendRosterMessage({
+        content: msg,
+        uid: peerId,
+      });
+      // 本地发送消息暂存队列
+      this.localC2cMessageTaskQueue.push({
+        clientMId,
+        callback: {
+          onSuccess(res) {
+            console.log('sendChannelMsg onSuccess', res);
+            if (callback?.onSuccess) callback.onSuccess(res);
+            resolve(res);
+          },
+          onFailure(error) {
+            if (callback?.onFailure) callback.onFailure(error);
+            reject(error);
+          }
+        },
+        isDispatchToLocal,
+        msg,
+        peerId
+      });
+    });
   }
 
   /**

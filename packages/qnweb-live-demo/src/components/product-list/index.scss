@@ -1,0 +1,51 @@
+@import "../_styles/variables";
+
+.#{$prefixCls}-product-list {
+  background-color: #F5F5F5;
+  border-radius: 16px 16px 0 0;
+  display: none;
+
+  &-visible {
+    display: block;
+  }
+
+  &-fixed {
+    &-bottom {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+  }
+
+  &-header {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    text-align: center;
+    font-size: 16px;
+    justify-content: center;
+    position: relative;
+
+    &-close {
+      position: absolute;
+      right: 18px;
+      top: 18px;
+      cursor: pointer;
+    }
+  }
+
+  &-content {
+    width: 100%;
+    height: 360px;
+    overflow-y: scroll;
+    padding: 0 8px;
+
+    &-list {
+      &-item {
+        margin-bottom: 8px;
+      }
+    }
+  }
+}

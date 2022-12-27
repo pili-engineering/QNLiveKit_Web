@@ -1,0 +1,81 @@
+.page {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(226.42deg, #1B4963 8.93%, #09152F 110.98%);
+
+  .player {
+    position: relative;
+    z-index: 0;
+  }
+
+  .header {
+    color: #fff;
+    position: fixed;
+    z-index: 0;
+    left: 0;
+    top: 0;
+    right: 0;
+  }
+
+  .chatBox {
+    position: fixed;
+    bottom: 70px;
+  }
+
+  .footer {
+    z-index: 0;
+    position: fixed;
+    width: 100%;
+    height: 32px;
+    bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 8px;
+
+    .inputBox {
+      flex: 1;
+      margin-right: 8px;
+      position: relative;
+
+      .input {
+        background: rgba(0, 0, 0, 0.25);
+        border-radius: 16px;
+        color: #fff;
+        padding-left: 32px;
+        border: none;
+        outline: none;
+        height: 100%;
+      }
+    }
+
+    .iconChat {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 8px;
+    }
+
+    .icons {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      gap: 0 8px;
+    }
+  }
+
+  .waitingNotice {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .liveTimer {
+    position: fixed;
+    right: 10px;
+    top: 60px;
+    text-align: right;
+    z-index: 1;
+  }
+}

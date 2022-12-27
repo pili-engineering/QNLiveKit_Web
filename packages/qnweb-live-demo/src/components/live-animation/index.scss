@@ -1,0 +1,92 @@
+@import "../_styles/variables";
+
+@keyframes live-animation-1 {
+  0% {
+    height: 50%
+  }
+  25% {
+    height: 75%
+  }
+  50% {
+    height: 100%
+  }
+  75% {
+    height: 0
+  }
+  100% {
+    height: 25%
+  }
+}
+
+@keyframes live-animation-2 {
+  0% {
+    height: 75%
+  }
+  25% {
+    height: 100%
+  }
+  50% {
+    height: 0
+  }
+  75% {
+    height: 25%
+  }
+  100% {
+    height: 50%
+  }
+}
+
+@keyframes live-animation-3 {
+  0% {
+    height: 100%
+  }
+  25% {
+    height: 0
+  }
+  50% {
+    height: 25%
+  }
+  75% {
+    height: 50%
+  }
+  100% {
+    height: 75%
+  }
+}
+
+@keyframes live-animation-4 {
+  0% {
+    height: 25%
+  }
+  25% {
+    height: 50%
+  }
+  50% {
+    height: 75%
+  }
+  75% {
+    height: 100%
+  }
+  100% {
+    height: 0
+  }
+}
+
+.#{$prefixCls}-live-animation {
+  width: 12px;
+  height: 8px;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  &-column {
+    display: inline-block;
+    width: 2px;
+    background-color: #fff;
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}) {
+        animation: live-animation-#{$i} 700ms linear infinite;
+      }
+    }
+  }
+}

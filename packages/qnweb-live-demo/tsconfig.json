@@ -3,7 +3,11 @@
     "baseUrl": "./",
     "target": "ESNext",
     "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
     "allowJs": false,
     "skipLibCheck": false,
     "esModuleInterop": false,
@@ -20,7 +24,12 @@
       "@/*": [
         "src/*"
       ]
-    }
+    },
+    "types": [
+      "vite-plugin-svg-icons/client"
+    ]
   },
-  "include": ["./src"]
+  "include": [
+    "./src"
+  ]
 }

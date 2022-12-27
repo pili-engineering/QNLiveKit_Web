@@ -1,0 +1,73 @@
+@import "../_styles/variables";
+@import "../_styles/mixins";
+
+.#{$prefixCls}-gift-animation {
+  position: fixed;
+  left: 0;
+  top: 40%;
+  z-index: 1;
+
+  &-item {
+    display: flex;
+    align-items: center;
+    width: 160px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 32px;
+    margin-bottom: 4px;
+
+    &-enter {
+      transform: translate(-160px, 0);
+    }
+
+    &-enter-active {
+      transform: translate(0, 0);
+      transition: transform 300ms linear;
+    }
+
+    &-exit {
+      transform: translate(0, 0);
+    }
+
+    &-exit-active {
+      transform: translateX(0, -40px);
+      transition: transform 300ms linear;
+    }
+
+    &-main {
+      display: flex;
+      flex: 1;
+      align-items: center;
+
+      &-avatar {
+        margin: 0 4px;
+      }
+
+      &-content {
+        flex: 1;
+
+        &-title, &-subtitle {
+          @include text-overflow-single();
+          max-width: 70px;
+        }
+
+        &-title {
+          color: #fff;
+          font-size: 12px;
+        }
+
+        &-subtitle {
+          color: #E5E5E5;
+          font-size: 10px;
+        }
+      }
+    }
+
+    &-img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+      margin: 0 10px 0 4px;
+    }
+  }
+}

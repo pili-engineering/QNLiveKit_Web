@@ -1,0 +1,13 @@
+export { default as IconBarrageSvg } from './icon-barrage.svg';
+export { default as IconChatSvg } from './icon-chat.svg';
+export { default as IconCloseSvg } from './icon-close.svg';
+export { default as IconLikeSvg } from './icon-like.svg';
+export { default as IconLike1Svg } from './icon-like-1.svg';
+export { default as IconLike2Svg } from './icon-like-2.svg';
+export { default as IconLike3Svg } from './icon-like-3.svg';
+export { default as IconLike4Svg } from './icon-like-4.svg';
+export { default as IconLike5Svg } from './icon-like-5.svg';
+export { default as IconMoreSvg } from './icon-more.svg';
+export { default as IconRewardGiftSvg } from './icon-reward-gift.svg';
+export { default as IconShoppingCartSvg } from './icon-shopping-cart.svg';
+export { default as IconUserCountSvg } from './icon-user-count.svg';

@@ -1,0 +1,56 @@
+@import "../_styles/variables";
+
+.#{$prefixCls}-chat-box {
+  padding: 8px;
+  scroll-behavior: smooth;
+  width: 100%;
+
+  &-message {
+    display: flex;
+    margin-bottom: 4px;
+    align-items: flex-start;
+
+    &-content {
+      color: #fff;
+      background-color: #0000003F;
+      border-radius: 6px;
+      padding: 4px 6px;
+      margin-left: 4px;
+      width: 210px;
+
+      &-username {
+        color: #CCDFFC;
+      }
+
+      &-text {
+        word-break: break-all;
+      }
+    }
+
+    &-gift {
+      display: flex;
+      margin-bottom: 4px;
+      align-items: center;
+
+      &-content {
+        color: #fff;
+        background-color: #0000003F;
+        border-radius: 6px;
+        padding: 4px 6px;
+        margin-left: 4px;
+        width: 210px;
+        display: flex;
+        gap: 4px;
+
+        &-username {
+          color: #CCDFFC;
+        }
+
+        &-text {
+          word-break: break-all;
+          color: #F3CF22;
+        }
+      }
+    }
+  }
+}

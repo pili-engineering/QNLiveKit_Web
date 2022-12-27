@@ -1,8 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { useRequest } from 'ahooks';
+import { useMount, useRequest, useUnmount } from 'ahooks';
 import { message, Modal } from 'antd';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
+import { LiveApi } from '@/api';
+import { curConfig } from '@/config';
+import { useIMStore, useUserStore } from '@/store';
 import {
   getUrlQuery,
   IMMessage,
@@ -12,28 +15,33 @@ import {
   QNIMManager,
   UA
 } from '@/utils';
-import { LiveApi } from '@/api';
-import { curConfig } from '@/config';
-import { useIMStore, useUserStore } from '@/store';
-import {
-  Message, RoomDetail,
-  RoomMobile, RoomPC, RoomProps
-} from './components';
+
+import { Message, RoomProps } from './_types';
+import { RoomMobile } from './mobile';
+import { RoomPC } from './pc';
 
 const imClient = QNIMManager.create();
 
 export const Room = () => {
   const history = useHistory();
   const urlQueryRef = useRef<{
-    roomId: string
+    liveId: string
   }>({
-    roomId: getUrlQuery('roomId') || '',
+    liveId: getUrlQuery('liveId') || '',
   });
   const { state: userStoreState } = useUserStore();
   const [messageValue, setMessageValue] = useState('');
   const { runAsync: runJoin, cancel: cancelJoin } = useRequest(() => {
     return LiveApi.join({
-      live_id: urlQueryRef.current.roomId,
+      live_id: urlQueryRef.current.liveId,
+    }).then(result => {
+      dispatchIMStoreState({
+        type: 'PATCH',
+        payload: {
+          imGroupId: `${result.data?.chat_id}`
+        }
+      });
+      return result;
     });
   }, {
     manual: true,
@@ -41,48 +49,55 @@ export const Room = () => {
   /**
    * 房间信息轮询
    */
-  const { run: runGetRoomInfoPolling } = useRequest(() => {
-    return LiveApi.getRoomInfo({
-      live_id: urlQueryRef.current.roomId,
-    }).then(result => {
-      const detail = result.data;
-      setRoomDetail({
-        notice: detail?.notice || '',
-        ownerId: detail?.anchor_info.user_id || '',
-        onlineCount: detail?.online_count || 0,
-        avatar: detail?.anchor_info.avatar || '',
-        title: detail?.title || '',
-        roomId: detail?.live_id || '',
-        cover: detail?.cover_url || '',
-      });
-      setPlayerUrl(detail?.flv_url || '');
+  const { run: runRoomFullInfo, data: roomFullInfoData } = useRequest(() => {
+    const { liveId: live_id } = urlQueryRef.current;
+    return Promise.allSettled([
+      LiveApi.getRoomInfo({ live_id }),
+      LiveApi.getRoomUserList({
+        live_id,
+        page_num: '1',
+        page_size: '10',
+      }),
+    ]).then(([roomInfoResult, roomUserListResult]) => {
+      const info = roomInfoResult.status === 'fulfilled' ? roomInfoResult.value.data : null;
+      const userListData = roomUserListResult.status === 'fulfilled' ? roomUserListResult.value.data : null;
+      return {
+        info,
+        userListData
+      };
     });
   }, {
     pollingInterval: 3000,
     manual: true,
   });
+  const roomInfo = useMemo(() => {
+    return roomFullInfoData?.info;
+  }, [roomFullInfoData]);
+  const playerUrl = useMemo(() => {
+    return roomInfo?.flv_url;
+  }, [roomInfo]);
+
   /**
    * 房间内心跳
    */
-  const { run: runRoomHeartBeat } = useRequest(() => {
+  const { run: runHeartbeat } = useRequest(() => {
     return LiveApi.heartbeat({
-      live_id: urlQueryRef.current.roomId,
+      live_id: urlQueryRef.current.liveId,
     });
   }, {
     manual: true,
-    pollingInterval: 5000
+    pollingInterval: 3000
   });
+
   const [isPlaying, setIsPlaying] = useState(false);
-  const [roomDetail, setRoomDetail] = useState<RoomDetail>();
   const [noticeVisible, setNoticeVisible] = useState(false);
-  const [playerUrl, setPlayerUrl] = useState<string>();
   const [playLoading, setPlayLoading] = useState(true);
 
   /**
    * 播放器
    */
   const [playerType, setPlayerType] = useState<PlayerType>('flv.js');
-  const playerManagerRef = useRef<PlayerManager | null>(null);
+  const playerClientRef = useRef<PlayerManager | null>(null);
   const isPlayerChangeRef = useRef<boolean>(false);
   const handleInfoChanged: InfoChangeListenerCallback = (info) => {
     if (info.state === 'complete') {
@@ -102,45 +117,45 @@ export const Room = () => {
     if (!playerUrl || !element) {
       return;
     }
-    const manager = PlayerManager.create({
+    const client = PlayerManager.create({
       type: playerType,
       url: playerUrl,
       element
     });
-    manager.addInfoChangeListener(handleInfoChanged);
-    playerManagerRef.current = manager;
+    client.addInfoChangeListener(handleInfoChanged);
+    playerClientRef.current = client;
     if (isPlayerChangeRef.current) {
       onReplay();
     }
     return () => {
-      manager.removeInfoChangeListener(handleInfoChanged);
-      manager.destroy();
-      playerManagerRef.current = null;
+      client.removeInfoChangeListener(handleInfoChanged);
+      client.destroy();
+      playerClientRef.current = null;
     };
   }, [playerType, playerUrl]);
 
 
   /**
-   * 加入/离开房间
+   * 组件挂载
    */
-  useEffect(() => {
-    runJoin().then((result) => {
-      dispatchIMStoreState({
-        type: 'PATCH',
-        payload: {
-          imGroupId: result.data?.chat_id || '',
-        }
-      });
-      runRoomHeartBeat();
-      runGetRoomInfoPolling();
+  useMount(() => {
+    runJoin().then(() => {
+      runHeartbeat();
+      runRoomFullInfo();
     });
-    return () => {
-      cancelJoin();
-      LiveApi.leave({
-        live_id: urlQueryRef.current.roomId,
-      });
-    };
-  }, []);
+  });
+
+  /**
+   * 组件销毁
+   */
+  useUnmount(() => {
+    message.destroy();
+    Modal.destroyAll();
+    cancelJoin();
+    LiveApi.leave({
+      live_id: urlQueryRef.current.liveId,
+    });
+  });
 
   /**
    * im
@@ -161,13 +176,13 @@ export const Room = () => {
         action,
         content,
         sendUser: {
-          avatar: roomDetail?.avatar,
+          avatar: roomInfo?.anchor_info?.avatar,
           im_userid: imStoreState?.imUid,
           im_username: imStoreState?.imUsername,
           nick: userStoreState.nickname,
           user_id: userStoreState.accountId,
         },
-        senderRoomId: urlQueryRef.current.roomId
+        senderRoomId: urlQueryRef.current.liveId
       }
     };
     return imClient.sendChannelMsg(
@@ -289,11 +304,11 @@ export const Room = () => {
    * 播放出错重播
    */
   const onReplay = () => {
-    const manager = playerManagerRef.current;
-    if (!manager) return;
+    const client = playerClientRef.current;
+    if (!client) return;
     setPlayLoading(true);
     setIsPlaying(false);
-    manager.play().catch(error => {
+    client.play().catch(error => {
       setIsPlaying(false);
       Modal.error({
         title: '播放出错',
@@ -330,7 +345,7 @@ export const Room = () => {
     playerUrl={playerUrl}
     messages={messages}
     noticeVisible={noticeVisible}
-    roomDetail={roomDetail}
+    roomInfo={roomInfo}
     messageValue={messageValue}
     onMessageValueChange={setMessageValue}
     onSendComment={onSendComment}
@@ -349,7 +364,7 @@ export const Room = () => {
     playerUrl={playerUrl}
     messages={messages}
     noticeVisible={noticeVisible}
-    roomDetail={roomDetail}
+    roomInfo={roomInfo}
     messageValue={messageValue}
     onMessageValueChange={setMessageValue}
     onSendComment={onSendComment}

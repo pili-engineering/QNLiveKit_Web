@@ -1,0 +1,30 @@
+@mixin absolute($top: 0, $right: 0, $bottom: 0, $left: 0) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin flex($justify: center, $align: center) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+// 多行溢出省略号
+@mixin text-overflow-multi($line: 2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+}
+
+// 单行溢出省略
+@mixin text-overflow-single() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

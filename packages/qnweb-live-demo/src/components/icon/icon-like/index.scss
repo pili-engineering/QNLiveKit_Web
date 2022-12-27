@@ -1,0 +1,136 @@
+@import "../../_styles/variables";
+
+@keyframes animation-1 {
+  0% {
+    transform: translate(-50%, 0) scale(0);
+  }
+  50% {
+    transform: translate(-50%, -100px) scale(1);
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -200px) scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes animation-2 {
+  0% {
+    transform: translate(0, 0) scale(0);
+  }
+  50% {
+    transform: translate(-10px, -100px) scale(1);
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, -200px) scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes animation-3 {
+  0% {
+    transform: translate(0, 0) scale(0);
+  }
+  75% {
+    opacity: 1;
+    transform: translate(10px, -100px) scale(1);
+  }
+  100% {
+    transform: translate(0, -200px) scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes animation-4 {
+  0% {
+    transform: translate(0, 0) scale(0);
+  }
+  50% {
+    transform: translate(10px, -100px) scale(1);
+  }
+  100% {
+    transform: translate(-10px, -200px) scale(1);
+  }
+}
+
+@keyframes animation-5 {
+  0% {
+    transform: translate(0, 0) scale(0);
+  }
+  50% {
+    transform: translate(-10px, -100px) scale(1);
+  }
+  100% {
+    transform: translate(10px, -200px) scale(1);
+  }
+}
+
+.#{$prefixCls}-icon-like {
+  position: relative;
+
+  &-animation {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 24px;
+    height: 24px;
+    pointer-events: none;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: translate(-50%, 0) scale(0);
+
+    &-1 {
+      background-image: url('../../_images/icon/icon-like-1.svg');
+      animation: animation-1 3s 0.1s linear forwards;
+    }
+
+    &-2 {
+      background-image: url('../../_images/icon/icon-like-2.svg');
+      animation: animation-2 3s 0.3s linear forwards;
+    }
+
+    &-3 {
+      background-image: url('../../_images/icon/icon-like-3.svg');
+      animation: animation-3 3s 0.5s linear forwards;
+    }
+
+    &-4 {
+      background-image: url('../../_images/icon/icon-like-4.svg');
+      animation: animation-4 3s 0.8s linear forwards;
+    }
+
+    &-5 {
+      background-image: url('../../_images/icon/icon-like-5.svg');
+      animation: animation-5 3s 1s linear forwards;
+    }
+  }
+
+  &-img {
+    width: 32px;
+    height: 32px;
+  }
+
+  &-count {
+    text-align: center;
+    padding: 0 4px;
+    position: absolute;
+    width: 26px;
+    height: 12px;
+    line-height: 12px;
+    font-size: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -5px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    color: #EF4149;
+    font-family: 'PingFang SC', serif;
+  }
+}
+

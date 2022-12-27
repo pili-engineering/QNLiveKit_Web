@@ -1,0 +1,19 @@
+@import "../_styles/variables";
+
+.#{$prefixCls}-waiting-notice {
+  padding: 10px;
+  min-width: 260px;
+  min-height: 88px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+
+  &-title, &-content {
+    text-align: center;
+    font-size: 16px;
+  }
+}

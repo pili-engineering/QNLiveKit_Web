@@ -1,8 +1,12 @@
 import {
-  liveRequest,
-  request,
   getAccessToken,
-  getAuthorization,
+  getAuthorization, GetClientAppConfigParams, GetClientAppConfigResult,
+  GetClientGiftConfigTypeParams,
+  GetClientGiftConfigTypeResult,
+  GetClientItemLiveIdParams,
+  GetClientItemLiveIdResult,
+  GetClientStatsSingleLiveLiveIdParams,
+  GetClientStatsSingleLiveLiveIdResult,
   GetLiveAuthTokenParams,
   GetLiveAuthTokenResult,
   GetLiveRoomHeartbeatLiveIdParams,
@@ -14,8 +18,13 @@ import {
   GetLiveRoomParams,
   GetLiveRoomResult,
   GetLiveRoomUserListParams,
+  GetLiveRoomUserListResult,
+  liveRequest, PostClientGiftSendParams, PostClientGiftSendResult,
+  PostClientItemDemonstrateLiveIdItemIdParams,
+  PostClientItemDemonstrateLiveIdItemIdResult,
   PostLiveRoomUserLiveIdParams,
-  PostLiveRoomUserLiveIdResult
+  PostLiveRoomUserLiveIdResult,
+  request
 } from '@/api';
 
 export class LiveApi {
@@ -37,7 +46,7 @@ export class LiveApi {
    * @param params
    */
   static getRoomUserList(params: GetLiveRoomUserListParams) {
-    return liveRequest.get(`/client/live/room/user_list`, {
+    return liveRequest.get<GetLiveRoomUserListResult, GetLiveRoomUserListResult>(`/client/live/room/user_list`, {
       headers: {
         Authorization: getAccessToken()
       },
@@ -116,6 +125,90 @@ export class LiveApi {
       headers: {
         Authorization: getAccessToken()
       },
+    });
+  }
+
+  /**
+   * 查看直播间所有商品
+   * @link @link https://github.com/pili-engineering/QNLiveKit_Server/blob/master/app/live/docs/client/client-item.md#%E6%9F%A5%E7%9C%8B%E7%9B%B4%E6%92%AD%E9%97%B4%E5%95%86%E5%93%81
+   * @param params
+   */
+  static getProductList(params: GetClientItemLiveIdParams) {
+    return liveRequest.get<GetClientItemLiveIdResult, GetClientItemLiveIdResult>(`/client/item/${params.live_id}`, {
+      headers: {
+        Authorization: getAccessToken()
+      }
+    });
+  }
+
+  /**
+   * 直播数据获取
+   * @param params
+   */
+  static getStats(params: GetClientStatsSingleLiveLiveIdParams) {
+    return liveRequest.get<GetClientStatsSingleLiveLiveIdResult, GetClientStatsSingleLiveLiveIdResult>(`/client/stats/singleLive/${params.live_id}`, {
+      headers: {
+        Authorization: getAccessToken()
+      }
+    });
+  }
+
+  /**
+   * 点赞
+   * @param params
+   */
+  static like(params: { live_id: string }) {
+    return liveRequest.put(`/client/live/room/${params.live_id}/like`, null, {
+      headers: {
+        Authorization: getAccessToken()
+      }
+    });
+  }
+
+  /**
+   * 获取礼物配置列表
+   * @param params
+   */
+  static getGiftList(params: GetClientGiftConfigTypeParams) {
+    return liveRequest.get<GetClientGiftConfigTypeResult, GetClientGiftConfigTypeResult>(`/client/gift/config/${params.type}`, {
+      headers: {
+        Authorization: getAccessToken()
+      }
+    });
+  }
+
+  /**
+   * 查看直播间当前讲解的商品信息
+   * @param params
+   */
+  static getLiveProduct(params: PostClientItemDemonstrateLiveIdItemIdParams) {
+    return liveRequest.get<PostClientItemDemonstrateLiveIdItemIdResult, PostClientItemDemonstrateLiveIdItemIdResult>(`/client/item/demonstrate/${params.liveId}`, {
+      headers: {
+        Authorization: getAccessToken()
+      }
+    });
+  }
+
+  /**
+   * 发送礼物
+   * @param params
+   */
+  static sendGift(params: PostClientGiftSendParams) {
+    return liveRequest.post<PostClientGiftSendResult, PostClientGiftSendResult>(`/client/gift/send`, params, {
+      headers: {
+        Authorization: getAccessToken()
+      }
+    });
+  }
+
+  /**
+   * 获取应用配置
+   */
+  static getAppConfig() {
+    return liveRequest.get<GetClientAppConfigResult, GetClientAppConfigResult>(`/client/app/config`, {
+      headers: {
+        Authorization: getAccessToken()
+      }
     });
   }
 }

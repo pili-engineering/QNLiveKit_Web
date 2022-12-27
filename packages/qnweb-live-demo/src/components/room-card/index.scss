@@ -1,0 +1,93 @@
+@import "../_styles/variables";
+@import "../_styles/mixins";
+
+.#{$prefixCls}-room-card {
+  display: inline-block;
+  width: 166px;
+  height: 166px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+
+  &-cover {
+    width: 100%;
+    height: 100%;
+
+    &::after {
+      content: "";
+      background-color: #0000004d;
+      @include absolute();
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+    }
+
+    &-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &-content {
+    @include absolute();
+
+    &-tip {
+      display: inline-block;
+      margin: 6px;
+      min-width: 28px;
+      line-height: 20px;
+      background-color: #EF4149;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 10px;
+      padding: 0 6px;
+      word-break: break-all;
+
+      &-live {
+        text-align: center;
+      }
+
+      &-pause, &-trailer {
+        background: rgba(0, 0, 0, 0.75);
+      }
+    }
+
+    &-footer {
+      width: 100%;
+      color: #fff;
+      padding: 0 8px 8px;
+      position: absolute;
+      bottom: 0;
+
+      &-context {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+        word-break: break-all;
+
+        &-subtitle {
+          font-size: 12px;
+          flex: 1;
+          @include text-overflow-single();
+          padding-right: 10px;
+        }
+
+        &-icon {
+          font-size: 12px;
+          display: flex;
+          align-items: center;
+
+          &-hc {
+            width: 12px;
+            height: 12px;
+            margin-right: 4px;
+          }
+        }
+      }
+    }
+  }
+}

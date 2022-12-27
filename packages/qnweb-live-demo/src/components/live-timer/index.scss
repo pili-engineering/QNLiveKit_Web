@@ -1,0 +1,10 @@
+@import "../_styles/variables";
+
+.#{$prefixCls}-live-timer {
+  color: #fff;
+  font-size: 12px;
+
+  &-content {
+    font-size: 14px;
+  }
+}
