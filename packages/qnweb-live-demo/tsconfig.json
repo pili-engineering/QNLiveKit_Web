@@ -24,10 +24,7 @@
       "@/*": [
         "src/*"
       ]
-    },
-    "types": [
-      "vite-plugin-svg-icons/client"
-    ]
+    }
   },
   "include": [
     "./src"
