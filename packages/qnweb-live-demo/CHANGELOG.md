@@ -1,3 +1,13 @@
+## 0.1.0 (2022-12-28)
+
+* chore(qnweb-live-demo): 删除无用的tsconfig配置 ([1e90b73](https://github.com/pili-engineering/QNLiveKit_Web/commit/1e90b73))
+* chore(qnweb-live-demo): package.json script修改以及环境配置 ([3adbcd5](https://github.com/pili-engineering/QNLiveKit_Web/commit/3adbcd5))
+* feat(qnweb-audit-admin): 低代码直播审核后台 ([3de2b64](https://github.com/pili-engineering/QNLiveKit_Web/commit/3de2b64))
+* feat(qnweb-live-demo): 新增商品、弹幕、礼物等功能 ([fb33e9b](https://github.com/pili-engineering/QNLiveKit_Web/commit/fb33e9b))
+* docs(qnweb-live-demo): 项目介绍 ([3c6a630](https://github.com/pili-engineering/QNLiveKit_Web/commit/3c6a630))
+
+
+
 ## [0.0.5](https://github.com/pili-engineering/QNLiveKit_Web/compare/qnweb-live-demo@0.0.4...qnweb-live-demo@0.0.5) (2022-08-11)
 
 
