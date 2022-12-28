@@ -1,3 +1,13 @@
+## [0.1.1](https://github.com/pili-engineering/QNLiveKit_Web/compare/qnweb-live-demo@0.1.0...qnweb-live-demo@0.1.1) (2022-12-28)
+
+
+### Bug Fixes
+
+* **qnweb-live-demo:** 修复回看页去购买跳转，组件优化 ([3e7c430](https://github.com/pili-engineering/QNLiveKit_Web/commit/3e7c4304a4f2585bd41312a2af5bfb5ea8cac9e3))
+* **qnweb-live-demo:** 直播改为hls适配ios，vw样式适配 ([5448526](https://github.com/pili-engineering/QNLiveKit_Web/commit/54485267571e22305ff45f09398b739a711bca36))
+
+
+
 ## 0.1.0 (2022-12-28)
 
 * chore(qnweb-live-demo): 删除无用的tsconfig配置 ([1e90b73](https://github.com/pili-engineering/QNLiveKit_Web/commit/1e90b73))
