@@ -1,11 +1,10 @@
-import './index.scss';
-
+import React from 'react';
 import { CloseOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
-import React from 'react';
 
 import { IconRewardGiftSvg } from '../_images';
 import { createPrefixCls } from '../_utils';
+import './index.scss';
 
 export interface MorePanelItem {
 	/**
@@ -38,9 +37,23 @@ export interface MorePanelProps {
 	 */
 	fixedBottom?: boolean;
 	/**
+	 * 是否展示遮罩
+	 * @default true
+	 */
+	mask?: boolean;
+	/**
+	 * 点击蒙层是否允许关闭
+	 * @default	true
+	 */
+	maskClosable?: boolean;
+	/**
+	 * 遮罩样式
+	 */
+	maskStyle?: React.CSSProperties;
+	/**
 	 * 点击关闭按钮
 	 */
-	onClose?: React.MouseEventHandler<HTMLSpanElement>;
+	onClose?: () => void;
 	/**
 	 * 点击单个 icon
 	 * @param item
@@ -66,6 +79,9 @@ export const MorePanel: React.FC<MorePanelProps> = (props) => {
 		visible = true,
 		title,
 		fixedBottom,
+		mask = true,
+		maskClosable = true,
+		maskStyle,
 		onClose,
 		onItemClick
 	} = props;
@@ -81,31 +97,43 @@ export const MorePanel: React.FC<MorePanelProps> = (props) => {
 			)}
 			style={style}
 		>
-			<div className={`${prefixCls}-header`}>
-				<div className={`${prefixCls}-header-title`}>{title}</div>
-				<CloseOutlined className={`${prefixCls}-close`} onClick={onClose} />
-			</div>
+			{mask ? (
+				<div
+					className={`${prefixCls}-mask`}
+					style={maskStyle}
+					onClick={() => maskClosable && onClose?.()}
+				/>
+			) : null}
 
-			<div className={`${prefixCls}-list`}>
-				{list.map((item) => {
-					return (
-						<div
-							className={`${prefixCls}-list-item`}
-							key={item.id}
-							onClick={() => onItemClick?.(item)}
-						>
-							<div className={`${prefixCls}-list-item-icon`}>
-								<img
-									className={`${prefixCls}-list-item-icon-img`}
-									src={item.img}
-									alt={item.img}
-								/>
+			<div className={`${prefixCls}-main`}>
+				<div className={`${prefixCls}-header`}>
+					<div className={`${prefixCls}-header-title`}>{title}</div>
+					<CloseOutlined className={`${prefixCls}-close`} onClick={onClose} />
+				</div>
+
+				<div className={`${prefixCls}-list`}>
+					{list.map((item) => {
+						return (
+							<div
+								className={`${prefixCls}-list-item`}
+								key={item.id}
+								onClick={() => onItemClick?.(item)}
+							>
+								<div className={`${prefixCls}-list-item-icon`}>
+									<img
+										className={`${prefixCls}-list-item-icon-img`}
+										src={item.img}
+										alt={item.img}
+									/>
+								</div>
+
+								<div className={`${prefixCls}-list-item-title`}>
+									{item.title}
+								</div>
 							</div>
-
-							<div className={`${prefixCls}-list-item-title`}>{item.title}</div>
-						</div>
-					);
-				})}
+						);
+					})}
+				</div>
 			</div>
 		</div>
 	);

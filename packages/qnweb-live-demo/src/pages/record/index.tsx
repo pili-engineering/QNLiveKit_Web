@@ -1,9 +1,3 @@
-import './index.scss';
-
-import { LeftOutlined } from '@ant-design/icons';
-import { useRequest } from 'ahooks';
-import { Button } from 'antd';
-import classNames from 'classnames';
 import React, {
 	useCallback,
 	useEffect,
@@ -11,17 +5,23 @@ import React, {
 	useRef,
 	useState
 } from 'react';
+import { LeftOutlined } from '@ant-design/icons';
+import { useRequest } from 'ahooks';
+import { Button } from 'antd';
+import classNames from 'classnames';
 import { useHistory } from 'react-router-dom';
 
 import { GetClientItemLiveIdResult, LiveApi } from '@/api';
 import {
 	IconShoppingCartSvg,
-	ProductList,
-	ProductListProps,
+	ProductListPanel,
+	ProductListPanelProps,
 	ProductPopup,
 	RoomHeader
 } from '@/components';
 import { getUrlQuery, XGPlayer, XGPlayerConstructor } from '@/utils';
+
+import './index.scss';
 
 export interface RecordProps {
 	className?: string;
@@ -55,7 +55,7 @@ export const Record: React.FC<RecordProps> = (props) => {
 			live_id: urlQueryRef.current.liveId
 		});
 	});
-	const productList = useMemo<ProductListProps['list']>(() => {
+	const productList = useMemo<ProductListPanelProps['list']>(() => {
 		return productListData?.data?.map((item) => {
 			return {
 				id: item.item_id || '',
@@ -161,7 +161,7 @@ export const Record: React.FC<RecordProps> = (props) => {
 	 * 点击看商品讲解视频
 	 * @param result
 	 */
-	const onProductRecordClick: ProductListProps['onItemRecordClick'] = (
+	const onProductRecordClick: ProductListPanelProps['onItemRecordClick'] = (
 		result
 	) => {
 		history.replace(
@@ -187,12 +187,17 @@ export const Record: React.FC<RecordProps> = (props) => {
 		<div className={classNames(prefixCls, className)} style={style}>
 			<div id="player" className={`${prefixCls}-player`} />
 
-			<ProductList
+			<ProductListPanel
 				title="商品列表"
 				visible={productListVisible}
 				fixedBottom={true}
 				list={productList}
 				onItemRecordClick={onProductRecordClick}
+				onItemBuyClick={(result) =>
+					history.push(
+						`/shop?liveId=${urlQueryRef.current.liveId}&productId=${result.id}`
+					)
+				}
 				onClose={() => setProductListVisible(false)}
 			/>
 

@@ -26,6 +26,16 @@
     right: 22px;
   }
 
+  &-mask {
+    @include fixed();
+    z-index: 1;
+  }
+
+  &-main {
+    position: relative;
+    z-index: 1;
+  }
+
   &-header {
     @include flex();
     color: #fff;

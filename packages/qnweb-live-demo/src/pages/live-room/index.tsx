@@ -27,8 +27,8 @@ import {
 	IconShoppingCartSvg,
 	LiveTimer,
 	MorePanel,
-	ProductList,
-	ProductListProps,
+	ProductListPanel,
+	ProductListPanelProps,
 	RoomHeader,
 	WaitingNotice
 } from '@/components';
@@ -167,7 +167,7 @@ export const LiveRoom: React.FC = () => {
 			live_id: urlQueryRef.current.liveId
 		});
 	});
-	const productList = useMemo<ProductListProps['list']>(() => {
+	const productList = useMemo<ProductListPanelProps['list']>(() => {
 		return productListData?.data?.map((item) => {
 			return {
 				id: item.item_id || '',
@@ -603,7 +603,7 @@ export const LiveRoom: React.FC = () => {
 				onClose={() => setGiftPanelVisible(false)}
 			/>
 
-			<ProductList
+			<ProductListPanel
 				title="商品列表"
 				visible={productListVisible}
 				fixedBottom={true}

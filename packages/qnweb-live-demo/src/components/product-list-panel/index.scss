@@ -1,6 +1,7 @@
 @import "../_styles/variables";
+@import "../_styles/mixins";
 
-.#{$prefixCls}-product-list {
+.#{$prefixCls}-product-list-panel {
   background-color: #F5F5F5;
   border-radius: 16px 16px 0 0;
   display: none;
@@ -17,6 +18,16 @@
       right: 0;
       z-index: 100;
     }
+  }
+
+  &-mask {
+    @include fixed();
+    z-index: 1;
+  }
+
+  &-main {
+    position: relative;
+    z-index: 1;
   }
 
   &-header {
