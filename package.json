@@ -2,8 +2,8 @@
   "name": "root",
   "version": "1.0.0",
   "engines": {
-    "node": ">=v14.16.1",
-    "pnpm": ">=7"
+    "node": "14.16.1",
+    "pnpm": "7.14.0"
   },
   "keywords": [],
   "scripts": {
