@@ -1,12 +1,11 @@
-import './index.scss';
-
+import React, { MouseEventHandler } from 'react';
 import classNames from 'classnames';
 import moment from 'moment';
-import React, { MouseEventHandler } from 'react';
 
-import { LiveAnimation } from '..';
 import { IconUserCountSvg } from '../_images';
 import { createPrefixCls } from '../_utils';
+import { LiveAnimation } from '..';
+import './index.scss';
 
 export interface RoomCardProps {
 	className?: string;
@@ -90,7 +89,9 @@ export const RoomCard: React.FC<RoomCardProps> = (props) => {
 						: null}
 				</div>
 				<div className={`${prefixCls}-content-footer`}>
-					<div className={`${prefixCls}-content-footer-context`}>{title}</div>
+					<div className={`${prefixCls}-content-footer-context-title`}>
+						{title}
+					</div>
 					<div className={`${prefixCls}-content-footer-context`}>
 						<span className={`${prefixCls}-content-footer-context-subtitle`}>
 							{subTitle}

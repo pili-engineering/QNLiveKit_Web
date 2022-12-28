@@ -1,22 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>qnweb-live-demo</title>
-    <script>
-      var width = document.documentElement.clientWidth;
-      if (width > 450) width = 450;
-      document.documentElement.style.fontSize = width / 7.5 + 'px';
-      window.onresize = () => {
-        var width = document.documentElement.clientWidth;
-        if (width > 450) width = 450;
-        document.documentElement.style.fontSize = width / 7.5 + 'px';
-      };
-    </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<html lang='en'>
+	<head>
+		<meta charset='UTF-8' />
+		<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;' />
+		<title>qnweb-live-demo</title>
+	</head>
+	<body>
+		<div id='root'></div>
+		<script type='module' src='/src/main.tsx'></script>
+	</body>
 </html>

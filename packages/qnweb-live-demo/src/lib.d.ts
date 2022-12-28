@@ -8,6 +8,11 @@ declare module 'xgplayer-hls.js' {
 	export = HlsJsPlayer;
 }
 
+declare module 'xgplayer-hls' {
+	const HlsPlayer: any;
+	export = HlsPlayer;
+}
+
 declare module 'xgplayer-mp4' {
 	const Mp4Player: any;
 	export = Mp4Player;

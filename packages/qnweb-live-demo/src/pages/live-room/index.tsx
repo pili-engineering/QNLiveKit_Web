@@ -1,7 +1,3 @@
-import { useMount, useRequest, useUnmount } from 'ahooks';
-import { Input, message } from 'antd';
-import { Dialog } from 'antd-mobile';
-import _ from 'lodash';
 import React, {
 	KeyboardEvent,
 	useEffect,
@@ -9,6 +5,10 @@ import React, {
 	useRef,
 	useState
 } from 'react';
+import { useMount, useRequest, useUnmount } from 'ahooks';
+import { Input, message } from 'antd';
+import { Dialog } from 'antd-mobile';
+import _ from 'lodash';
 import { useHistory } from 'react-router-dom';
 
 import { LiveApi } from '@/api';
@@ -42,8 +42,8 @@ import {
 	XGPlayerConstructor
 } from '@/utils';
 
-import styles from './index.module.scss';
 import { isBarrageMessage, isChatMessage, isGiftMessage } from './messageUtil';
+import styles from './index.module.scss';
 
 export const LiveRoom: React.FC = () => {
 	const history = useHistory();
@@ -145,7 +145,7 @@ export const LiveRoom: React.FC = () => {
 		return _.orderBy(userListData?.data.list, 'nick');
 	}, [userListData]);
 	const playerUrl = useMemo(() => {
-		return roomInfo?.flv_url;
+		return roomInfo?.hls_url;
 	}, [roomInfo]);
 	/**
 	 * 房间状态

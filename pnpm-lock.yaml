@@ -102,6 +102,7 @@ importers:
       immutability-helper: ^3.1.1
       lodash: ^4.17.21
       moment: ^2.29.4
+      postcss-px-to-viewport: ^1.1.1
       qn-rtplayer-web: ^1.0.4
       qnweb-im: ^1.0.5
       react: ^17.0.2
@@ -114,6 +115,7 @@ importers:
       vite: ^2.7.0
       xgplayer: ^2.32.0
       xgplayer-flv.js: ^2.3.0
+      xgplayer-hls: ^2.5.2
       xgplayer-hls.js: ^2.6.3
       xgplayer-mp4: ^2.0.3
       yapi-to-typescript: ^3.34.0
@@ -130,6 +132,7 @@ importers:
       immutability-helper: 3.1.1
       lodash: 4.17.21
       moment: 2.29.4
+      postcss-px-to-viewport: 1.1.1
       qn-rtplayer-web: 1.0.4
       qnweb-im: 1.0.5
       react: 17.0.2
@@ -139,6 +142,7 @@ importers:
       react-transition-group: 4.4.5_sfoxds7t5ydpegc3knd667wn6m
       xgplayer: 2.32.0
       xgplayer-flv.js: 2.3.0
+      xgplayer-hls: 2.5.2_xgplayer@2.32.0
       xgplayer-hls.js: 2.6.3_xgplayer@2.32.0
       xgplayer-mp4: 2.0.3_xgplayer@2.32.0
     devDependencies:
@@ -4537,7 +4541,6 @@ packages:
 
   /picocolors/1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
-    dev: true
 
   /picomatch/2.3.1:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
@@ -4569,6 +4572,13 @@ packages:
   /platform/1.3.6:
     resolution: {integrity: sha512-fnWVljUchTro6RiCFvCXBbNhJc2NijN7oIQxbwsyL0buWJPG85v81ehlHI9fXrJsMNgTofEoWIQeClKpgxFLrg==}
 
+  /postcss-px-to-viewport/1.1.1:
+    resolution: {integrity: sha512-2x9oGnBms+e0cYtBJOZdlwrFg/mLR4P1g2IFu7jYKvnqnH/HLhoKyareW2Q/x4sg0BgklHlP1qeWo2oCyPm8FQ==}
+    dependencies:
+      object-assign: 4.1.1
+      postcss: 8.4.14
+    dev: false
+
   /postcss/8.4.14:
     resolution: {integrity: sha512-E398TUmfAYFPBSdzgeieK2Y1+1cpdxJx8yXbK/m57nRhKSmk1GB2tO4lbLBtlkfPQTDKfe4Xqv1ASWPpayPEig==}
     engines: {node: ^10 || ^12 || >=14}
@@ -4576,7 +4586,6 @@ packages:
       nanoid: 3.3.4
       picocolors: 1.0.0
       source-map-js: 1.0.2
-    dev: true
 
   /preferred-pm/3.0.3:
     resolution: {integrity: sha512-+wZgbxNES/KlJs9q40F/1sfOd/j7f1O9JaHcW5Dsn3aUUOZg3L2bjpVUcKV2jvtElYfoTuQiNeMfQJ4kwUAhCQ==}
@@ -5848,7 +5857,6 @@ packages:
   /source-map-js/1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
     engines: {node: '>=0.10.0'}
-    dev: true
 
   /source-map-support/0.5.21:
     resolution: {integrity: sha512-uBHU3L3czsIyYXKX88fdrGovxdSCoTGDRZ6SYXtSRxLZUzHg5P/66Ht6uoUlHu9EZod+inXhKo3qQgwXUT/y1w==}
@@ -6683,8 +6691,18 @@ packages:
       xgplayer-helper-utils: 2.5.1
     dev: false
 
+  /xgplayer-helper-codec/2.5.2:
+    resolution: {integrity: sha512-Btc4H17zzjBMUfkrmtaZQiK4pFZfXoGsauNKM9EFXWQAOCyj23SV0DCnIE+Cytmpc0pzgCXyrE/s3Ip4d+tEpQ==}
+    dependencies:
+      xgplayer-helper-utils: 2.5.2
+    dev: false
+
   /xgplayer-helper-models/2.5.1:
     resolution: {integrity: sha512-cgGWXhhmnGw//m9f3f1mUISY6npmuljmiI/vmP8H7X1OftdmpA3aTRiCKc+mPBdWi/V3ijS5O+1CYr25K+cVLg==}
+    dev: false
+
+  /xgplayer-helper-models/2.5.2:
+    resolution: {integrity: sha512-PTI25jiH6yHJj2fW1T/GuVjc4fXxhyToadCFZH0GjqSbiFwr0S9JAjvJr1ly6orhGyBmOeN4lOPIOLxIkolAxQ==}
     dev: false
 
   /xgplayer-helper-transmuxers/2.5.1:
@@ -6697,11 +6715,49 @@ packages:
       xgplayer-helper-utils: 2.5.1
     dev: false
 
+  /xgplayer-helper-transmuxers/2.5.2:
+    resolution: {integrity: sha512-IEcGCJZUqu/j8W3JFWUMIK7SaiSoKXqJ6hyg0W7HfXOIEj3AqNs8hz3GIX34b+2PrLMQgyFh8HuQN91P7UAnvg==}
+    dependencies:
+      concat-typed-array: 1.0.2
+      eventemitter3: 4.0.7
+      xgplayer-helper-codec: 2.5.2
+      xgplayer-helper-models: 2.5.2
+      xgplayer-helper-utils: 2.5.2
+    dev: false
+
   /xgplayer-helper-utils/2.5.1:
     resolution: {integrity: sha512-Dv49YaSxXQy4Az3XQHVRcQGT9d+ecgj4d8SIW+umY//NO6f2SdlyRpdiaDBJS0yvjqdUAslqTVMUAiZC2zi12Q==}
     dependencies:
       eventemitter3: 4.0.7
       xgplayer-helper-models: 2.5.1
+    dev: false
+
+  /xgplayer-helper-utils/2.5.2:
+    resolution: {integrity: sha512-UYqk9mkysTdE8kAdunngzwohHNOzqS4O8SquERupq1pSVuGO4pNScovn6Gir0Ty4QxOteYKKkqXEgZHzOp4rqw==}
+    dependencies:
+      eventemitter3: 4.0.7
+      xgplayer-helper-models: 2.5.2
+    dev: false
+
+  /xgplayer-hls-live/2.5.2_xgplayer@2.32.0:
+    resolution: {integrity: sha512-ClVNG4jlYXk4j6iQMz85T1J0Em+FHBooTBPsCo+uv9iMspoj/Cm+tSSmPoWw/jj9jRsIf/IpqX+qhWUmXRM0ag==}
+    peerDependencies:
+      xgplayer: ^2.3.5
+    dependencies:
+      xgplayer: 2.32.0
+      xgplayer-helper-codec: 2.5.2
+      xgplayer-helper-models: 2.5.2
+      xgplayer-helper-transmuxers: 2.5.2
+      xgplayer-helper-utils: 2.5.2
+    dev: false
+
+  /xgplayer-hls-vod/2.5.2:
+    resolution: {integrity: sha512-LpHUOD00Vt8gey8ptVV7/m4KSlRMDMvw5WDpx1Virj4b2aOcviH4qAIZ6bpfQ6MN5BFLlg7FbGSchL3uhuQ9kQ==}
+    dependencies:
+      xgplayer-helper-codec: 2.5.2
+      xgplayer-helper-models: 2.5.2
+      xgplayer-helper-transmuxers: 2.5.2
+      xgplayer-helper-utils: 2.5.2
     dev: false
 
   /xgplayer-hls.js/2.6.3_xgplayer@2.32.0:
@@ -6714,6 +6770,15 @@ packages:
       eventemitter3: 4.0.7
       hls.js: 1.2.9
       xgplayer: 2.32.0
+    dev: false
+
+  /xgplayer-hls/2.5.2_xgplayer@2.32.0:
+    resolution: {integrity: sha512-2+6ctUiFYzG52NFn5Tzcr/lstyvH3K4nULBp4pnRXLJAVDJjGeCdX3klwKTz2iPR/40EkMifQG2rhm0iaAZk7g==}
+    dependencies:
+      xgplayer-hls-live: 2.5.2_xgplayer@2.32.0
+      xgplayer-hls-vod: 2.5.2
+    transitivePeerDependencies:
+      - xgplayer
     dev: false
 
   /xgplayer-mp4/2.0.3_xgplayer@2.32.0:

@@ -67,12 +67,14 @@
         justify-content: space-between;
         align-items: center;
         font-size: 14px;
-        word-break: break-all;
+
+        &-title, &-subtitle {
+          @include text-overflow-single();
+        }
 
         &-subtitle {
           font-size: 12px;
           flex: 1;
-          @include text-overflow-single();
           padding-right: 10px;
         }
 
