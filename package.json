@@ -15,7 +15,10 @@
     "qnweb-audit-admin:build": "pnpm -F qnweb-audit-admin build:prod",
     "release": "ar-changelog release",
     "changeset": "changeset",
-    "cz": "git-cz"
+    "cz": "git-cz",
+    "lint": "eslint packages/**/src/**/*.{ts,tsx}",
+    "lint-fix": "eslint --fix packages/**/src/**/*.{ts,tsx}",
+    "pretty": "prettier --write 'packages/**/src/**/*.{ts,tsx}'"
   },
   "devDependencies": {
     "@changesets/cli": "^2.23.1",
@@ -24,10 +27,13 @@
     "ar-changelog": "^4.0.0",
     "conventional-changelog-cli": "^2.2.2",
     "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.11",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
-    "git-cz": "^4.9.0"
+    "git-cz": "^4.9.0",
+    "prettier": "^2.8.1"
   }
 }
