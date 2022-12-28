@@ -8,18 +8,18 @@ import React, { useRef, useState } from 'react';
 import { createPrefixCls } from '../_utils';
 
 export interface LiveTimerProps {
-  className?: string;
-  style?: React.CSSProperties;
-  /**
-   * 标题
-   */
-  title?: string;
+	className?: string;
+	style?: React.CSSProperties;
+	/**
+	 * 标题
+	 */
+	title?: string;
 }
 
 const prefixCls = createPrefixCls('live-timer');
 
 const addZero = (num: number) => {
-  return num < 10 ? `0${num}` : num;
+	return num < 10 ? `0${num}` : num;
 };
 
 /**
@@ -28,29 +28,26 @@ const addZero = (num: number) => {
  * @constructor
  */
 export const LiveTimer: React.FC<LiveTimerProps> = (props) => {
-  const {
-    className, style,
-    title
-  } = props;
+	const { className, style, title } = props;
 
-  /**
-   * 直播间计时器
-   */
-  const intervalCountRef = useRef<number>(0);
-  const [intervalTime, setIntervalTime] = useState<string>();
-  useInterval(() => {
-    intervalCountRef.current++;
+	/**
+	 * 直播间计时器
+	 */
+	const intervalCountRef = useRef<number>(0);
+	const [intervalTime, setIntervalTime] = useState<string>();
+	useInterval(() => {
+		intervalCountRef.current++;
 
-    const time = moment.duration(intervalCountRef.current, 'seconds');
-    const minutes = addZero(time.minutes());
-    const seconds = addZero(time.seconds());
-    setIntervalTime(`${minutes}:${seconds}`);
-  }, 1000);
+		const time = moment.duration(intervalCountRef.current, 'seconds');
+		const minutes = addZero(time.minutes());
+		const seconds = addZero(time.seconds());
+		setIntervalTime(`${minutes}:${seconds}`);
+	}, 1000);
 
-  return <div className={classNames(prefixCls, className)} style={style}>
-    <div className={`${prefixCls}-title`}>{title}</div>
-    <div className={`${prefixCls}-content`}>
-      {intervalTime}
-    </div>
-  </div>;
+	return (
+		<div className={classNames(prefixCls, className)} style={style}>
+			<div className={`${prefixCls}-title`}>{title}</div>
+			<div className={`${prefixCls}-content`}>{intervalTime}</div>
+		</div>
+	);
 };

@@ -13,8 +13,8 @@ import { Router } from './router';
 import './styles/index.scss';
 
 ReactDOM.render(
-  <ConfigProvider locale={zhCN}>
-    <Router/>
-  </ConfigProvider>,
-  document.getElementById('root')
+	<ConfigProvider locale={zhCN}>
+		<Router />
+	</ConfigProvider>,
+	document.getElementById('root')
 );

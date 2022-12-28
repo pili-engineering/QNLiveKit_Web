@@ -5,7 +5,7 @@
 /* 该文件由 yapi-to-typescript 自动生成，请勿直接修改！！！ */
 
 // @ts-ignore
-type FileData = File
+type FileData = File;
 
 /**
  * 接口 [注册&登录↗](http://pili-yapi.aslan.qa.qiniu.io/project/51/interface/api/1275) 的 **请求类型**
@@ -16,14 +16,14 @@ type FileData = File
  * @更新时间 `2021-11-16 11:14:03`
  */
 export interface PostSignUpOrInParams {
-  /**
-   * 手机号
-   */
-  phone: string
-  /**
-   * 短信验证码
-   */
-  smsCode: string
+	/**
+	 * 手机号
+	 */
+	phone: string;
+	/**
+	 * 短信验证码
+	 */
+	smsCode: string;
 }
 
 /**
@@ -35,52 +35,52 @@ export interface PostSignUpOrInParams {
  * @更新时间 `2021-11-16 11:14:03`
  */
 export interface PostSignUpOrInResult {
-  code?: number
-  message?: string
-  data?: {
-    /**
-     * 账号ID
-     */
-    accountId: string
-    /**
-     * 昵称
-     */
-    nickname: string
-    /**
-     * 头像URL
-     */
-    avatar: string
-    /**
-     * 手机号
-     */
-    phone: string
-    /**
-     * 登录TOKEN
-     */
-    loginToken: string
-    imConfig: {
-      /**
-       * IM TOKEN
-       */
-      imToken: string
-      /**
-       * IM类型枚举：https://cf.qiniu.io/pages/viewpage.action?pageId=63570443
-       */
-      type: number
-      /**
-       * 七牛IM登录用用户名
-       */
-      imUsername: string
-      /**
-       * 七牛IM登录用密码
-       */
-      imPassword: string
-      /**
-       * 七牛IM的UID
-       */
-      imUid: string
-    }
-  }
+	code?: number;
+	message?: string;
+	data?: {
+		/**
+		 * 账号ID
+		 */
+		accountId: string;
+		/**
+		 * 昵称
+		 */
+		nickname: string;
+		/**
+		 * 头像URL
+		 */
+		avatar: string;
+		/**
+		 * 手机号
+		 */
+		phone: string;
+		/**
+		 * 登录TOKEN
+		 */
+		loginToken: string;
+		imConfig: {
+			/**
+			 * IM TOKEN
+			 */
+			imToken: string;
+			/**
+			 * IM类型枚举：https://cf.qiniu.io/pages/viewpage.action?pageId=63570443
+			 */
+			type: number;
+			/**
+			 * 七牛IM登录用用户名
+			 */
+			imUsername: string;
+			/**
+			 * 七牛IM登录用密码
+			 */
+			imPassword: string;
+			/**
+			 * 七牛IM的UID
+			 */
+			imUid: string;
+		};
+	};
 }
 
 /**
@@ -92,7 +92,7 @@ export interface PostSignUpOrInResult {
  * @更新时间 `2021-04-20 22:45:08`
  */
 export interface PostGetSmsCodeParams {
-  phone: string
+	phone: string;
 }
 
 /**
@@ -104,9 +104,9 @@ export interface PostGetSmsCodeParams {
  * @更新时间 `2021-04-20 22:45:08`
  */
 export interface PostGetSmsCodeResult {
-  code?: number
-  message?: string
-  data?: {}
+	code?: number;
+	message?: string;
+	data?: {};
 }
 
 /**
@@ -128,12 +128,12 @@ export interface PostSignOutParams {}
  * @更新时间 `2021-04-22 22:15:33`
  */
 export interface PostSignOutResult {
-  code?: number
-  message?: string
-  /**
-   * 为NULL
-   */
-  data?: {}
+	code?: number;
+	message?: string;
+	/**
+	 * 为NULL
+	 */
+	data?: {};
 }
 
 /**
@@ -145,10 +145,10 @@ export interface PostSignOutResult {
  * @更新时间 `2021-04-22 13:47:07`
  */
 export interface GetAccountInfoAccountIdParams {
-  /**
-   * 不传则通过登录TOKEN获取，为后续HR修改他人信息预留
-   */
-  accountId: string
+	/**
+	 * 不传则通过登录TOKEN获取，为后续HR修改他人信息预留
+	 */
+	accountId: string;
 }
 
 /**
@@ -160,30 +160,30 @@ export interface GetAccountInfoAccountIdParams {
  * @更新时间 `2021-04-22 13:47:07`
  */
 export interface GetAccountInfoAccountIdResult {
-  code: number
-  message: string
-  data: {
-    /**
-     * 账号ID
-     */
-    accountId: string
-    /**
-     * 昵称
-     */
-    nickname: string
-    /**
-     * 头像URL
-     */
-    avatar: string
-    /**
-     * 电话
-     */
-    phone: string
-    /**
-     * 个性签名
-     */
-    profile: string
-  }
+	code: number;
+	message: string;
+	data: {
+		/**
+		 * 账号ID
+		 */
+		accountId: string;
+		/**
+		 * 昵称
+		 */
+		nickname: string;
+		/**
+		 * 头像URL
+		 */
+		avatar: string;
+		/**
+		 * 电话
+		 */
+		phone: string;
+		/**
+		 * 个性签名
+		 */
+		profile: string;
+	};
 }
 
 /**
@@ -205,33 +205,33 @@ export interface GetAppConfigParams {}
  * @更新时间 `2021-04-20 22:43:58`
  */
 export interface GetAppConfigResult {
-  /**
-   * 状态码枚举：https://cf.qiniu.io/pages/viewpage.action?pageId=63570443
-   */
-  code: number
-  /**
-   * 错误信息：服务端异常展示
-   */
-  message: string
-  data: {
-    /**
-     * 欢迎页信息
-     */
-    welcome?: {
-      /**
-       * 图片链接
-       */
-      image?: string
-      /**
-       * 跳转链接
-       */
-      url?: string
-      /**
-       * 扩展信息-备用
-       */
-      extra?: {}
-    }
-  }
+	/**
+	 * 状态码枚举：https://cf.qiniu.io/pages/viewpage.action?pageId=63570443
+	 */
+	code: number;
+	/**
+	 * 错误信息：服务端异常展示
+	 */
+	message: string;
+	data: {
+		/**
+		 * 欢迎页信息
+		 */
+		welcome?: {
+			/**
+			 * 图片链接
+			 */
+			image?: string;
+			/**
+			 * 跳转链接
+			 */
+			url?: string;
+			/**
+			 * 扩展信息-备用
+			 */
+			extra?: {};
+		};
+	};
 }
 
 /**
@@ -243,14 +243,14 @@ export interface GetAppConfigResult {
  * @更新时间 `2021-11-16 10:47:02`
  */
 export interface GetSolutionParams {
-  /**
-   * 默认是10，每页数据条数
-   */
-  pageSize: string
-  /**
-   * 默认是1，页码
-   */
-  pageNum: string
+	/**
+	 * 默认是10，每页数据条数
+	 */
+	pageSize: string;
+	/**
+	 * 默认是1，页码
+	 */
+	pageNum: string;
 }
 
 /**
@@ -262,63 +262,63 @@ export interface GetSolutionParams {
  * @更新时间 `2021-11-16 10:47:02`
  */
 export interface GetSolutionResult {
-  code: number
-  message: string
-  data?: {
-    /**
-     * 全部数据数量
-     */
-    total: number
-    /**
-     * 暂不需要
-     */
-    nextId?: string
-    /**
-     * 当前页码
-     */
-    currentPageNum: number
-    /**
-     * 下页页码，如果无下页则和当前页页码一致
-     */
-    nextPageNum: number
-    /**
-     * 当前页预计条数
-     */
-    pageSize: number
-    /**
-     * 是否最后一页
-     */
-    endPage: boolean
-    /**
-     * 当前分页数量
-     */
-    cnt: number
-    /**
-     * 场景列表
-     */
-    list: {
-      /**
-       * 场景ID
-       */
-      id: string
-      /**
-       * 场景标题
-       */
-      title: string
-      /**
-       * 场景跳转连接
-       */
-      url: string
-      /**
-       * 场景文字描述
-       */
-      desc: string
-      /**
-       * 场景图标
-       */
-      icon: string
-    }[]
-  }
+	code: number;
+	message: string;
+	data?: {
+		/**
+		 * 全部数据数量
+		 */
+		total: number;
+		/**
+		 * 暂不需要
+		 */
+		nextId?: string;
+		/**
+		 * 当前页码
+		 */
+		currentPageNum: number;
+		/**
+		 * 下页页码，如果无下页则和当前页页码一致
+		 */
+		nextPageNum: number;
+		/**
+		 * 当前页预计条数
+		 */
+		pageSize: number;
+		/**
+		 * 是否最后一页
+		 */
+		endPage: boolean;
+		/**
+		 * 当前分页数量
+		 */
+		cnt: number;
+		/**
+		 * 场景列表
+		 */
+		list: {
+			/**
+			 * 场景ID
+			 */
+			id: string;
+			/**
+			 * 场景标题
+			 */
+			title: string;
+			/**
+			 * 场景跳转连接
+			 */
+			url: string;
+			/**
+			 * 场景文字描述
+			 */
+			desc: string;
+			/**
+			 * 场景图标
+			 */
+			icon: string;
+		}[];
+	};
 }
 
 /**
@@ -330,11 +330,11 @@ export interface GetSolutionResult {
  * @更新时间 `2021-04-26 13:54:56`
  */
 export interface PostAccountInfoAccountIdParams {
-  nickname: string
-  /**
-   * 不传则通过登录TOKEN获取，为后续HR修改他人信息预留
-   */
-  accountId: string
+	nickname: string;
+	/**
+	 * 不传则通过登录TOKEN获取，为后续HR修改他人信息预留
+	 */
+	accountId: string;
 }
 
 /**
@@ -346,9 +346,9 @@ export interface PostAccountInfoAccountIdParams {
  * @更新时间 `2021-04-26 13:54:56`
  */
 export interface PostAccountInfoAccountIdResult {
-  code: number
-  message: string
-  data?: {}
+	code: number;
+	message: string;
+	data?: {};
 }
 
 /**
@@ -370,44 +370,44 @@ export interface PostSignInWithTokenParams {}
  * @更新时间 `2021-04-22 13:48:17`
  */
 export interface PostSignInWithTokenResult {
-  code: number
-  message: string
-  data: {
-    /**
-     * 账号ID
-     */
-    accountId: string
-    /**
-     * 昵称
-     */
-    nickname: string
-    /**
-     * 头像URL
-     */
-    avatar: string
-    /**
-     * 手机号
-     */
-    phone: string
-    /**
-     * 登录TOKEN
-     */
-    loginToken: string
-    /**
-     * 个性签名
-     */
-    profile: string
-    imConfig: {
-      /**
-       * IM TOKEN
-       */
-      imToken: string
-      /**
-       * IM类型枚举：https://cf.qiniu.io/pages/viewpage.action?pageId=63570443
-       */
-      type: number
-    }
-  }
+	code: number;
+	message: string;
+	data: {
+		/**
+		 * 账号ID
+		 */
+		accountId: string;
+		/**
+		 * 昵称
+		 */
+		nickname: string;
+		/**
+		 * 头像URL
+		 */
+		avatar: string;
+		/**
+		 * 手机号
+		 */
+		phone: string;
+		/**
+		 * 登录TOKEN
+		 */
+		loginToken: string;
+		/**
+		 * 个性签名
+		 */
+		profile: string;
+		imConfig: {
+			/**
+			 * IM TOKEN
+			 */
+			imToken: string;
+			/**
+			 * IM类型枚举：https://cf.qiniu.io/pages/viewpage.action?pageId=63570443
+			 */
+			type: number;
+		};
+	};
 }
 
 /**
@@ -419,10 +419,10 @@ export interface PostSignInWithTokenResult {
  * @更新时间 `2021-09-27 16:57:24`
  */
 export interface PostTokenGetTokenParams {
-  /**
-   * 内容
-   */
-  content?: string
+	/**
+	 * 内容
+	 */
+	content?: string;
 }
 
 /**
@@ -434,12 +434,12 @@ export interface PostTokenGetTokenParams {
  * @更新时间 `2021-09-27 16:57:24`
  */
 export interface PostTokenGetTokenResult {
-  code?: number
-  message?: string
-  data?: {
-    token?: string
-  }
-  requestId?: string
+	code?: number;
+	message?: string;
+	data?: {
+		token?: string;
+	};
+	requestId?: string;
 }
 
 /**
@@ -461,15 +461,15 @@ export interface GetRecentImageParams {}
  * @更新时间 `2021-12-08 17:34:18`
  */
 export interface GetRecentImageResult {
-  code?: number
-  message?: string
-  data?: {
-    id?: string
-    fileName?: string
-    fileUrl?: string
-    status?: number
-  }
-  requestId?: string
+	code?: number;
+	message?: string;
+	data?: {
+		id?: string;
+		fileName?: string;
+		fileUrl?: string;
+		status?: number;
+	};
+	requestId?: string;
 }
 
 /**
@@ -481,7 +481,7 @@ export interface GetRecentImageResult {
  * @更新时间 `2021-12-08 17:38:34`
  */
 export interface PostUploadParams {
-  file: FileData
+	file: FileData;
 }
 
 /**
@@ -493,15 +493,15 @@ export interface PostUploadParams {
  * @更新时间 `2021-12-08 17:38:34`
  */
 export interface PostUploadResult {
-  code?: number
-  message?: string
-  data?: {
-    id?: string
-    fileName?: string
-    fileUrl?: string
-    status?: number
-  }
-  requestId?: string
+	code?: number;
+	message?: string;
+	data?: {
+		id?: string;
+		fileName?: string;
+		fileUrl?: string;
+		status?: number;
+	};
+	requestId?: string;
 }
 
 /**
@@ -513,12 +513,12 @@ export interface PostUploadResult {
  * @更新时间 `2022-04-27 15:06:04`
  */
 export interface GetBaseRtmpUrlParams {
-  hub: string
-  streamTile: string
-  /**
-   * 单位：秒
-   */
-  expiredAt: string
+	hub: string;
+	streamTile: string;
+	/**
+	 * 单位：秒
+	 */
+	expiredAt: string;
 }
 
 /**
@@ -530,12 +530,12 @@ export interface GetBaseRtmpUrlParams {
  * @更新时间 `2022-04-27 15:06:04`
  */
 export interface GetBaseRtmpUrlResult {
-  code: number
-  message: string
-  data: {
-    rtmpUrl: string
-  }
-  requestId: string
+	code: number;
+	message: string;
+	data: {
+		rtmpUrl: string;
+	};
+	requestId: string;
 }
 
 /**
@@ -547,14 +547,14 @@ export interface GetBaseRtmpUrlResult {
  * @更新时间 `2021-11-16 11:11:56`
  */
 export interface GetSolutionParams {
-  /**
-   * 默认是10，每页数据条数
-   */
-  pageSize: string
-  /**
-   * 默认是1，页码
-   */
-  pageNum: string
+	/**
+	 * 默认是10，每页数据条数
+	 */
+	pageSize: string;
+	/**
+	 * 默认是1，页码
+	 */
+	pageNum: string;
 }
 
 /**
@@ -566,63 +566,63 @@ export interface GetSolutionParams {
  * @更新时间 `2021-11-16 11:11:56`
  */
 export interface GetSolutionResult {
-  code: number
-  message: string
-  data?: {
-    /**
-     * 全部数据数量
-     */
-    total: number
-    /**
-     * 暂不需要
-     */
-    nextId?: string
-    /**
-     * 当前页码
-     */
-    currentPageNum: number
-    /**
-     * 下页页码，如果无下页则和当前页页码一致
-     */
-    nextPageNum: number
-    /**
-     * 当前页预计条数
-     */
-    pageSize: number
-    /**
-     * 是否最后一页
-     */
-    endPage: boolean
-    /**
-     * 当前分页数量
-     */
-    cnt: number
-    /**
-     * 场景列表
-     */
-    list: {
-      /**
-       * 场景ID
-       */
-      id: string
-      /**
-       * 场景标题
-       */
-      title: string
-      /**
-       * 场景跳转连接
-       */
-      url: string
-      /**
-       * 场景文字描述
-       */
-      desc: string
-      /**
-       * 场景图标
-       */
-      icon: string
-    }[]
-  }
+	code: number;
+	message: string;
+	data?: {
+		/**
+		 * 全部数据数量
+		 */
+		total: number;
+		/**
+		 * 暂不需要
+		 */
+		nextId?: string;
+		/**
+		 * 当前页码
+		 */
+		currentPageNum: number;
+		/**
+		 * 下页页码，如果无下页则和当前页页码一致
+		 */
+		nextPageNum: number;
+		/**
+		 * 当前页预计条数
+		 */
+		pageSize: number;
+		/**
+		 * 是否最后一页
+		 */
+		endPage: boolean;
+		/**
+		 * 当前分页数量
+		 */
+		cnt: number;
+		/**
+		 * 场景列表
+		 */
+		list: {
+			/**
+			 * 场景ID
+			 */
+			id: string;
+			/**
+			 * 场景标题
+			 */
+			title: string;
+			/**
+			 * 场景跳转连接
+			 */
+			url: string;
+			/**
+			 * 场景文字描述
+			 */
+			desc: string;
+			/**
+			 * 场景图标
+			 */
+			icon: string;
+		}[];
+	};
 }
 
 /**
@@ -634,14 +634,14 @@ export interface GetSolutionResult {
  * @更新时间 `2022-03-09 10:49:57`
  */
 export interface PostAppUpdatesParams {
-  version: string
-  msg: string
-  packagePage: string
-  packageUrl: string
-  /**
-   * ios/android
-   */
-  arch: string
+	version: string;
+	msg: string;
+	packagePage: string;
+	packageUrl: string;
+	/**
+	 * ios/android
+	 */
+	arch: string;
 }
 
 /**
@@ -653,12 +653,12 @@ export interface PostAppUpdatesParams {
  * @更新时间 `2022-03-09 10:49:57`
  */
 export interface PostAppUpdatesResult {
-  code: number
-  message: string
-  data: {
-    result: boolean
-  }
-  requestId: string
+	code: number;
+	message: string;
+	data: {
+		result: boolean;
+	};
+	requestId: string;
 }
 
 /**
@@ -670,14 +670,14 @@ export interface PostAppUpdatesResult {
  * @更新时间 `2022-03-09 10:50:05`
  */
 export interface GetAppUpdatesParams {
-  /**
-   * 当前版本
-   */
-  version: string
-  /**
-   * ios/android
-   */
-  arch: string
+	/**
+	 * 当前版本
+	 */
+	version: string;
+	/**
+	 * ios/android
+	 */
+	arch: string;
 }
 
 /**
@@ -689,21 +689,21 @@ export interface GetAppUpdatesParams {
  * @更新时间 `2022-03-09 10:50:05`
  */
 export interface GetAppUpdatesResult {
-  code: number
-  message: string
-  data: {
-    version: string
-    msg: string
-    /**
-     * 如果已是最新，则此项为空，否则为新版本包下载页面
-     */
-    packagePage: string
-    /**
-     * 如果已是最新，则此项为空，否则为新版本包下载地址
-     */
-    packageUrl: string
-  }
-  requestId: string
+	code: number;
+	message: string;
+	data: {
+		version: string;
+		msg: string;
+		/**
+		 * 如果已是最新，则此项为空，否则为新版本包下载页面
+		 */
+		packagePage: string;
+		/**
+		 * 如果已是最新，则此项为空，否则为新版本包下载地址
+		 */
+		packageUrl: string;
+	};
+	requestId: string;
 }
 
 /**
@@ -715,8 +715,8 @@ export interface GetAppUpdatesResult {
  * @更新时间 `2021-11-25 11:11:02`
  */
 export interface GetWatchMoviesTogetherMovieListParams {
-  pageNum?: string
-  pageSize?: string
+	pageNum?: string;
+	pageSize?: string;
 }
 
 /**
@@ -728,39 +728,39 @@ export interface GetWatchMoviesTogetherMovieListParams {
  * @更新时间 `2021-11-25 11:11:02`
  */
 export interface GetWatchMoviesTogetherMovieListResult {
-  code?: number
-  message?: string
-  data?: {
-    total?: number
-    nextId?: string
-    cnt?: string
-    currentPageNum?: number
-    nextPageNum?: number
-    pageSize?: number
-    endPage?: boolean
-    list?: {
-      movieId?: string
-      name?: string
-      director?: string
-      image?: string
-      actorList?: string[]
-      kindList?: string[]
-      /**
-       * 字幕(可选)
-       */
-      lyrics?: string
-      /**
-       * 播放地址
-       */
-      playUrl?: string
-      duration?: number
-      desc?: string
-      doubanScore?: number
-      imdbScore?: number
-      releaseTime?: string
-    }[]
-  }
-  requestId?: string
+	code?: number;
+	message?: string;
+	data?: {
+		total?: number;
+		nextId?: string;
+		cnt?: string;
+		currentPageNum?: number;
+		nextPageNum?: number;
+		pageSize?: number;
+		endPage?: boolean;
+		list?: {
+			movieId?: string;
+			name?: string;
+			director?: string;
+			image?: string;
+			actorList?: string[];
+			kindList?: string[];
+			/**
+			 * 字幕(可选)
+			 */
+			lyrics?: string;
+			/**
+			 * 播放地址
+			 */
+			playUrl?: string;
+			duration?: number;
+			desc?: string;
+			doubanScore?: number;
+			imdbScore?: number;
+			releaseTime?: string;
+		}[];
+	};
+	requestId?: string;
 }
 
 /**
@@ -772,9 +772,9 @@ export interface GetWatchMoviesTogetherMovieListResult {
  * @更新时间 `2021-11-25 11:11:49`
  */
 export interface GetWatchMoviesTogetherSelectedMovieListParams {
-  roomId: string
-  pageNum?: string
-  pageSize?: string
+	roomId: string;
+	pageNum?: string;
+	pageSize?: string;
 }
 
 /**
@@ -786,40 +786,40 @@ export interface GetWatchMoviesTogetherSelectedMovieListParams {
  * @更新时间 `2021-11-25 11:11:49`
  */
 export interface GetWatchMoviesTogetherSelectedMovieListResult {
-  code?: number
-  message?: string
-  data?: {
-    total?: number
-    nextId?: string
-    cnt?: string
-    currentPageNum?: number
-    nextPageNum?: number
-    pageSize?: number
-    endPage?: boolean
-    list?: {
-      movieId?: string
-      name?: string
-      director?: string
-      image?: string
-      actorList?: string[]
-      kindList?: string[]
-      duration?: number
-      playUrl?: string
-      lyrics?: string
-      desc?: string
-      douban_score?: number
-      imdb_score?: number
-      /**
-       * 毫秒级时间
-       */
-      release_time?: number
-      /**
-       * 点播人
-       */
-      demander?: string
-    }[]
-  }
-  requestId?: string
+	code?: number;
+	message?: string;
+	data?: {
+		total?: number;
+		nextId?: string;
+		cnt?: string;
+		currentPageNum?: number;
+		nextPageNum?: number;
+		pageSize?: number;
+		endPage?: boolean;
+		list?: {
+			movieId?: string;
+			name?: string;
+			director?: string;
+			image?: string;
+			actorList?: string[];
+			kindList?: string[];
+			duration?: number;
+			playUrl?: string;
+			lyrics?: string;
+			desc?: string;
+			douban_score?: number;
+			imdb_score?: number;
+			/**
+			 * 毫秒级时间
+			 */
+			release_time?: number;
+			/**
+			 * 点播人
+			 */
+			demander?: string;
+		}[];
+	};
+	requestId?: string;
 }
 
 /**
@@ -831,12 +831,12 @@ export interface GetWatchMoviesTogetherSelectedMovieListResult {
  * @更新时间 `2021-12-08 11:41:45`
  */
 export interface PostWatchMoviesTogetherMovieOperationParams {
-  roomId: string
-  movieId: string
-  /**
-   * select/delete
-   */
-  operateType: string
+	roomId: string;
+	movieId: string;
+	/**
+	 * select/delete
+	 */
+	operateType: string;
 }
 
 /**
@@ -848,10 +848,10 @@ export interface PostWatchMoviesTogetherMovieOperationParams {
  * @更新时间 `2021-12-08 11:41:45`
  */
 export interface PostWatchMoviesTogetherMovieOperationResult {
-  code?: number
-  message?: string
-  data?: boolean
-  requestId?: string
+	code?: number;
+	message?: string;
+	data?: boolean;
+	requestId?: string;
 }
 
 /**
@@ -863,7 +863,7 @@ export interface PostWatchMoviesTogetherMovieOperationResult {
  * @更新时间 `2021-11-25 11:12:11`
  */
 export interface GetWatchMoviesTogetherMovieInfoParams {
-  movieId: string
+	movieId: string;
 }
 
 /**
@@ -875,25 +875,25 @@ export interface GetWatchMoviesTogetherMovieInfoParams {
  * @更新时间 `2021-11-25 11:12:11`
  */
 export interface GetWatchMoviesTogetherMovieInfoResult {
-  code?: number
-  message?: string
-  data?: {
-    song?: {}
-    movieId?: string
-    name?: string
-    director?: string
-    image?: string
-    actorList?: string[]
-    kindList?: string[]
-    duration?: number
-    playUrl?: string
-    lyrics?: string
-    desc?: string
-    doubanScore?: number
-    imdbScore?: number
-    releaseTime?: number
-  }
-  requestId?: string
+	code?: number;
+	message?: string;
+	data?: {
+		song?: {};
+		movieId?: string;
+		name?: string;
+		director?: string;
+		image?: string;
+		actorList?: string[];
+		kindList?: string[];
+		duration?: number;
+		playUrl?: string;
+		lyrics?: string;
+		desc?: string;
+		doubanScore?: number;
+		imdbScore?: number;
+		releaseTime?: number;
+	};
+	requestId?: string;
 }
 
 /**
@@ -905,8 +905,8 @@ export interface GetWatchMoviesTogetherMovieInfoResult {
  * @更新时间 `2021-11-24 14:16:41`
  */
 export interface PostWatchMoviesTogetherSwitchMovieParams {
-  roomId: string
-  movieId: string
+	roomId: string;
+	movieId: string;
 }
 
 /**
@@ -918,10 +918,10 @@ export interface PostWatchMoviesTogetherSwitchMovieParams {
  * @更新时间 `2021-11-24 14:16:41`
  */
 export interface PostWatchMoviesTogetherSwitchMovieResult {
-  code?: number
-  message?: string
-  data?: boolean
-  requestId?: string
+	code?: number;
+	message?: string;
+	data?: boolean;
+	requestId?: string;
 }
 
 /**
@@ -933,16 +933,16 @@ export interface PostWatchMoviesTogetherSwitchMovieResult {
  * @更新时间 `2022-01-12 10:31:54`
  */
 export interface PostExamCreateParams {
-  name: string
-  startTime: number
-  endTime: number
-  type?: string
-  desc?: string
-  examinees?: string[]
-  paper: {
-    name: string
-    questionList: string[]
-  }
+	name: string;
+	startTime: number;
+	endTime: number;
+	type?: string;
+	desc?: string;
+	examinees?: string[];
+	paper: {
+		name: string;
+		questionList: string[];
+	};
 }
 
 /**
@@ -954,12 +954,12 @@ export interface PostExamCreateParams {
  * @更新时间 `2022-01-12 10:31:54`
  */
 export interface PostExamCreateResult {
-  code?: number
-  message?: string
-  data?: {
-    examId: string
-  }
-  requestId?: string
+	code?: number;
+	message?: string;
+	data?: {
+		examId: string;
+	};
+	requestId?: string;
 }
 
 /**
@@ -971,11 +971,11 @@ export interface PostExamCreateResult {
  * @更新时间 `2022-01-12 10:25:30`
  */
 export interface GetExamListStudentParams {
-  pageNum: string
-  /**
-   * 默认10
-   */
-  pageSize?: string
+	pageNum: string;
+	/**
+	 * 默认10
+	 */
+	pageSize?: string;
 }
 
 /**
@@ -987,32 +987,32 @@ export interface GetExamListStudentParams {
  * @更新时间 `2022-01-12 10:25:30`
  */
 export interface GetExamListStudentResult {
-  code: number
-  message: string
-  data: {
-    total: number
-    nextId: string
-    cnt: number
-    currentPageNum: number
-    nextPageNum: number
-    pageSize: number
-    endPage: boolean
-    list: {
-      examId: string
-      examName: string
-      startTime: number
-      endTime: number
-      duration: number
-      type: string
-      desc: string
-      creator: string
-      /**
-       * 1待参与，2参与中，3已结束
-       */
-      status: number
-    }[]
-  }
-  requestId: string
+	code: number;
+	message: string;
+	data: {
+		total: number;
+		nextId: string;
+		cnt: number;
+		currentPageNum: number;
+		nextPageNum: number;
+		pageSize: number;
+		endPage: boolean;
+		list: {
+			examId: string;
+			examName: string;
+			startTime: number;
+			endTime: number;
+			duration: number;
+			type: string;
+			desc: string;
+			creator: string;
+			/**
+			 * 1待参与，2参与中，3已结束
+			 */
+			status: number;
+		}[];
+	};
+	requestId: string;
 }
 
 /**
@@ -1024,8 +1024,8 @@ export interface GetExamListStudentResult {
  * @更新时间 `2022-01-12 16:47:59`
  */
 export interface PostExamJoinParams {
-  examId: string
-  roomId: string
+	examId: string;
+	roomId: string;
 }
 
 /**
@@ -1037,15 +1037,15 @@ export interface PostExamJoinParams {
  * @更新时间 `2022-01-12 16:47:59`
  */
 export interface PostExamJoinResult {
-  /**
-   * 401011:时间不匹配 401012:已退出而又参加
-   */
-  code: number
-  message: string
-  data: {
-    result: boolean
-  }
-  requestId: string
+	/**
+	 * 401011:时间不匹配 401012:已退出而又参加
+	 */
+	code: number;
+	message: string;
+	data: {
+		result: boolean;
+	};
+	requestId: string;
 }
 
 /**
@@ -1057,7 +1057,7 @@ export interface PostExamJoinResult {
  * @更新时间 `2022-01-12 10:29:07`
  */
 export interface PostExamLeaveParams {
-  examId: string
+	examId: string;
 }
 
 /**
@@ -1069,12 +1069,12 @@ export interface PostExamLeaveParams {
  * @更新时间 `2022-01-12 10:29:07`
  */
 export interface PostExamLeaveResult {
-  code: number
-  message: string
-  data: {
-    result: boolean
-  }
-  requestId: string
+	code: number;
+	message: string;
+	data: {
+		result: boolean;
+	};
+	requestId: string;
 }
 
 /**
@@ -1086,7 +1086,7 @@ export interface PostExamLeaveResult {
  * @更新时间 `2022-01-12 10:28:56`
  */
 export interface GetExamPaperExamIdParams {
-  examId: string
+	examId: string;
 }
 
 /**
@@ -1098,20 +1098,20 @@ export interface GetExamPaperExamIdParams {
  * @更新时间 `2022-01-12 10:28:56`
  */
 export interface GetExamPaperExamIdResult {
-  code: number
-  message: string
-  data?: {
-    paperName: string
-    totalScore: number
-    questionList: {
-      questionId: string
-      type: string
-      score: number
-      desc: string
-      choiceList: string[]
-    }[]
-  }
-  requestId?: string
+	code: number;
+	message: string;
+	data?: {
+		paperName: string;
+		totalScore: number;
+		questionList: {
+			questionId: string;
+			type: string;
+			score: number;
+			desc: string;
+			choiceList: string[];
+		}[];
+	};
+	requestId?: string;
 }
 
 /**
@@ -1123,11 +1123,11 @@ export interface GetExamPaperExamIdResult {
  * @更新时间 `2022-01-12 10:29:15`
  */
 export interface PostExamAnswerParams {
-  examId: string
-  answerList: {
-    questionId: string
-    textList: string[]
-  }[]
+	examId: string;
+	answerList: {
+		questionId: string;
+		textList: string[];
+	}[];
 }
 
 /**
@@ -1139,12 +1139,12 @@ export interface PostExamAnswerParams {
  * @更新时间 `2022-01-12 10:29:15`
  */
 export interface PostExamAnswerResult {
-  code: number
-  message: string
-  data: {
-    result: boolean
-  }
-  requestId: string
+	code: number;
+	message: string;
+	data: {
+		result: boolean;
+	};
+	requestId: string;
 }
 
 /**
@@ -1156,8 +1156,8 @@ export interface PostExamAnswerResult {
  * @更新时间 `2022-01-12 10:29:22`
  */
 export interface GetExamAnswerDetailsExamIdUserIdParams {
-  examId: string
-  userId: string
+	examId: string;
+	userId: string;
 }
 
 /**
@@ -1169,26 +1169,26 @@ export interface GetExamAnswerDetailsExamIdUserIdParams {
  * @更新时间 `2022-01-12 10:29:22`
  */
 export interface GetExamAnswerDetailsExamIdUserIdResult {
-  code: number
-  message: string
-  data: {
-    paperName: string
-    totalScore: number
-    list: {
-      questionId: string
-      question: {
-        type: string
-        score: number
-        desc: string
-        choiceList: string[]
-        answer: {
-          textList: string[]
-          correct: boolean
-        }
-      }
-    }[]
-  }
-  requestId: string
+	code: number;
+	message: string;
+	data: {
+		paperName: string;
+		totalScore: number;
+		list: {
+			questionId: string;
+			question: {
+				type: string;
+				score: number;
+				desc: string;
+				choiceList: string[];
+				answer: {
+					textList: string[];
+					correct: boolean;
+				};
+			};
+		}[];
+	};
+	requestId: string;
 }
 
 /**
@@ -1200,10 +1200,10 @@ export interface GetExamAnswerDetailsExamIdUserIdResult {
  * @更新时间 `2022-01-12 10:29:32`
  */
 export interface PostExamPaperMarkParams {
-  examId: string
-  userId: string
-  questionId: string
-  score: number
+	examId: string;
+	userId: string;
+	questionId: string;
+	score: number;
 }
 
 /**
@@ -1215,10 +1215,10 @@ export interface PostExamPaperMarkParams {
  * @更新时间 `2022-01-12 10:29:32`
  */
 export interface PostExamPaperMarkResult {
-  code: number
-  message: string
-  data: boolean
-  requestId: string
+	code: number;
+	message: string;
+	data: boolean;
+	requestId: string;
 }
 
 /**
@@ -1230,17 +1230,17 @@ export interface PostExamPaperMarkResult {
  * @更新时间 `2022-01-14 10:43:45`
  */
 export interface PostExamQuestionsAddParams {
-  questions: {
-    question: {
-      type: string
-      score: number
-      desc: string
-      choiceList: string[]
-      answer: {
-        textList: string[]
-      }
-    }
-  }[]
+	questions: {
+		question: {
+			type: string;
+			score: number;
+			desc: string;
+			choiceList: string[];
+			answer: {
+				textList: string[];
+			};
+		};
+	}[];
 }
 
 /**
@@ -1252,10 +1252,10 @@ export interface PostExamQuestionsAddParams {
  * @更新时间 `2022-01-14 10:43:45`
  */
 export interface PostExamQuestionsAddResult {
-  code: number
-  message: string
-  data: boolean
-  requestId: string
+	code: number;
+	message: string;
+	data: boolean;
+	requestId: string;
 }
 
 /**
@@ -1267,18 +1267,18 @@ export interface PostExamQuestionsAddResult {
  * @更新时间 `2022-01-14 11:44:02`
  */
 export interface PostExamQuestionsUpdateParams {
-  questions: {
-    questionId: string
-    question: {
-      type?: string
-      score?: number
-      desc?: string
-      choiceList?: string[]
-      answer: {
-        textList?: string
-      }
-    }
-  }[]
+	questions: {
+		questionId: string;
+		question: {
+			type?: string;
+			score?: number;
+			desc?: string;
+			choiceList?: string[];
+			answer: {
+				textList?: string;
+			};
+		};
+	}[];
 }
 
 /**
@@ -1290,10 +1290,10 @@ export interface PostExamQuestionsUpdateParams {
  * @更新时间 `2022-01-14 11:44:02`
  */
 export interface PostExamQuestionsUpdateResult {
-  code?: number
-  message?: string
-  data?: boolean
-  requestId?: string
+	code?: number;
+	message?: string;
+	data?: boolean;
+	requestId?: string;
 }
 
 /**
@@ -1305,7 +1305,7 @@ export interface PostExamQuestionsUpdateResult {
  * @更新时间 `2022-01-14 14:47:31`
  */
 export interface GetExamInfoExamIdParams {
-  examId: string
+	examId: string;
 }
 
 /**
@@ -1317,22 +1317,22 @@ export interface GetExamInfoExamIdParams {
  * @更新时间 `2022-01-14 14:47:31`
  */
 export interface GetExamInfoExamIdResult {
-  code: number
-  message: string
-  data: {
-    examName: string
-    startTime: number
-    endTime: number
-    duration: number
-    type: string
-    desc: string
-    creator: string
-    /**
-     * 1:已创建 2进行中 3已结束
-     */
-    status: number
-  }
-  requestId?: string
+	code: number;
+	message: string;
+	data: {
+		examName: string;
+		startTime: number;
+		endTime: number;
+		duration: number;
+		type: string;
+		desc: string;
+		creator: string;
+		/**
+		 * 1:已创建 2进行中 3已结束
+		 */
+		status: number;
+	};
+	requestId?: string;
 }
 
 /**
@@ -1344,11 +1344,11 @@ export interface GetExamInfoExamIdResult {
  * @更新时间 `2022-01-14 14:55:30`
  */
 export interface GetExamListTeacherParams {
-  pageNum: string
-  /**
-   * 默认10
-   */
-  pageSize?: string
+	pageNum: string;
+	/**
+	 * 默认10
+	 */
+	pageSize?: string;
 }
 
 /**
@@ -1360,36 +1360,36 @@ export interface GetExamListTeacherParams {
  * @更新时间 `2022-01-14 14:55:30`
  */
 export interface GetExamListTeacherResult {
-  code: number
-  message: string
-  data: {
-    total: number
-    nextId: string
-    cnt: number
-    currentPageNum: number
-    nextPageNum: number
-    pageSize: number
-    endPage: boolean
-    list: {
-      examId: string
-      examName: string
-      startTime: number
-      endTime: number
-      duration: number
-      type: string
-      desc: string
-      creator: string
-      /**
-       * 1已创建 2进行中 3已结束
-       */
-      status: number
-      paper: {
-        paperName: string
-        questionList: string[]
-      }
-    }[]
-  }
-  requestId: string
+	code: number;
+	message: string;
+	data: {
+		total: number;
+		nextId: string;
+		cnt: number;
+		currentPageNum: number;
+		nextPageNum: number;
+		pageSize: number;
+		endPage: boolean;
+		list: {
+			examId: string;
+			examName: string;
+			startTime: number;
+			endTime: number;
+			duration: number;
+			type: string;
+			desc: string;
+			creator: string;
+			/**
+			 * 1已创建 2进行中 3已结束
+			 */
+			status: number;
+			paper: {
+				paperName: string;
+				questionList: string[];
+			};
+		}[];
+	};
+	requestId: string;
 }
 
 /**
@@ -1401,15 +1401,15 @@ export interface GetExamListTeacherResult {
  * @更新时间 `2022-01-12 10:25:38`
  */
 export interface GetExamQuestionListTypeParams {
-  pageNum: string
-  /**
-   * 默认10
-   */
-  pageSize?: string
-  /**
-   * 如果默认所有，则填all，不可为空！
-   */
-  type: string
+	pageNum: string;
+	/**
+	 * 默认10
+	 */
+	pageSize?: string;
+	/**
+	 * 如果默认所有，则填all，不可为空！
+	 */
+	type: string;
 }
 
 /**
@@ -1421,25 +1421,25 @@ export interface GetExamQuestionListTypeParams {
  * @更新时间 `2022-01-12 10:25:38`
  */
 export interface GetExamQuestionListTypeResult {
-  code?: number
-  message?: string
-  data?: {
-    total?: number
-    nextId?: string
-    cnt?: number
-    currentPageNum?: number
-    nextPageNum?: number
-    pageSize?: number
-    endPage?: boolean
-    list?: {
-      questionId?: string
-      type?: string
-      score?: number
-      desc?: string
-      choiceList?: string[]
-    }[]
-  }
-  requestId?: string
+	code?: number;
+	message?: string;
+	data?: {
+		total?: number;
+		nextId?: string;
+		cnt?: number;
+		currentPageNum?: number;
+		nextPageNum?: number;
+		pageSize?: number;
+		endPage?: boolean;
+		list?: {
+			questionId?: string;
+			type?: string;
+			score?: number;
+			desc?: string;
+			choiceList?: string[];
+		}[];
+	};
+	requestId?: string;
 }
 
 /**
@@ -1451,17 +1451,17 @@ export interface GetExamQuestionListTypeResult {
  * @更新时间 `2022-01-12 10:30:52`
  */
 export interface PostExamUpdateParams {
-  examId: string
-  name?: string
-  startTime?: number
-  endTime?: number
-  type?: string
-  desc?: string
-  examinees?: string[]
-  paper?: {
-    name: string
-    questionList: string[]
-  }
+	examId: string;
+	name?: string;
+	startTime?: number;
+	endTime?: number;
+	type?: string;
+	desc?: string;
+	examinees?: string[];
+	paper?: {
+		name: string;
+		questionList: string[];
+	};
 }
 
 /**
@@ -1473,12 +1473,12 @@ export interface PostExamUpdateParams {
  * @更新时间 `2022-01-12 10:30:52`
  */
 export interface PostExamUpdateResult {
-  code: number
-  message: string
-  data: {
-    result: boolean
-  }
-  requestId: string
+	code: number;
+	message: string;
+	data: {
+		result: boolean;
+	};
+	requestId: string;
 }
 
 /**
@@ -1490,7 +1490,7 @@ export interface PostExamUpdateResult {
  * @更新时间 `2022-02-23 10:56:59`
  */
 export interface PostExamDeleteParams {
-  examId: string
+	examId: string;
 }
 
 /**
@@ -1502,12 +1502,12 @@ export interface PostExamDeleteParams {
  * @更新时间 `2022-02-23 10:56:59`
  */
 export interface PostExamDeleteResult {
-  code: number
-  message: string
-  data: {
-    result: boolean
-  }
-  requestId: string
+	code: number;
+	message: string;
+	data: {
+		result: boolean;
+	};
+	requestId: string;
 }
 
 /**
@@ -1519,7 +1519,7 @@ export interface PostExamDeleteResult {
  * @更新时间 `2022-01-12 10:36:02`
  */
 export interface GetExamRoomTokenParams {
-  roomId: string
+	roomId: string;
 }
 
 /**
@@ -1531,15 +1531,15 @@ export interface GetExamRoomTokenParams {
  * @更新时间 `2022-01-12 10:36:02`
  */
 export interface GetExamRoomTokenResult {
-  code: number
-  message: string
-  /**
-   * roomToken
-   */
-  data: {
-    roomToken: string
-  }
-  requestId: string
+	code: number;
+	message: string;
+	/**
+	 * roomToken
+	 */
+	data: {
+		roomToken: string;
+	};
+	requestId: string;
 }
 
 /**
@@ -1551,12 +1551,12 @@ export interface GetExamRoomTokenResult {
  * @更新时间 `2022-02-09 14:44:23`
  */
 export interface GetExamExamineesExamIdParams {
-  pageNum: string
-  /**
-   * 默认10
-   */
-  pageSize?: string
-  examId: string
+	pageNum: string;
+	/**
+	 * 默认10
+	 */
+	pageSize?: string;
+	examId: string;
 }
 
 /**
@@ -1568,36 +1568,36 @@ export interface GetExamExamineesExamIdParams {
  * @更新时间 `2022-02-09 14:44:23`
  */
 export interface GetExamExamineesExamIdResult {
-  code: number
-  message: string
-  data: {
-    total: number
-    nextId: string
-    cnt: number
-    currentPageNum: number
-    nextPageNum: number
-    pageSize: number
-    endPage: boolean
-    list: {
-      userId: string
-      roomInfo: {
-        roomId: string
-      }
-      userName: string
-      /**
-       * 1未开始 2答卷中 3已交卷
-       */
-      examPaperStatus: number
-      rtcInfo: {
-        publishUrl: string
-        rtmpPlayUrl: string
-        flvPlayUrl: string
-        hlsPlayUrl: string
-        roomToken: string
-      }
-    }[]
-  }
-  requestId: string
+	code: number;
+	message: string;
+	data: {
+		total: number;
+		nextId: string;
+		cnt: number;
+		currentPageNum: number;
+		nextPageNum: number;
+		pageSize: number;
+		endPage: boolean;
+		list: {
+			userId: string;
+			roomInfo: {
+				roomId: string;
+			};
+			userName: string;
+			/**
+			 * 1未开始 2答卷中 3已交卷
+			 */
+			examPaperStatus: number;
+			rtcInfo: {
+				publishUrl: string;
+				rtmpPlayUrl: string;
+				flvPlayUrl: string;
+				hlsPlayUrl: string;
+				roomToken: string;
+			};
+		}[];
+	};
+	requestId: string;
 }
 
 /**
@@ -1609,7 +1609,7 @@ export interface GetExamExamineesExamIdResult {
  * @更新时间 `2022-01-14 11:20:08`
  */
 export interface PostExamQuestionDeleteParams {
-  questionId: string
+	questionId: string;
 }
 
 /**
@@ -1621,12 +1621,12 @@ export interface PostExamQuestionDeleteParams {
  * @更新时间 `2022-01-14 11:20:08`
  */
 export interface PostExamQuestionDeleteResult {
-  code?: number
-  message?: string
-  data?: {
-    result?: boolean
-  }
-  requestId?: string
+	code?: number;
+	message?: string;
+	data?: {
+		result?: boolean;
+	};
+	requestId?: string;
 }
 
 /**
@@ -1638,12 +1638,12 @@ export interface PostExamQuestionDeleteResult {
  * @更新时间 `2022-01-25 13:56:10`
  */
 export interface PostExamEventLogParams {
-  examId: string
-  userId: string
-  event: {
-    action: string
-    value?: string
-  }
+	examId: string;
+	userId: string;
+	event: {
+		action: string;
+		value?: string;
+	};
 }
 
 /**
@@ -1655,12 +1655,12 @@ export interface PostExamEventLogParams {
  * @更新时间 `2022-01-25 13:56:10`
  */
 export interface PostExamEventLogResult {
-  code: number
-  message: string
-  data: {
-    result: boolean
-  }
-  requestId: string
+	code: number;
+	message: string;
+	data: {
+		result: boolean;
+	};
+	requestId: string;
 }
 
 /**
@@ -1672,12 +1672,12 @@ export interface PostExamEventLogResult {
  * @更新时间 `2022-02-09 14:55:13`
  */
 export interface PostExamEventLogMoreParams {
-  userList: string[]
-  /**
-   * 首次查询传-1
-   */
-  lastTimestamp: number
-  examId: string
+	userList: string[];
+	/**
+	 * 首次查询传-1
+	 */
+	lastTimestamp: number;
+	examId: string;
 }
 
 /**
@@ -1689,20 +1689,20 @@ export interface PostExamEventLogMoreParams {
  * @更新时间 `2022-02-09 14:55:13`
  */
 export interface PostExamEventLogMoreResult {
-  code: number
-  message: string
-  data: {
-    timestamp: number
-    list: {
-      userId: string
-      eventList: {
-        action: string
-        value: string
-        timestamp: number
-      }[]
-    }[]
-  }
-  requestId: string
+	code: number;
+	message: string;
+	data: {
+		timestamp: number;
+		list: {
+			userId: string;
+			eventList: {
+				action: string;
+				value: string;
+				timestamp: number;
+			}[];
+		}[];
+	};
+	requestId: string;
 }
 
 /**
@@ -1714,10 +1714,10 @@ export interface PostExamEventLogMoreResult {
  * @更新时间 `2022-01-26 16:55:30`
  */
 export interface GetExamAiTokenParams {
-  /**
-   * 空表示只要AiToken
-   */
-  url?: string
+	/**
+	 * 空表示只要AiToken
+	 */
+	url?: string;
 }
 
 /**
@@ -1729,19 +1729,19 @@ export interface GetExamAiTokenParams {
  * @更新时间 `2022-01-26 16:55:30`
  */
 export interface GetExamAiTokenResult {
-  code: number
-  message: string
-  data: {
-    /**
-     * http 请求的 token
-     */
-    aiToken: string
-    /**
-     * WebSocket 语音转文字的 token
-     */
-    signToken?: string
-  }
-  requestId: string
+	code: number;
+	message: string;
+	data: {
+		/**
+		 * http 请求的 token
+		 */
+		aiToken: string;
+		/**
+		 * WebSocket 语音转文字的 token
+		 */
+		signToken?: string;
+	};
+	requestId: string;
 }
 
 /**
@@ -1763,12 +1763,12 @@ export interface GetPandoraTokenParams {}
  * @更新时间 `2022-02-15 11:20:31`
  */
 export interface GetPandoraTokenResult {
-  code: string
-  message: string
-  data: {
-    token: string
-  }
-  requestId: string
+	code: string;
+	message: string;
+	data: {
+		token: string;
+	};
+	requestId: string;
 }
 
 /**
@@ -1780,15 +1780,15 @@ export interface GetPandoraTokenResult {
  * @更新时间 `2022-03-09 16:23:26`
  */
 export interface PostApiChannelchoiceParams {
-  template_id: string
-  region: string
-  region_name: string
-  /**
-   * 运营商
-   */
-  operator: string
-  channel_id: string
-  channel_name: string
+	template_id: string;
+	region: string;
+	region_name: string;
+	/**
+	 * 运营商
+	 */
+	operator: string;
+	channel_id: string;
+	channel_name: string;
 }
 
 /**
@@ -1810,13 +1810,13 @@ export interface PostApiChannelchoiceResult {}
  * @更新时间 `2022-03-09 16:23:49`
  */
 export interface PutApiChannelchoiceIdParams {
-  template_id: string
-  region: string
-  region_name: string
-  operator: string
-  channel_id: string
-  channel_name: string
-  id: string
+	template_id: string;
+	region: string;
+	region_name: string;
+	operator: string;
+	channel_id: string;
+	channel_name: string;
+	id: string;
 }
 
 /**
@@ -1838,22 +1838,22 @@ export interface PutApiChannelchoiceIdResult {}
  * @更新时间 `2022-03-09 16:24:34`
  */
 export interface GetApiChannelchoiceParams {
-  /**
-   * 默认1
-   */
-  page: string
-  /**
-   * 默认10
-   */
-  page_size: string
-  /**
-   * global/local/<空串>
-   */
-  region?: string
-  /**
-   * 运营商
-   */
-  operator?: string
+	/**
+	 * 默认1
+	 */
+	page: string;
+	/**
+	 * 默认10
+	 */
+	page_size: string;
+	/**
+	 * global/local/<空串>
+	 */
+	region?: string;
+	/**
+	 * 运营商
+	 */
+	operator?: string;
 }
 
 /**
@@ -1865,18 +1865,18 @@ export interface GetApiChannelchoiceParams {
  * @更新时间 `2022-03-09 16:24:34`
  */
 export interface GetApiChannelchoiceResult {
-  page: number
-  page_size: number
-  total: number
-  items: {
-    id: string
-    template_id: string
-    region: string
-    region_name: string
-    operator: string
-    channel_id: string
-    channel_name: string
-  }[]
+	page: number;
+	page_size: number;
+	total: number;
+	items: {
+		id: string;
+		template_id: string;
+		region: string;
+		region_name: string;
+		operator: string;
+		channel_id: string;
+		channel_name: string;
+	}[];
 }
 
 /**
@@ -1888,7 +1888,7 @@ export interface GetApiChannelchoiceResult {
  * @更新时间 `2022-03-08 15:01:24`
  */
 export interface DeleteApiChannelchoiceIdParams {
-  id: string
+	id: string;
 }
 
 /**
@@ -1909,14 +1909,14 @@ export interface DeleteApiChannelchoiceIdResult {}
  * @更新时间 `2022-05-26 16:01:21`
  */
 export interface GetLiveAuthTokenParams {
-  /**
-   * string
-   */
-  userID: string
-  /**
-   * string
-   */
-  deviceID: string
+	/**
+	 * string
+	 */
+	userID: string;
+	/**
+	 * string
+	 */
+	deviceID: string;
 }
 
 /**
@@ -1927,13 +1927,13 @@ export interface GetLiveAuthTokenParams {
  * @更新时间 `2022-05-26 16:01:21`
  */
 export interface GetLiveAuthTokenResult {
-  code?: number
-  message?: string
-  data?: {
-    accessToken?: string
-    expiresAt?: number
-  }
-  requestId?: string
+	code?: number;
+	message?: string;
+	data?: {
+		accessToken?: string;
+		expiresAt?: number;
+	};
+	requestId?: string;
 }
 
 /**
@@ -1953,13 +1953,13 @@ export interface GetLiveIsRegisterParams {}
  * @更新时间 `2022-08-08 15:06:29`
  */
 export interface GetLiveIsRegisterResult {
-  code?: number
-  message?: string
-  /**
-   * true:已填写过，不用再次填写；false：没有填写过
-   */
-  data?: boolean
-  requestId?: string
+	code?: number;
+	message?: string;
+	/**
+	 * true:已填写过，不用再次填写；false：没有填写过
+	 */
+	data?: boolean;
+	requestId?: string;
 }
 
 /**
@@ -1971,8 +1971,8 @@ export interface GetLiveIsRegisterResult {
  * @更新时间 `2022-08-08 16:02:09`
  */
 export interface PostLiveStatisticsParams {
-  isQiniuUser?: boolean
-  userName?: string
+	isQiniuUser?: boolean;
+	userName?: string;
 }
 
 /**
@@ -1984,10 +1984,10 @@ export interface PostLiveStatisticsParams {
  * @更新时间 `2022-08-08 16:02:09`
  */
 export interface PostLiveStatisticsResult {
-  code?: number
-  message?: string
-  data?: null
-  requestId?: string
+	code?: number;
+	message?: string;
+	data?: null;
+	requestId?: string;
 }
 
 /**
@@ -1999,14 +1999,14 @@ export interface PostLiveStatisticsResult {
  * @更新时间 `2021-05-21 10:08:48`
  */
 export interface GetInterviewParams {
-  /**
-   * 默认是10，每页数据条数
-   */
-  pageSize?: string
-  /**
-   * 默认是1，页码
-   */
-  pageNum?: string
+	/**
+	 * 默认是10，每页数据条数
+	 */
+	pageSize?: string;
+	/**
+	 * 默认是1，页码
+	 */
+	pageNum?: string;
 }
 
 /**
@@ -2018,54 +2018,54 @@ export interface GetInterviewParams {
  * @更新时间 `2021-05-21 10:08:48`
  */
 export interface GetInterviewResult {
-  code?: number
-  message?: string
-  data?: {
-    total?: number
-    nextId?: string
-    cnt?: number
-    currentPageNum?: number
-    nextPageNum?: number
-    pageSize?: number
-    endPage?: boolean
-    list?: {
-      id: string
-      title: string
-      goverment: string
-      career: string
-      candidateId: string
-      candidateName: string
-      candidatePhone: string
-      interviewerName: string
-      interviewerPhone: string
-      interviewerId: string
-      startTime: number
-      endTime: number
-      status: string
-      statusCode: number
-      roleCode: number
-      role: string
-      isAuth: boolean
-      authCode: string
-      isRecorded: boolean
-      /**
-       * 小程序分享码
-       */
-      appletQrcode: string
-      recorded: boolean
-      /**
-       * 录制结束后 若开启房间开启录制 会有录制URL
-       */
-      recordUrl: string
-      options: string[]
-      shareInfo: {
-        url?: string
-        icon?: string
-        content?: string
-      }
-    }[]
-  }
-  requestId?: string
+	code?: number;
+	message?: string;
+	data?: {
+		total?: number;
+		nextId?: string;
+		cnt?: number;
+		currentPageNum?: number;
+		nextPageNum?: number;
+		pageSize?: number;
+		endPage?: boolean;
+		list?: {
+			id: string;
+			title: string;
+			goverment: string;
+			career: string;
+			candidateId: string;
+			candidateName: string;
+			candidatePhone: string;
+			interviewerName: string;
+			interviewerPhone: string;
+			interviewerId: string;
+			startTime: number;
+			endTime: number;
+			status: string;
+			statusCode: number;
+			roleCode: number;
+			role: string;
+			isAuth: boolean;
+			authCode: string;
+			isRecorded: boolean;
+			/**
+			 * 小程序分享码
+			 */
+			appletQrcode: string;
+			recorded: boolean;
+			/**
+			 * 录制结束后 若开启房间开启录制 会有录制URL
+			 */
+			recordUrl: string;
+			options: string[];
+			shareInfo: {
+				url?: string;
+				icon?: string;
+				content?: string;
+			};
+		}[];
+	};
+	requestId?: string;
 }
 
 /**
@@ -2077,54 +2077,54 @@ export interface GetInterviewResult {
  * @更新时间 `2021-04-23 11:41:59`
  */
 export interface PostInterviewParams {
-  /**
-   * 标题
-   */
-  title: string
-  /**
-   * 开始时间，秒级别
-   */
-  startTime: string
-  /**
-   * 结束时间，秒级别
-   */
-  endTime: string
-  /**
-   * 公司部门
-   */
-  goverment: string
-  /**
-   * 职位
-   */
-  career: string
-  /**
-   * 是否开启入会密码 true/false
-   */
-  isAuth: string
-  /**
-   * 入会密码
-   */
-  authCode?: string
-  /**
-   * 是否进行录制 true/false
-   */
-  isRecorded: string
-  /**
-   * 应聘者姓名
-   */
-  candidateName: string
-  /**
-   * 应聘者手机号
-   */
-  candidatePhone: string
-  /**
-   * 面试官姓名（HR代订时需要填写）
-   */
-  interviewerName?: string
-  /**
-   * 面试官手机号（HR代订时需要填写）
-   */
-  interviewerPhone?: string
+	/**
+	 * 标题
+	 */
+	title: string;
+	/**
+	 * 开始时间，秒级别
+	 */
+	startTime: string;
+	/**
+	 * 结束时间，秒级别
+	 */
+	endTime: string;
+	/**
+	 * 公司部门
+	 */
+	goverment: string;
+	/**
+	 * 职位
+	 */
+	career: string;
+	/**
+	 * 是否开启入会密码 true/false
+	 */
+	isAuth: string;
+	/**
+	 * 入会密码
+	 */
+	authCode?: string;
+	/**
+	 * 是否进行录制 true/false
+	 */
+	isRecorded: string;
+	/**
+	 * 应聘者姓名
+	 */
+	candidateName: string;
+	/**
+	 * 应聘者手机号
+	 */
+	candidatePhone: string;
+	/**
+	 * 面试官姓名（HR代订时需要填写）
+	 */
+	interviewerName?: string;
+	/**
+	 * 面试官手机号（HR代订时需要填写）
+	 */
+	interviewerPhone?: string;
 }
 
 /**
@@ -2136,14 +2136,14 @@ export interface PostInterviewParams {
  * @更新时间 `2021-04-23 11:41:59`
  */
 export interface PostInterviewResult {
-  code: number
-  message: string
-  data: {
-    /**
-     * 面试ID
-     */
-    id: string
-  }
+	code: number;
+	message: string;
+	data: {
+		/**
+		 * 面试ID
+		 */
+		id: string;
+	};
 }
 
 /**
@@ -2155,14 +2155,14 @@ export interface PostInterviewResult {
  * @更新时间 `2021-04-27 20:09:22`
  */
 export interface GetInterviewInterviewIdParams {
-  /**
-   * {"userId":"xxx"} 做base64编码
-   */
-  interviewToken?: string
-  /**
-   * 面试ID
-   */
-  interviewId: string
+	/**
+	 * {"userId":"xxx"} 做base64编码
+	 */
+	interviewToken?: string;
+	/**
+	 * 面试ID
+	 */
+	interviewId: string;
 }
 
 /**
@@ -2174,40 +2174,40 @@ export interface GetInterviewInterviewIdParams {
  * @更新时间 `2021-04-27 20:09:22`
  */
 export interface GetInterviewInterviewIdResult {
-  code?: number
-  message?: string
-  data?: {
-    id?: string
-    title?: string
-    goverment?: string
-    career?: string
-    candidateId?: string
-    candidateName?: string
-    candidatePhone?: string
-    interviewerName?: string
-    interviewerPhone?: string
-    interviewerId?: string
-    startTime?: number
-    endTime?: number
-    status?: string
-    statusCode?: number
-    roleCode?: number
-    role?: string
-    isAuth?: boolean
-    authCode?: string
-    isRecorded?: boolean
-    options?: {
-      type: number
-      title: string
-      requestUrl: string
-      method: string
-    }[]
-    shareInfo?: {
-      url?: string
-      icon?: string
-      content?: string
-    }
-  }
+	code?: number;
+	message?: string;
+	data?: {
+		id?: string;
+		title?: string;
+		goverment?: string;
+		career?: string;
+		candidateId?: string;
+		candidateName?: string;
+		candidatePhone?: string;
+		interviewerName?: string;
+		interviewerPhone?: string;
+		interviewerId?: string;
+		startTime?: number;
+		endTime?: number;
+		status?: string;
+		statusCode?: number;
+		roleCode?: number;
+		role?: string;
+		isAuth?: boolean;
+		authCode?: string;
+		isRecorded?: boolean;
+		options?: {
+			type: number;
+			title: string;
+			requestUrl: string;
+			method: string;
+		}[];
+		shareInfo?: {
+			url?: string;
+			icon?: string;
+			content?: string;
+		};
+	};
 }
 
 /**
@@ -2219,14 +2219,14 @@ export interface GetInterviewInterviewIdResult {
  * @更新时间 `2021-04-27 14:42:08`
  */
 export interface PostEndInterviewInterviewIdParams {
-  /**
-   * {"userId":"xxx"} 做base64编码
-   */
-  interviewToken?: string
-  /**
-   * 面试ID
-   */
-  interviewId: string
+	/**
+	 * {"userId":"xxx"} 做base64编码
+	 */
+	interviewToken?: string;
+	/**
+	 * 面试ID
+	 */
+	interviewId: string;
 }
 
 /**
@@ -2238,14 +2238,14 @@ export interface PostEndInterviewInterviewIdParams {
  * @更新时间 `2021-04-27 14:42:08`
  */
 export interface PostEndInterviewInterviewIdResult {
-  code: number
-  message: string
-  data: {
-    /**
-     * 面试ID
-     */
-    id: string
-  }
+	code: number;
+	message: string;
+	data: {
+		/**
+		 * 面试ID
+		 */
+		id: string;
+	};
 }
 
 /**
@@ -2257,10 +2257,10 @@ export interface PostEndInterviewInterviewIdResult {
  * @更新时间 `2021-04-23 02:18:28`
  */
 export interface PostCancelInterviewInteviewIdParams {
-  /**
-   * 面试ID
-   */
-  inteviewId: string
+	/**
+	 * 面试ID
+	 */
+	inteviewId: string;
 }
 
 /**
@@ -2272,14 +2272,14 @@ export interface PostCancelInterviewInteviewIdParams {
  * @更新时间 `2021-04-23 02:18:28`
  */
 export interface PostCancelInterviewInteviewIdResult {
-  code: number
-  message: string
-  data: {
-    /**
-     * 面试ID
-     */
-    id: string
-  }
+	code: number;
+	message: string;
+	data: {
+		/**
+		 * 面试ID
+		 */
+		id: string;
+	};
 }
 
 /**
@@ -2291,14 +2291,14 @@ export interface PostCancelInterviewInteviewIdResult {
  * @更新时间 `2021-11-16 11:19:52`
  */
 export interface PostJoinInterviewInterviewIdParams {
-  /**
-   * {"userId":"xxx"} 做base64编码
-   */
-  interviewToken?: string
-  /**
-   * 面试ID
-   */
-  interviewId: string
+	/**
+	 * {"userId":"xxx"} 做base64编码
+	 */
+	interviewToken?: string;
+	/**
+	 * 面试ID
+	 */
+	interviewId: string;
 }
 
 /**
@@ -2310,86 +2310,86 @@ export interface PostJoinInterviewInterviewIdParams {
  * @更新时间 `2021-11-16 11:19:52`
  */
 export interface PostJoinInterviewInterviewIdResult {
-  code: number
-  message: string
-  data: {
-    interview: {
-      id: string
-      title: string
-      goverment: string
-      career: string
-      candidateId: string
-      candidateName: string
-      candidatePhone: string
-      interviewerName: string
-      interviewerPhone: string
-      interviewerId: string
-      startTime: number
-      endTime: number
-      status: string
-      statusCode: number
-      roleCode: number
-      role: string
-      isAuth: boolean
-      enableJoinAuth: string
-      isRecorded: boolean
-      options: {
-        type: number
-        title: string
-        requestUrl: string
-        method: string
-      }[]
-      shareInfo: {
-        url: string
-        icon: string
-        content: string
-      }
-    }
-    imConfig: {
-      /**
-       * IM聊天室ID
-       */
-      imGroupId: number
-      /**
-       * 七牛IM=2
-       */
-      type: string
-    }
-    /**
-     * 当前进房用户信息
-     */
-    userInfo: {
-      accountId: string
-      nickname: string
-      avatar: string
-      phone: string
-      profile: string
-    }
-    /**
-     * 七牛云房间TOKEN
-     */
-    roomToken: string
-    /**
-     * 在线用户列表
-     */
-    onlineUserList: {
-      accountId: string
-      nickname: string
-      avatar: string
-      phone: string
-      profile: string
-    }[]
-    /**
-     * 全部用户列表
-     */
-    allUserList: {
-      accountId: string
-      nickname: string
-      avatar: string
-      phone: string
-      profile: string
-    }[]
-  }
+	code: number;
+	message: string;
+	data: {
+		interview: {
+			id: string;
+			title: string;
+			goverment: string;
+			career: string;
+			candidateId: string;
+			candidateName: string;
+			candidatePhone: string;
+			interviewerName: string;
+			interviewerPhone: string;
+			interviewerId: string;
+			startTime: number;
+			endTime: number;
+			status: string;
+			statusCode: number;
+			roleCode: number;
+			role: string;
+			isAuth: boolean;
+			enableJoinAuth: string;
+			isRecorded: boolean;
+			options: {
+				type: number;
+				title: string;
+				requestUrl: string;
+				method: string;
+			}[];
+			shareInfo: {
+				url: string;
+				icon: string;
+				content: string;
+			};
+		};
+		imConfig: {
+			/**
+			 * IM聊天室ID
+			 */
+			imGroupId: number;
+			/**
+			 * 七牛IM=2
+			 */
+			type: string;
+		};
+		/**
+		 * 当前进房用户信息
+		 */
+		userInfo: {
+			accountId: string;
+			nickname: string;
+			avatar: string;
+			phone: string;
+			profile: string;
+		};
+		/**
+		 * 七牛云房间TOKEN
+		 */
+		roomToken: string;
+		/**
+		 * 在线用户列表
+		 */
+		onlineUserList: {
+			accountId: string;
+			nickname: string;
+			avatar: string;
+			phone: string;
+			profile: string;
+		}[];
+		/**
+		 * 全部用户列表
+		 */
+		allUserList: {
+			accountId: string;
+			nickname: string;
+			avatar: string;
+			phone: string;
+			profile: string;
+		}[];
+	};
 }
 
 /**
@@ -2401,14 +2401,14 @@ export interface PostJoinInterviewInterviewIdResult {
  * @更新时间 `2021-04-27 14:32:34`
  */
 export interface PostLeaveInterviewInterviewIdParams {
-  /**
-   * {"userId":"xxx"} 做base64编码
-   */
-  interviewToken?: string
-  /**
-   * 面试ID
-   */
-  interviewId: string
+	/**
+	 * {"userId":"xxx"} 做base64编码
+	 */
+	interviewToken?: string;
+	/**
+	 * 面试ID
+	 */
+	interviewId: string;
 }
 
 /**
@@ -2420,9 +2420,9 @@ export interface PostLeaveInterviewInterviewIdParams {
  * @更新时间 `2021-04-27 14:32:34`
  */
 export interface PostLeaveInterviewInterviewIdResult {
-  code: number
-  message: string
-  data: {}
+	code: number;
+	message: string;
+	data: {};
 }
 
 /**
@@ -2434,14 +2434,14 @@ export interface PostLeaveInterviewInterviewIdResult {
  * @更新时间 `2021-04-27 14:33:02`
  */
 export interface GetHeartBeatInterviewIdParams {
-  /**
-   * {"userId":"xxx"} 做base64编码
-   */
-  interviewToken?: string
-  /**
-   * 面试ID
-   */
-  interviewId: string
+	/**
+	 * {"userId":"xxx"} 做base64编码
+	 */
+	interviewToken?: string;
+	/**
+	 * 面试ID
+	 */
+	interviewId: string;
 }
 
 /**
@@ -2453,21 +2453,21 @@ export interface GetHeartBeatInterviewIdParams {
  * @更新时间 `2021-04-27 14:33:02`
  */
 export interface GetHeartBeatInterviewIdResult {
-  code: number
-  message: string
-  data: {
-    /**
-     * 心跳间隔请求时间
-     */
-    interval: number
-    onlineUserList: {
-      accountId: string
-      nickname: string
-      avatar: string
-      phone: string
-      profile: string
-    }[]
-  }
+	code: number;
+	message: string;
+	data: {
+		/**
+		 * 心跳间隔请求时间
+		 */
+		interval: number;
+		onlineUserList: {
+			accountId: string;
+			nickname: string;
+			avatar: string;
+			phone: string;
+			profile: string;
+		}[];
+	};
 }
 
 /**
@@ -2479,28 +2479,28 @@ export interface GetHeartBeatInterviewIdResult {
  * @更新时间 `2021-04-26 17:48:28`
  */
 export interface PostInterviewInterviewIdParams {
-  /**
-   * 标题
-   */
-  title: string
-  startTime: string
-  endTime: string
-  goverment: string
-  career: string
-  isAuth: string
-  authCode: string
-  /**
-   * true/flase
-   */
-  isRecorded: string
-  candidateName: string
-  candidatePhone: string
-  interviewerName?: string
-  interviewerPhone?: string
-  /**
-   * 面试ID
-   */
-  interviewId: string
+	/**
+	 * 标题
+	 */
+	title: string;
+	startTime: string;
+	endTime: string;
+	goverment: string;
+	career: string;
+	isAuth: string;
+	authCode: string;
+	/**
+	 * true/flase
+	 */
+	isRecorded: string;
+	candidateName: string;
+	candidatePhone: string;
+	interviewerName?: string;
+	interviewerPhone?: string;
+	/**
+	 * 面试ID
+	 */
+	interviewId: string;
 }
 
 /**
@@ -2512,11 +2512,11 @@ export interface PostInterviewInterviewIdParams {
  * @更新时间 `2021-04-26 17:48:28`
  */
 export interface PostInterviewInterviewIdResult {
-  code: number
-  message: string
-  data: {
-    id: string
-  }
+	code: number;
+	message: string;
+	data: {
+		id: string;
+	};
 }
 
 /**
@@ -2528,36 +2528,36 @@ export interface PostInterviewInterviewIdResult {
  * @更新时间 `2022-04-18 18:07:59`
  */
 export interface PostBaseCreateRoomParams {
-  /**
-   * 房间名称
-   */
-  title: string
-  /**
-   * 房间描述
-   */
-  desc?: string
-  /**
-   * 场景分类
-   */
-  type: string
-  /**
-   * 房间封面
-   */
-  image?: string
-  /**
-   * 自定义属性
-   */
-  attrs?: {
-    'key[0]'?: string
-    'value[0]'?: string
-  }[]
-  /**
-   * 房间参数
-   */
-  params?: {
-    'key[0]'?: string
-    'value[0]'?: string
-  }[]
+	/**
+	 * 房间名称
+	 */
+	title: string;
+	/**
+	 * 房间描述
+	 */
+	desc?: string;
+	/**
+	 * 场景分类
+	 */
+	type: string;
+	/**
+	 * 房间封面
+	 */
+	image?: string;
+	/**
+	 * 自定义属性
+	 */
+	attrs?: {
+		'key[0]'?: string;
+		'value[0]'?: string;
+	}[];
+	/**
+	 * 房间参数
+	 */
+	params?: {
+		'key[0]'?: string;
+		'value[0]'?: string;
+	}[];
 }
 
 /**
@@ -2569,51 +2569,51 @@ export interface PostBaseCreateRoomParams {
  * @更新时间 `2022-04-18 18:07:59`
  */
 export interface PostBaseCreateRoomResult {
-  message?: string
-  data?: {
-    roomInfo?: {
-      image?: string
-      title?: string
-      creator?: string
-      desc?: string
-      status?: number
-      type?: string
-      roomId?: string
-      /**
-       * 当前房间人数
-       */
-      totalUsers?: number
-      attrs?: {
-        'key[0]'?: string
-        'value[0]'?: string
-      }[]
-      params?: {
-        'key[0]'?: string
-        'value[0]'?: string
-      }[]
-    }
-    userInfo?: {
-      role?: string
-      userId?: string
-      avatar?: string
-      nickname?: string
-      phone?: string
-      profile?: string
-      attrs?: {
-        'key[0]'?: string
-        'value[0]'?: string
-      }[]
-    }
-    rtcInfo?: {
-      roomToken?: string
-      publishUrl?: string
-      rtmpPlayUrl?: string
-      flvPlayUrl?: string
-      hlsPlayUrl?: string
-    }
-  }
-  code?: number
-  requestId?: string
+	message?: string;
+	data?: {
+		roomInfo?: {
+			image?: string;
+			title?: string;
+			creator?: string;
+			desc?: string;
+			status?: number;
+			type?: string;
+			roomId?: string;
+			/**
+			 * 当前房间人数
+			 */
+			totalUsers?: number;
+			attrs?: {
+				'key[0]'?: string;
+				'value[0]'?: string;
+			}[];
+			params?: {
+				'key[0]'?: string;
+				'value[0]'?: string;
+			}[];
+		};
+		userInfo?: {
+			role?: string;
+			userId?: string;
+			avatar?: string;
+			nickname?: string;
+			phone?: string;
+			profile?: string;
+			attrs?: {
+				'key[0]'?: string;
+				'value[0]'?: string;
+			}[];
+		};
+		rtcInfo?: {
+			roomToken?: string;
+			publishUrl?: string;
+			rtmpPlayUrl?: string;
+			flvPlayUrl?: string;
+			hlsPlayUrl?: string;
+		};
+	};
+	code?: number;
+	requestId?: string;
 }
 
 /**
@@ -2625,21 +2625,21 @@ export interface PostBaseCreateRoomResult {
  * @更新时间 `2022-08-08 16:44:51`
  */
 export interface PostBaseJoinRoomParams {
-  /**
-   * 房间ID
-   */
-  roomId?: string
-  /**
-   * ktv classroom show movie onlineExam voiceChatRoom
-   */
-  type: string
-  /**
-   * 保留
-   */
-  params?: {
-    key: string
-    value: string
-  }[]
+	/**
+	 * 房间ID
+	 */
+	roomId?: string;
+	/**
+	 * ktv classroom show movie onlineExam voiceChatRoom
+	 */
+	type: string;
+	/**
+	 * 保留
+	 */
+	params?: {
+		key: string;
+		value: string;
+	}[];
 }
 
 /**
@@ -2651,69 +2651,69 @@ export interface PostBaseJoinRoomParams {
  * @更新时间 `2022-08-08 16:44:51`
  */
 export interface PostBaseJoinRoomResult {
-  code?: number
-  data?: {
-    rtcInfo?: {
-      roomToken?: string
-      publishUrl?: string
-      rtmpPlayUrl?: string
-      flvPlayUrl?: string
-      hlsPlayUrl?: string
-    }
-    imConfig: {
-      /**
-       * IM聊天室ID
-       */
-      imGroupId: string
-      /**
-       * 默认2
-       */
-      type: string
-    }
-    allUserList?: {
-      userId: string
-      nickname: string
-      avatar: string
-      phone: string
-      role: string
-      profile: string
-    }[]
-    userInfo?: {
-      avatar?: string
-      role?: string
-      profile?: string
-      phone?: string
-      userId?: string
-      nickname?: string
-      attrs?: {
-        key?: string
-        value?: string
-      }[]
-    }
-    roomInfo?: {
-      title?: string
-      status?: string
-      roomId?: string
-      image?: string
-      /**
-       * 场景类型
-       */
-      type?: string
-      desc?: string
-      creator?: string
-      params?: {
-        key?: string
-        value?: string
-      }[]
-      attrs?: {
-        key?: string
-        value?: string
-      }[]
-      totalUsers?: number
-    }
-  }
-  message?: string
-  requestId?: string
+	code?: number;
+	data?: {
+		rtcInfo?: {
+			roomToken?: string;
+			publishUrl?: string;
+			rtmpPlayUrl?: string;
+			flvPlayUrl?: string;
+			hlsPlayUrl?: string;
+		};
+		imConfig: {
+			/**
+			 * IM聊天室ID
+			 */
+			imGroupId: string;
+			/**
+			 * 默认2
+			 */
+			type: string;
+		};
+		allUserList?: {
+			userId: string;
+			nickname: string;
+			avatar: string;
+			phone: string;
+			role: string;
+			profile: string;
+		}[];
+		userInfo?: {
+			avatar?: string;
+			role?: string;
+			profile?: string;
+			phone?: string;
+			userId?: string;
+			nickname?: string;
+			attrs?: {
+				key?: string;
+				value?: string;
+			}[];
+		};
+		roomInfo?: {
+			title?: string;
+			status?: string;
+			roomId?: string;
+			image?: string;
+			/**
+			 * 场景类型
+			 */
+			type?: string;
+			desc?: string;
+			creator?: string;
+			params?: {
+				key?: string;
+				value?: string;
+			}[];
+			attrs?: {
+				key?: string;
+				value?: string;
+			}[];
+			totalUsers?: number;
+		};
+	};
+	message?: string;
+	requestId?: string;
 }
 
 /**
@@ -2725,11 +2725,11 @@ export interface PostBaseJoinRoomResult {
  * @更新时间 `2022-03-02 15:09:11`
  */
 export interface PostBaseLeaveRoomParams {
-  roomId: string
-  /**
-   * ktv classroom show movie onlineExam voiceChatRoom
-   */
-  type: string
+	roomId: string;
+	/**
+	 * ktv classroom show movie onlineExam voiceChatRoom
+	 */
+	type: string;
 }
 
 /**
@@ -2741,10 +2741,10 @@ export interface PostBaseLeaveRoomParams {
  * @更新时间 `2022-03-02 15:09:11`
  */
 export interface PostBaseLeaveRoomResult {
-  code?: number
-  message?: string
-  data?: boolean
-  requestId?: string
+	code?: number;
+	message?: string;
+	data?: boolean;
+	requestId?: string;
 }
 
 /**
@@ -2756,18 +2756,18 @@ export interface PostBaseLeaveRoomResult {
  * @更新时间 `2022-03-02 15:09:21`
  */
 export interface GetBaseListRoomParams {
-  /**
-   * 默认是10，每页数据条数
-   */
-  pageSize?: string
-  /**
-   * 默认是1，页码
-   */
-  pageNum?: string
-  /**
-   * 场景类型 ktv classroom show movie onlineExam voiceChatRoom
-   */
-  type: string
+	/**
+	 * 默认是10，每页数据条数
+	 */
+	pageSize?: string;
+	/**
+	 * 默认是1，页码
+	 */
+	pageNum?: string;
+	/**
+	 * 场景类型 ktv classroom show movie onlineExam voiceChatRoom
+	 */
+	type: string;
 }
 
 /**
@@ -2779,36 +2779,36 @@ export interface GetBaseListRoomParams {
  * @更新时间 `2022-03-02 15:09:21`
  */
 export interface GetBaseListRoomResult {
-  code?: number
-  message?: string
-  data?: {
-    total?: number
-    nextId?: string
-    cnt?: number
-    currentPageNum?: number
-    nextPageNum?: number
-    pageSize?: number
-    endPage?: boolean
-    list?: {
-      roomId?: string
-      title?: string
-      image?: string
-      status?: number
-      desc?: string
-      creator?: string
-      type?: string
-      params?: {
-        'key[0]'?: string
-        'value[0]'?: string
-      }[]
-      attrs?: {
-        'key[0]'?: string
-        'value[0]'?: string
-      }[]
-      totalUsers?: number
-    }[]
-  }
-  requestId?: string
+	code?: number;
+	message?: string;
+	data?: {
+		total?: number;
+		nextId?: string;
+		cnt?: number;
+		currentPageNum?: number;
+		nextPageNum?: number;
+		pageSize?: number;
+		endPage?: boolean;
+		list?: {
+			roomId?: string;
+			title?: string;
+			image?: string;
+			status?: number;
+			desc?: string;
+			creator?: string;
+			type?: string;
+			params?: {
+				'key[0]'?: string;
+				'value[0]'?: string;
+			}[];
+			attrs?: {
+				'key[0]'?: string;
+				'value[0]'?: string;
+			}[];
+			totalUsers?: number;
+		}[];
+	};
+	requestId?: string;
 }
 
 /**
@@ -2820,11 +2820,11 @@ export interface GetBaseListRoomResult {
  * @更新时间 `2022-03-02 15:09:27`
  */
 export interface GetBaseHeartBeatParams {
-  roomId: string
-  /**
-   * ktv classroom show movie onlineExam voiceChatRoom
-   */
-  type: string
+	roomId: string;
+	/**
+	 * ktv classroom show movie onlineExam voiceChatRoom
+	 */
+	type: string;
 }
 
 /**
@@ -2836,12 +2836,12 @@ export interface GetBaseHeartBeatParams {
  * @更新时间 `2022-03-02 15:09:27`
  */
 export interface GetBaseHeartBeatResult {
-  code?: number
-  message?: string
-  data?: {
-    interval?: number
-  }
-  requestId?: string
+	code?: number;
+	message?: string;
+	data?: {
+		interval?: number;
+	};
+	requestId?: string;
 }
 
 /**
@@ -2853,11 +2853,11 @@ export interface GetBaseHeartBeatResult {
  * @更新时间 `2022-03-02 15:09:34`
  */
 export interface GetBaseGetRoomInfoParams {
-  /**
-   * ktv classroom show movie onlineExam voiceChatRoom
-   */
-  type: string
-  roomId: string
+	/**
+	 * ktv classroom show movie onlineExam voiceChatRoom
+	 */
+	type: string;
+	roomId: string;
 }
 
 /**
@@ -2869,71 +2869,71 @@ export interface GetBaseGetRoomInfoParams {
  * @更新时间 `2022-03-02 15:09:34`
  */
 export interface GetBaseGetRoomInfoResult {
-  data?: {
-    rtcInfo?: {
-      publishUrl?: string
-      rtmpPlayUrl?: string
-      flvPlayUrl?: string
-      hlsPlayUrl?: string
-    }
-    mics?: {
-      userExtension?: string
-      micId?: string
-      attrs?: {
-        key1?: string
-        value1?: string
-      }[]
-      /**
-       * JSON串
-       */
-      params?: string
-    }[]
-    userInfo?: {
-      nickname?: string
-      avatar?: string
-      role?: string
-      userId?: string
-      phone?: string
-      profile?: string
-      attrs?: {
-        'key[0]'?: string
-        'value[0]'?: string
-      }[]
-    }
-    roomInfo?: {
-      title?: string
-      status?: number
-      roomId?: string
-      desc?: string
-      type?: string
-      image?: string
-      creator?: string
-      totalUsers?: number
-      attrs?: {
-        'key[0]'?: string
-        'value[0]'?: string
-      }[]
-      params?: {
-        'key[0]'?: string
-        'value[0]'?: string
-      }[]
-    }
-    allUserList?: {
-      userId?: string
-      profile?: string
-      nickname?: string
-      role?: string
-      avatar?: string
-      phone?: string
-      attrs?: {
-        'key[0]'?: string
-        'value[0]'?: string
-      }[]
-    }[]
-  }
-  code?: number
-  requestId?: string
-  message?: string
+	data?: {
+		rtcInfo?: {
+			publishUrl?: string;
+			rtmpPlayUrl?: string;
+			flvPlayUrl?: string;
+			hlsPlayUrl?: string;
+		};
+		mics?: {
+			userExtension?: string;
+			micId?: string;
+			attrs?: {
+				key1?: string;
+				value1?: string;
+			}[];
+			/**
+			 * JSON串
+			 */
+			params?: string;
+		}[];
+		userInfo?: {
+			nickname?: string;
+			avatar?: string;
+			role?: string;
+			userId?: string;
+			phone?: string;
+			profile?: string;
+			attrs?: {
+				'key[0]'?: string;
+				'value[0]'?: string;
+			}[];
+		};
+		roomInfo?: {
+			title?: string;
+			status?: number;
+			roomId?: string;
+			desc?: string;
+			type?: string;
+			image?: string;
+			creator?: string;
+			totalUsers?: number;
+			attrs?: {
+				'key[0]'?: string;
+				'value[0]'?: string;
+			}[];
+			params?: {
+				'key[0]'?: string;
+				'value[0]'?: string;
+			}[];
+		};
+		allUserList?: {
+			userId?: string;
+			profile?: string;
+			nickname?: string;
+			role?: string;
+			avatar?: string;
+			phone?: string;
+			attrs?: {
+				'key[0]'?: string;
+				'value[0]'?: string;
+			}[];
+		}[];
+	};
+	code?: number;
+	requestId?: string;
+	message?: string;
 }
 
 /**
@@ -2945,26 +2945,26 @@ export interface GetBaseGetRoomInfoResult {
  * @更新时间 `2022-06-15 15:38:26`
  */
 export interface PostBaseUpMicParams {
-  roomId: string
-  /**
-   * ktv classroom show movie onlineExam voiceChatRoom
-   */
-  type: string
-  userExtension?: string
-  /**
-   * [{key:"xxx", value:"xxx"}]
-   */
-  attrs?: {
-    key?: string
-    value?: string
-  }[]
-  /**
-   * [{key:"xxx", value:"xxx"}]
-   */
-  params?: {
-    key?: string
-    value?: string
-  }[]
+	roomId: string;
+	/**
+	 * ktv classroom show movie onlineExam voiceChatRoom
+	 */
+	type: string;
+	userExtension?: string;
+	/**
+	 * [{key:"xxx", value:"xxx"}]
+	 */
+	attrs?: {
+		key?: string;
+		value?: string;
+	}[];
+	/**
+	 * [{key:"xxx", value:"xxx"}]
+	 */
+	params?: {
+		key?: string;
+		value?: string;
+	}[];
 }
 
 /**
@@ -2976,23 +2976,23 @@ export interface PostBaseUpMicParams {
  * @更新时间 `2022-06-15 15:38:26`
  */
 export interface PostBaseUpMicResult {
-  code?: number
-  message?: string
-  data?: {
-    mics?: {
-      userExtension?: string
-      did?: string
-      attrs?: {
-        'key[0]'?: string
-        'value[0]'?: string
-      }[]
-      params?: {
-        'key[0]'?: string
-        'value[0]'?: string
-      }[]
-    }[]
-  }
-  requestId?: string
+	code?: number;
+	message?: string;
+	data?: {
+		mics?: {
+			userExtension?: string;
+			did?: string;
+			attrs?: {
+				'key[0]'?: string;
+				'value[0]'?: string;
+			}[];
+			params?: {
+				'key[0]'?: string;
+				'value[0]'?: string;
+			}[];
+		}[];
+	};
+	requestId?: string;
 }
 
 /**
@@ -3004,15 +3004,15 @@ export interface PostBaseUpMicResult {
  * @更新时间 `2022-03-02 15:09:49`
  */
 export interface PostBaseUpdateRoomAttrParams {
-  /**
-   * ktv classroom show movie onlineExam voiceChatRoom
-   */
-  roomId?: string
-  type?: string
-  attrs?: {
-    'key[0]'?: string
-    'value[0]'?: string
-  }[]
+	/**
+	 * ktv classroom show movie onlineExam voiceChatRoom
+	 */
+	roomId?: string;
+	type?: string;
+	attrs?: {
+		'key[0]'?: string;
+		'value[0]'?: string;
+	}[];
 }
 
 /**
@@ -3024,41 +3024,41 @@ export interface PostBaseUpdateRoomAttrParams {
  * @更新时间 `2022-03-02 15:09:49`
  */
 export interface PostBaseUpdateRoomAttrResult {
-  code?: number
-  message?: string
-  data?: {
-    userInfo?: {
-      userId?: string
-      nickname?: string
-      avatar?: string
-      phone?: string
-      profile?: string
-      role?: string
-      attrs?: {
-        'key[0]'?: string
-        'value[0]'?: string
-      }[]
-    }
-    roomInfo?: {
-      roomId?: string
-      status?: string
-      title?: string
-      desc?: string
-      creator?: string
-      image?: string
-      type?: string
-      attrs?: {
-        'key[0]'?: string
-        'value[0]'?: string
-      }[]
-      params?: {
-        'key[0]'?: string
-        'value[0]'?: string
-      }[]
-      totalUsers?: number
-    }
-  }
-  requestId?: string
+	code?: number;
+	message?: string;
+	data?: {
+		userInfo?: {
+			userId?: string;
+			nickname?: string;
+			avatar?: string;
+			phone?: string;
+			profile?: string;
+			role?: string;
+			attrs?: {
+				'key[0]'?: string;
+				'value[0]'?: string;
+			}[];
+		};
+		roomInfo?: {
+			roomId?: string;
+			status?: string;
+			title?: string;
+			desc?: string;
+			creator?: string;
+			image?: string;
+			type?: string;
+			attrs?: {
+				'key[0]'?: string;
+				'value[0]'?: string;
+			}[];
+			params?: {
+				'key[0]'?: string;
+				'value[0]'?: string;
+			}[];
+			totalUsers?: number;
+		};
+	};
+	requestId?: string;
 }
 
 /**
@@ -3070,16 +3070,16 @@ export interface PostBaseUpdateRoomAttrResult {
  * @更新时间 `2022-03-02 15:09:56`
  */
 export interface PostBaseUpdateMicAttrParams {
-  roomId: string
-  uid: string
-  /**
-   * ktv classroom show movie onlineExam voiceChatRoom
-   */
-  type: string
-  attrs: {
-    'key[0]': string
-    'value[0]': string
-  }[]
+	roomId: string;
+	uid: string;
+	/**
+	 * ktv classroom show movie onlineExam voiceChatRoom
+	 */
+	type: string;
+	attrs: {
+		'key[0]': string;
+		'value[0]': string;
+	}[];
 }
 
 /**
@@ -3091,10 +3091,10 @@ export interface PostBaseUpdateMicAttrParams {
  * @更新时间 `2022-03-02 15:09:56`
  */
 export interface PostBaseUpdateMicAttrResult {
-  code?: number
-  message?: string
-  data?: boolean
-  requestId?: string
+	code?: number;
+	message?: string;
+	data?: boolean;
+	requestId?: string;
 }
 
 /**
@@ -3106,12 +3106,12 @@ export interface PostBaseUpdateMicAttrResult {
  * @更新时间 `2022-06-15 15:36:19`
  */
 export interface PostBaseDownMicParams {
-  roomId: string
-  /**
-   * ktv classroom show movie onlineExam voiceChatRoom
-   */
-  type: string
-  uid: string
+	roomId: string;
+	/**
+	 * ktv classroom show movie onlineExam voiceChatRoom
+	 */
+	type: string;
+	uid: string;
 }
 
 /**
@@ -3123,10 +3123,10 @@ export interface PostBaseDownMicParams {
  * @更新时间 `2022-06-15 15:36:19`
  */
 export interface PostBaseDownMicResult {
-  code?: number
-  message?: string
-  data?: boolean
-  requestId?: string
+	code?: number;
+	message?: string;
+	data?: boolean;
+	requestId?: string;
 }
 
 /**
@@ -3138,11 +3138,11 @@ export interface PostBaseDownMicResult {
  * @更新时间 `2022-03-02 15:10:08`
  */
 export interface GetBaseGetRoomMicInfoParams {
-  roomId: string
-  /**
-   * ktv classroom show movie onlineExam voiceChatRoom
-   */
-  type: string
+	roomId: string;
+	/**
+	 * ktv classroom show movie onlineExam voiceChatRoom
+	 */
+	type: string;
 }
 
 /**
@@ -3154,30 +3154,30 @@ export interface GetBaseGetRoomMicInfoParams {
  * @更新时间 `2022-03-02 15:10:08`
  */
 export interface GetBaseGetRoomMicInfoResult {
-  code?: number
-  message?: string
-  data?: {
-    roomInfo?: {
-      attrs?: {
-        'key[0]': string
-        'value[0]': string
-      }[]
-      roomId?: string
-    }
-    mics?: {
-      attrs?: {
-        'key[0]'?: string
-        'value[0]'?: string
-      }[]
-      userExtension?: string
-      uid?: string
-      params?: {
-        'key[0]'?: string
-        'value[0]'?: string
-      }[]
-    }[]
-  }
-  requestId?: string
+	code?: number;
+	message?: string;
+	data?: {
+		roomInfo?: {
+			attrs?: {
+				'key[0]': string;
+				'value[0]': string;
+			}[];
+			roomId?: string;
+		};
+		mics?: {
+			attrs?: {
+				'key[0]'?: string;
+				'value[0]'?: string;
+			}[];
+			userExtension?: string;
+			uid?: string;
+			params?: {
+				'key[0]'?: string;
+				'value[0]'?: string;
+			}[];
+		}[];
+	};
+	requestId?: string;
 }
 
 /**
@@ -3189,15 +3189,15 @@ export interface GetBaseGetRoomMicInfoResult {
  * @更新时间 `2022-03-02 15:10:18`
  */
 export interface GetBaseGetRoomAttrParams {
-  roomId: string
-  /**
-   * ktv classroom show movie onlineExam voiceChatRoom
-   */
-  type: string
-  /**
-   * 没有则返回所有
-   */
-  attrKey?: string
+	roomId: string;
+	/**
+	 * ktv classroom show movie onlineExam voiceChatRoom
+	 */
+	type: string;
+	/**
+	 * 没有则返回所有
+	 */
+	attrKey?: string;
 }
 
 /**
@@ -3209,15 +3209,15 @@ export interface GetBaseGetRoomAttrParams {
  * @更新时间 `2022-03-02 15:10:18`
  */
 export interface GetBaseGetRoomAttrResult {
-  code?: number
-  message?: string
-  data?: {
-    attrs?: {
-      'key[0]'?: string
-      'value[0]'?: string
-    }[]
-  }
-  requestId?: string
+	code?: number;
+	message?: string;
+	data?: {
+		attrs?: {
+			'key[0]'?: string;
+			'value[0]'?: string;
+		}[];
+	};
+	requestId?: string;
 }
 
 /**
@@ -3229,16 +3229,16 @@ export interface GetBaseGetRoomAttrResult {
  * @更新时间 `2022-03-02 15:10:25`
  */
 export interface GetBaseGetMicAttrParams {
-  roomId: string
-  uid: string
-  /**
-   * ktv classroom show movie onlineExam voiceChatRoom
-   */
-  type: string
-  /**
-   * 没有则返回所有
-   */
-  attrKey?: string
+	roomId: string;
+	uid: string;
+	/**
+	 * ktv classroom show movie onlineExam voiceChatRoom
+	 */
+	type: string;
+	/**
+	 * 没有则返回所有
+	 */
+	attrKey?: string;
 }
 
 /**
@@ -3250,15 +3250,15 @@ export interface GetBaseGetMicAttrParams {
  * @更新时间 `2022-03-02 15:10:25`
  */
 export interface GetBaseGetMicAttrResult {
-  code?: number
-  message?: string
-  data?: {
-    attrs?: {
-      'key[0]'?: string
-      'value[0]'?: string
-    }[]
-  }
-  requestId?: string
+	code?: number;
+	message?: string;
+	data?: {
+		attrs?: {
+			'key[0]'?: string;
+			'value[0]'?: string;
+		}[];
+	};
+	requestId?: string;
 }
 
 /**
@@ -3270,9 +3270,9 @@ export interface GetBaseGetMicAttrResult {
  * @更新时间 `2022-04-22 14:18:10`
  */
 export interface GetRecordRoomParams {
-  type: string
-  pageNum: string
-  pageSize: string
+	type: string;
+	pageNum: string;
+	pageSize: string;
 }
 
 /**
@@ -3284,25 +3284,25 @@ export interface GetRecordRoomParams {
  * @更新时间 `2022-04-22 14:18:10`
  */
 export interface GetRecordRoomResult {
-  code: number
-  message: string
-  data: {
-    total: number
-    nextId: string
-    cnt: number
-    currentPageNum: number
-    nextPageNum: number
-    pageSize: number
-    endPage: boolean
-    list: {
-      userId: string
-      roomId: string
-      type: string
-      timestamp: string
-      playUrl: string
-    }[]
-  }
-  requestId: string
+	code: number;
+	message: string;
+	data: {
+		total: number;
+		nextId: string;
+		cnt: number;
+		currentPageNum: number;
+		nextPageNum: number;
+		pageSize: number;
+		endPage: boolean;
+		list: {
+			userId: string;
+			roomId: string;
+			type: string;
+			timestamp: string;
+			playUrl: string;
+		}[];
+	};
+	requestId: string;
 }
 
 /**
@@ -3314,9 +3314,9 @@ export interface GetRecordRoomResult {
  * @更新时间 `2021-11-11 16:05:40`
  */
 export interface PostKtvSongListParams {
-  roomId: string
-  pageNum?: string
-  pageSize?: string
+	roomId: string;
+	pageNum?: string;
+	pageSize?: string;
 }
 
 /**
@@ -3328,29 +3328,29 @@ export interface PostKtvSongListParams {
  * @更新时间 `2021-11-11 16:05:40`
  */
 export interface PostKtvSongListResult {
-  code?: number
-  message?: string
-  data?: {
-    total?: number
-    nextId?: string
-    cnt?: string
-    currentPageNum?: number
-    nextPageNum?: number
-    pageSize?: number
-    endPage?: boolean
-    list?: {
-      songId?: string
-      name?: string
-      album?: string
-      image?: string
-      author?: string
-      kind?: string
-      originUrl?: string
-      accompanimentUrl?: string
-      lyrics?: string
-    }[]
-  }
-  requestId?: string
+	code?: number;
+	message?: string;
+	data?: {
+		total?: number;
+		nextId?: string;
+		cnt?: string;
+		currentPageNum?: number;
+		nextPageNum?: number;
+		pageSize?: number;
+		endPage?: boolean;
+		list?: {
+			songId?: string;
+			name?: string;
+			album?: string;
+			image?: string;
+			author?: string;
+			kind?: string;
+			originUrl?: string;
+			accompanimentUrl?: string;
+			lyrics?: string;
+		}[];
+	};
+	requestId?: string;
 }
 
 /**
@@ -3362,9 +3362,9 @@ export interface PostKtvSongListResult {
  * @更新时间 `2021-11-11 16:05:27`
  */
 export interface PostKtvSelectedSongListParams {
-  roomId: string
-  pageNum?: number
-  pageSize?: string
+	roomId: string;
+	pageNum?: number;
+	pageSize?: string;
 }
 
 /**
@@ -3376,33 +3376,33 @@ export interface PostKtvSelectedSongListParams {
  * @更新时间 `2021-11-11 16:05:27`
  */
 export interface PostKtvSelectedSongListResult {
-  code?: number
-  message?: string
-  data?: {
-    total?: number
-    nextId?: string
-    cnt?: string
-    currentPageNum?: number
-    nextPageNum?: number
-    pageSize?: number
-    endPage?: boolean
-    list?: {
-      songId?: string
-      name?: string
-      album?: string
-      image?: string
-      author?: string
-      kind?: string
-      /**
-       * 点播者
-       */
-      demander?: string
-      originUrl?: string
-      accompanimentUrl?: string
-      lyrics?: string
-    }[]
-  }
-  requestId?: string
+	code?: number;
+	message?: string;
+	data?: {
+		total?: number;
+		nextId?: string;
+		cnt?: string;
+		currentPageNum?: number;
+		nextPageNum?: number;
+		pageSize?: number;
+		endPage?: boolean;
+		list?: {
+			songId?: string;
+			name?: string;
+			album?: string;
+			image?: string;
+			author?: string;
+			kind?: string;
+			/**
+			 * 点播者
+			 */
+			demander?: string;
+			originUrl?: string;
+			accompanimentUrl?: string;
+			lyrics?: string;
+		}[];
+	};
+	requestId?: string;
 }
 
 /**
@@ -3414,18 +3414,18 @@ export interface PostKtvSelectedSongListResult {
  * @更新时间 `2021-11-03 12:04:24`
  */
 export interface PostKtvOperateSongParams {
-  /**
-   * 房间ID
-   */
-  roomId: string
-  /**
-   * 歌曲id
-   */
-  songId: string
-  /**
-   * 操作类型（select、delete）
-   */
-  operateType: string
+	/**
+	 * 房间ID
+	 */
+	roomId: string;
+	/**
+	 * 歌曲id
+	 */
+	songId: string;
+	/**
+	 * 操作类型（select、delete）
+	 */
+	operateType: string;
 }
 
 /**
@@ -3437,10 +3437,10 @@ export interface PostKtvOperateSongParams {
  * @更新时间 `2021-11-03 12:04:24`
  */
 export interface PostKtvOperateSongResult {
-  code?: number
-  message?: string
-  data?: boolean
-  requestId?: string
+	code?: number;
+	message?: string;
+	data?: boolean;
+	requestId?: string;
 }
 
 /**
@@ -3452,14 +3452,14 @@ export interface PostKtvOperateSongResult {
  * @更新时间 `2021-11-11 16:05:06`
  */
 export interface PostKtvSongInfoParams {
-  /**
-   * 房间ID
-   */
-  roomId: string
-  /**
-   * 歌曲Id
-   */
-  songId: string
+	/**
+	 * 房间ID
+	 */
+	roomId: string;
+	/**
+	 * 歌曲Id
+	 */
+	songId: string;
 }
 
 /**
@@ -3471,21 +3471,21 @@ export interface PostKtvSongInfoParams {
  * @更新时间 `2021-11-11 16:05:06`
  */
 export interface PostKtvSongInfoResult {
-  code?: number
-  message?: string
-  data?: {
-    song?: {}
-    songId?: string
-    name?: string
-    album?: string
-    author?: string
-    image?: string
-    kind?: string
-    originUrl?: string
-    accompanimentUrl?: string
-    lyrics?: string
-  }
-  requestId?: string
+	code?: number;
+	message?: string;
+	data?: {
+		song?: {};
+		songId?: string;
+		name?: string;
+		album?: string;
+		author?: string;
+		image?: string;
+		kind?: string;
+		originUrl?: string;
+		accompanimentUrl?: string;
+		lyrics?: string;
+	};
+	requestId?: string;
 }
 
 /**
@@ -3497,10 +3497,10 @@ export interface PostKtvSongInfoResult {
  * @更新时间 `2021-04-27 16:19:40`
  */
 export interface GetTestInterviewIdParams {
-  /**
-   * 面试ID
-   */
-  interviewId: string
+	/**
+	 * 面试ID
+	 */
+	interviewId: string;
 }
 
 /**
@@ -3521,10 +3521,10 @@ export interface GetTestInterviewIdResult {}
  * @更新时间 `2021-05-17 14:19:38`
  */
 export interface GetBoardInterviewIdParams {
-  /**
-   * 面试房间Id
-   */
-  interviewId: string
+	/**
+	 * 面试房间Id
+	 */
+	interviewId: string;
 }
 
 /**
@@ -3535,35 +3535,35 @@ export interface GetBoardInterviewIdParams {
  * @更新时间 `2021-05-17 14:19:38`
  */
 export interface GetBoardInterviewIdResult {
-  code?: number
-  message?: string
-  data?: {
-    /**
-     * 面试房间id
-     */
-    interview_id?: string
-    /**
-     * 白板id 与面试房间id一致
-     */
-    id?: string
-    /**
-     * board-open\board-close 之一
-     */
-    status?: string
-    /**
-     * 当前使用者id
-     */
-    current_user_id?: string
-    /**
-     * 白板创建（第一次被展开 时间戳）
-     */
-    created_at?: string
-    /**
-     * 末次状态更新时间 格式 2006-01-02 15:04:05.999999999 -0700 MST
-     */
-    updated_at?: string
-  }
-  requestId?: string
+	code?: number;
+	message?: string;
+	data?: {
+		/**
+		 * 面试房间id
+		 */
+		interview_id?: string;
+		/**
+		 * 白板id 与面试房间id一致
+		 */
+		id?: string;
+		/**
+		 * board-open\board-close 之一
+		 */
+		status?: string;
+		/**
+		 * 当前使用者id
+		 */
+		current_user_id?: string;
+		/**
+		 * 白板创建（第一次被展开 时间戳）
+		 */
+		created_at?: string;
+		/**
+		 * 末次状态更新时间 格式 2006-01-02 15:04:05.999999999 -0700 MST
+		 */
+		updated_at?: string;
+	};
+	requestId?: string;
 }
 
 /**
@@ -3574,14 +3574,14 @@ export interface GetBoardInterviewIdResult {
  * @更新时间 `2021-05-17 14:15:02`
  */
 export interface PostBoardInterviewIdParams {
-  /**
-   * cmd-open/cmd-close/cmd-reset
-   */
-  cmd: string
-  /**
-   * 面试房间
-   */
-  interviewId: string
+	/**
+	 * cmd-open/cmd-close/cmd-reset
+	 */
+	cmd: string;
+	/**
+	 * 面试房间
+	 */
+	interviewId: string;
 }
 
 /**
@@ -3592,35 +3592,35 @@ export interface PostBoardInterviewIdParams {
  * @更新时间 `2021-05-17 14:15:02`
  */
 export interface PostBoardInterviewIdResult {
-  code?: number
-  message?: string
-  data?: {
-    /**
-     * 面试房间id
-     */
-    interview_id?: string
-    /**
-     * 白板id 同面试房间id
-     */
-    id?: string
-    /**
-     * 白板状态 board-open\board-close
-     */
-    status?: string
-    /**
-     * 当前使用用户id
-     */
-    current_user_id?: string
-    /**
-     * 创建时间（第一次打开白板）
-     */
-    created_at?: string
-    /**
-     * 末次更新时间
-     */
-    updated_at?: string
-  }
-  requestId?: string
+	code?: number;
+	message?: string;
+	data?: {
+		/**
+		 * 面试房间id
+		 */
+		interview_id?: string;
+		/**
+		 * 白板id 同面试房间id
+		 */
+		id?: string;
+		/**
+		 * 白板状态 board-open\board-close
+		 */
+		status?: string;
+		/**
+		 * 当前使用用户id
+		 */
+		current_user_id?: string;
+		/**
+		 * 创建时间（第一次打开白板）
+		 */
+		created_at?: string;
+		/**
+		 * 末次更新时间
+		 */
+		updated_at?: string;
+	};
+	requestId?: string;
 }
 
 /**
@@ -3632,14 +3632,14 @@ export interface PostBoardInterviewIdResult {
  * @更新时间 `2021-10-25 15:02:54`
  */
 export interface PostRepairCreateRoomParams {
-  /**
-   * 房间名称
-   */
-  title: string
-  /**
-   * 只能是{"staff", "professor"}
-   */
-  role: string
+	/**
+	 * 房间名称
+	 */
+	title: string;
+	/**
+	 * 只能是{"staff", "professor"}
+	 */
+	role: string;
 }
 
 /**
@@ -3651,33 +3651,33 @@ export interface PostRepairCreateRoomParams {
  * @更新时间 `2021-10-25 15:02:54`
  */
 export interface PostRepairCreateRoomResult {
-  message?: string
-  requestId?: string
-  data?: {
-    roomInfo?: {
-      image?: string
-      title?: string
-      status?: number
-      roomId?: string
-    }
-    userInfo?: {
-      phone?: string
-      avatar?: string
-      profile?: string
-      nickname?: string
-      accountId?: string
-    }
-    rtcInfo?: {
-      roomToken?: string
-      publishUrl?: string
-      rtmpPlayUrl?: string
-      flvPlayUrl?: string
-      hlsPlayUrl?: string
-    }
-    publishUrl?: string
-    roomToken?: string
-  }
-  code?: number
+	message?: string;
+	requestId?: string;
+	data?: {
+		roomInfo?: {
+			image?: string;
+			title?: string;
+			status?: number;
+			roomId?: string;
+		};
+		userInfo?: {
+			phone?: string;
+			avatar?: string;
+			profile?: string;
+			nickname?: string;
+			accountId?: string;
+		};
+		rtcInfo?: {
+			roomToken?: string;
+			publishUrl?: string;
+			rtmpPlayUrl?: string;
+			flvPlayUrl?: string;
+			hlsPlayUrl?: string;
+		};
+		publishUrl?: string;
+		roomToken?: string;
+	};
+	code?: number;
 }
 
 /**
@@ -3689,14 +3689,14 @@ export interface PostRepairCreateRoomResult {
  * @更新时间 `2021-11-16 11:24:24`
  */
 export interface PostRepairJoinRoomParams {
-  /**
-   * 房间ID
-   */
-  roomId: string
-  /**
-   * 只能是{"student", "professor", "staff"}
-   */
-  role: string
+	/**
+	 * 房间ID
+	 */
+	roomId: string;
+	/**
+	 * 只能是{"student", "professor", "staff"}
+	 */
+	role: string;
 }
 
 /**
@@ -3708,51 +3708,51 @@ export interface PostRepairJoinRoomParams {
  * @更新时间 `2021-11-16 11:24:24`
  */
 export interface PostRepairJoinRoomResult {
-  message?: string
-  requestId?: string
-  data?: {
-    allUserList?: {
-      accountId: string
-      nickname: string
-      avatar: string
-      phone: string
-      role: string
-      profile: string
-    }[]
-    imConfig: {
-      /**
-       * IM聊天室ID
-       */
-      imGroupId: string
-      /**
-       * 默认2
-       */
-      type: string
-    }
-    roomInfo?: {
-      status?: string
-      field_4?: number
-      roomId?: string
-      title?: string
-    }
-    publishUrl?: string
-    userInfo?: {
-      accountId?: string
-      profile?: string
-      avatar?: string
-      phone?: string
-      nickname?: string
-    }
-    rtcInfo?: {
-      roomToken?: string
-      publishUrl?: string
-      rtmpPlayUrl?: string
-      flvPlayUrl?: string
-      hlsPlayUrl?: string
-    }
-    roomToken?: string
-  }
-  code?: number
+	message?: string;
+	requestId?: string;
+	data?: {
+		allUserList?: {
+			accountId: string;
+			nickname: string;
+			avatar: string;
+			phone: string;
+			role: string;
+			profile: string;
+		}[];
+		imConfig: {
+			/**
+			 * IM聊天室ID
+			 */
+			imGroupId: string;
+			/**
+			 * 默认2
+			 */
+			type: string;
+		};
+		roomInfo?: {
+			status?: string;
+			field_4?: number;
+			roomId?: string;
+			title?: string;
+		};
+		publishUrl?: string;
+		userInfo?: {
+			accountId?: string;
+			profile?: string;
+			avatar?: string;
+			phone?: string;
+			nickname?: string;
+		};
+		rtcInfo?: {
+			roomToken?: string;
+			publishUrl?: string;
+			rtmpPlayUrl?: string;
+			flvPlayUrl?: string;
+			hlsPlayUrl?: string;
+		};
+		roomToken?: string;
+	};
+	code?: number;
 }
 
 /**
@@ -3764,10 +3764,10 @@ export interface PostRepairJoinRoomResult {
  * @更新时间 `2021-09-18 15:18:40`
  */
 export interface GetRepairLeaveRoomRoomIdParams {
-  /**
-   * 房间id
-   */
-  roomID: string
+	/**
+	 * 房间id
+	 */
+	roomID: string;
 }
 
 /**
@@ -3779,10 +3779,10 @@ export interface GetRepairLeaveRoomRoomIdParams {
  * @更新时间 `2021-09-18 15:18:40`
  */
 export interface GetRepairLeaveRoomRoomIdResult {
-  code?: number
-  message?: string
-  data?: string
-  requestId?: string
+	code?: number;
+	message?: string;
+	data?: string;
+	requestId?: string;
 }
 
 /**
@@ -3794,14 +3794,14 @@ export interface GetRepairLeaveRoomRoomIdResult {
  * @更新时间 `2021-09-24 16:29:30`
  */
 export interface GetRepairListRoomParams {
-  /**
-   * 默认是10，每页数据条数
-   */
-  pageSize?: string
-  /**
-   * 默认是1，页码
-   */
-  pageNum?: string
+	/**
+	 * 默认是10，每页数据条数
+	 */
+	pageSize?: string;
+	/**
+	 * 默认是1，页码
+	 */
+	pageNum?: string;
 }
 
 /**
@@ -3813,34 +3813,34 @@ export interface GetRepairListRoomParams {
  * @更新时间 `2021-09-24 16:29:30`
  */
 export interface GetRepairListRoomResult {
-  code?: number
-  message?: string
-  data?: {
-    total?: number
-    nextId?: string
-    cnt?: number
-    currentPageNum?: number
-    nextPageNum?: number
-    pageSize?: number
-    endPage?: boolean
-    list?: {
-      roomId?: string
-      title?: string
-      image?: string
-      status?: number
-      options?: {
-        /**
-         * 角色值 student、professor、staff
-         */
-        role: string
-        /**
-         * 显示的名称  ”专家进入“
-         */
-        title: string
-      }[]
-    }[]
-  }
-  requestId?: string
+	code?: number;
+	message?: string;
+	data?: {
+		total?: number;
+		nextId?: string;
+		cnt?: number;
+		currentPageNum?: number;
+		nextPageNum?: number;
+		pageSize?: number;
+		endPage?: boolean;
+		list?: {
+			roomId?: string;
+			title?: string;
+			image?: string;
+			status?: number;
+			options?: {
+				/**
+				 * 角色值 student、professor、staff
+				 */
+				role: string;
+				/**
+				 * 显示的名称  ”专家进入“
+				 */
+				title: string;
+			}[];
+		}[];
+	};
+	requestId?: string;
 }
 
 /**
@@ -3852,7 +3852,7 @@ export interface GetRepairListRoomResult {
  * @更新时间 `2021-09-22 15:31:26`
  */
 export interface GetRepairHeartBeatRoomIdParams {
-  roomId: string
+	roomId: string;
 }
 
 /**
@@ -3864,12 +3864,12 @@ export interface GetRepairHeartBeatRoomIdParams {
  * @更新时间 `2021-09-22 15:31:26`
  */
 export interface GetRepairHeartBeatRoomIdResult {
-  code?: number
-  message?: string
-  data?: {
-    interval?: number
-  }
-  requestId?: string
+	code?: number;
+	message?: string;
+	data?: {
+		interval?: number;
+	};
+	requestId?: string;
 }
 
 /**
@@ -3881,7 +3881,7 @@ export interface GetRepairHeartBeatRoomIdResult {
  * @更新时间 `2021-09-24 16:32:39`
  */
 export interface GetRepairGetRoomInfoRoomIdParams {
-  roomId: string
+	roomId: string;
 }
 
 /**
@@ -3893,36 +3893,36 @@ export interface GetRepairGetRoomInfoRoomIdParams {
  * @更新时间 `2021-09-24 16:32:39`
  */
 export interface GetRepairGetRoomInfoRoomIdResult {
-  code?: number
-  message?: string
-  data?: {
-    userInfo?: {
-      accountId?: string
-      nickname?: string
-      avatar?: string
-      phone?: string
-      profile?: string
-    }
-    publishUrl?: string
-    roomInfo?: {
-      roomId?: string
-      title?: string
-      image?: string
-      /**
-       * 1 房间状态正常，0 房间已关闭
-       */
-      status?: number
-    }
-    allUserList?: {
-      accountId?: string
-      nickname?: string
-      avatar?: string
-      phone?: string
-      role?: string
-      profile?: string
-    }[]
-  }
-  requestId?: string
+	code?: number;
+	message?: string;
+	data?: {
+		userInfo?: {
+			accountId?: string;
+			nickname?: string;
+			avatar?: string;
+			phone?: string;
+			profile?: string;
+		};
+		publishUrl?: string;
+		roomInfo?: {
+			roomId?: string;
+			title?: string;
+			image?: string;
+			/**
+			 * 1 房间状态正常，0 房间已关闭
+			 */
+			status?: number;
+		};
+		allUserList?: {
+			accountId?: string;
+			nickname?: string;
+			avatar?: string;
+			phone?: string;
+			role?: string;
+			profile?: string;
+		}[];
+	};
+	requestId?: string;
 }
 
 /**
@@ -3934,7 +3934,7 @@ export interface GetRepairGetRoomInfoRoomIdResult {
  * @更新时间 `2021-12-21 11:08:40`
  */
 export interface PostRepairCircuitboardCheckParams {
-  image: FileData
+	image: FileData;
 }
 
 /**
@@ -3946,18 +3946,18 @@ export interface PostRepairCircuitboardCheckParams {
  * @更新时间 `2021-12-21 11:08:40`
  */
 export interface PostRepairCircuitboardCheckResult {
-  code: number
-  message: string
-  data: {
-    /**
-     * 电路板得分
-     */
-    score: number
-    /**
-     * 是否是电路板：negatives/positives
-     */
-    label: string
-  }
+	code: number;
+	message: string;
+	data: {
+		/**
+		 * 电路板得分
+		 */
+		score: number;
+		/**
+		 * 是否是电路板：negatives/positives
+		 */
+		label: string;
+	};
 }
 
 /* prettier-ignore-end */

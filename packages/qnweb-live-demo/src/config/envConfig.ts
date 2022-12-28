@@ -2,47 +2,47 @@
  * 不同环境下不同配置
  */
 export const envConfig = {
-  dev: {
-    imConfig: {
-      appKey: 'cigzypnhoyno'
-    },
-    requestConfig: {
-      // baseURL: 'http://10.200.20.28:5080',
-      baseURL: '/',
-      timeout: 3000
-    },
-    liveRequestConfig: {
-      // baseURL: 'http://10.200.20.28:8099',
-      baseURL: '/',
-      timeout: 3000
-    }
-  },
-  staging: {
-    imConfig: {
-      appKey: 'cigzypnhoyno'
-    },
-    requestConfig: {
-      baseURL: 'http://10.200.20.28:5080',
-      timeout: 3000
-    },
-    liveRequestConfig: {
-      baseURL: 'http://10.200.20.28:8099',
-      timeout: 3000
-    }
-  },
-  prod: {
-    imConfig: {
-      appKey: 'cigzypnhoyno'
-    },
-    requestConfig: {
-      baseURL: 'https://niucube-api.qiniu.com',
-      timeout: 3000
-    },
-    liveRequestConfig: {
-      baseURL: 'https://live-api.qiniu.com',
-      timeout: 3000
-    }
-  }
+	dev: {
+		imConfig: {
+			appKey: 'cigzypnhoyno'
+		},
+		requestConfig: {
+			// baseURL: 'http://10.200.20.28:5080',
+			baseURL: '/',
+			timeout: 3000
+		},
+		liveRequestConfig: {
+			// baseURL: 'http://10.200.20.28:8099',
+			baseURL: '/',
+			timeout: 3000
+		}
+	},
+	staging: {
+		imConfig: {
+			appKey: 'cigzypnhoyno'
+		},
+		requestConfig: {
+			baseURL: 'http://10.200.20.28:5080',
+			timeout: 3000
+		},
+		liveRequestConfig: {
+			baseURL: 'http://10.200.20.28:8099',
+			timeout: 3000
+		}
+	},
+	prod: {
+		imConfig: {
+			appKey: 'cigzypnhoyno'
+		},
+		requestConfig: {
+			baseURL: 'https://niucube-api.qiniu.com',
+			timeout: 3000
+		},
+		liveRequestConfig: {
+			baseURL: 'https://live-api.qiniu.com',
+			timeout: 3000
+		}
+	}
 };
 
 /**

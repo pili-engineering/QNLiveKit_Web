@@ -1,2 +1,2 @@
-export * from './errorCode';
 export * from './envConfig';
+export * from './errorCode';

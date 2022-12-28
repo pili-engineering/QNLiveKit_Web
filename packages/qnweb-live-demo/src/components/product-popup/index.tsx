@@ -8,36 +8,36 @@ import React from 'react';
 import { createPrefixCls } from '../_utils';
 
 export interface ProductPopupProps {
-  className?: string;
-  style?: React.CSSProperties;
-  /**
-   *
-   */
-  visible?: boolean;
-  /**
-   * 序号
-   */
-  order?: number | null;
-  /**
-   * 缩略图
-   */
-  thumbnail?: string;
-  /**
-   * 标题
-   */
-  title?: string;
-  /**
-   * 价格
-   */
-  price?: string;
-  /**
-   * 点击关闭按钮
-   */
-  onClose?: () => void;
-  /**
-   * 点击抢按钮
-   */
-  onClick?: () => void;
+	className?: string;
+	style?: React.CSSProperties;
+	/**
+	 *
+	 */
+	visible?: boolean;
+	/**
+	 * 序号
+	 */
+	order?: number | null;
+	/**
+	 * 缩略图
+	 */
+	thumbnail?: string;
+	/**
+	 * 标题
+	 */
+	title?: string;
+	/**
+	 * 价格
+	 */
+	price?: string;
+	/**
+	 * 点击关闭按钮
+	 */
+	onClose?: () => void;
+	/**
+	 * 点击抢按钮
+	 */
+	onClick?: () => void;
 }
 
 const prefixCls = createPrefixCls('product-popup');
@@ -48,32 +48,41 @@ const prefixCls = createPrefixCls('product-popup');
  * @constructor
  */
 export const ProductPopup: React.FC<ProductPopupProps> = (props) => {
-  const {
-    className,
-    style,
-    visible = true, order, thumbnail, title, price,
-    onClose, onClick
-  } = props;
+	const {
+		className,
+		style,
+		visible = true,
+		order,
+		thumbnail,
+		title,
+		price,
+		onClose,
+		onClick
+	} = props;
 
-  return visible ? <div className={classNames(prefixCls, className)} style={style}>
-    <CloseOutlined className={`${prefixCls}-close`} onClick={onClose}/>
+	return visible ? (
+		<div className={classNames(prefixCls, className)} style={style}>
+			<CloseOutlined className={`${prefixCls}-close`} onClick={onClose} />
 
-    {typeof order === 'number' ? <div className={`${prefixCls}-order`}>{order}</div> : null}
+			{typeof order === 'number' ? (
+				<div className={`${prefixCls}-order`}>{order}</div>
+			) : null}
 
-    <Image
-      style={{ width: '100%', height: '130px', objectFit: 'cover' }}
-      src={thumbnail}
-      preview={false}
-    />
+			<Image
+				style={{ width: '100%', height: '130px', objectFit: 'cover' }}
+				src={thumbnail}
+				preview={false}
+			/>
 
-    <div className={`${prefixCls}-content`}>
-      <div className={`${prefixCls}-title`}>
-        {title}
-      </div>
-      <div className={`${prefixCls}-button`}>
-        <span className={`${prefixCls}-button-price`}>{price}</span>
-        <span className={`${prefixCls}-button-text`} onClick={onClick}>抢</span>
-      </div>
-    </div>
-  </div> : null;
+			<div className={`${prefixCls}-content`}>
+				<div className={`${prefixCls}-title`}>{title}</div>
+				<div className={`${prefixCls}-button`}>
+					<span className={`${prefixCls}-button-price`}>{price}</span>
+					<span className={`${prefixCls}-button-text`} onClick={onClick}>
+						抢
+					</span>
+				</div>
+			</div>
+		</div>
+	) : null;
 };

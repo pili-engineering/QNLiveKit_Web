@@ -6,17 +6,17 @@ import { ContentAudit, Login } from '@/pages';
 const MAIN_VERSION = mainVersion;
 
 export const Router = () => {
-  useEffect(() => {
-    document.title += MAIN_VERSION;
-  }, []);
+	useEffect(() => {
+		document.title += MAIN_VERSION;
+	}, []);
 
-  return (
-    <BrowserRouter>
-      <Switch>
-        <Route path="/login" component={Login}/>
-        <Route path="/content-audit" component={ContentAudit}/>
-        <Redirect to="/content-audit"/>
-      </Switch>
-    </BrowserRouter>
-  );
+	return (
+		<BrowserRouter>
+			<Switch>
+				<Route path="/login" component={Login} />
+				<Route path="/content-audit" component={ContentAudit} />
+				<Redirect to="/content-audit" />
+			</Switch>
+		</BrowserRouter>
+	);
 };
