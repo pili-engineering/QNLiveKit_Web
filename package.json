@@ -16,9 +16,10 @@
     "release": "ar-changelog release",
     "changeset": "changeset",
     "cz": "git-cz",
-    "lint": "eslint packages/**/src/**/*.{ts,tsx}",
-    "lint-fix": "eslint --fix packages/**/src/**/*.{ts,tsx}",
-    "pretty": "prettier --write 'packages/**/src/**/*.{ts,tsx}'"
+    "lint": "eslint 'packages/**/src/**/*.{ts,tsx}'",
+    "lint-fix": "eslint --fix 'packages/**/src/**/*.{ts,tsx}'",
+    "pretty": "prettier --write 'packages/**/src/**/*.{ts,tsx}'",
+    "pretty-check": "prettier --check 'packages/**/src/**/*.{ts,tsx}'"
   },
   "devDependencies": {
     "@changesets/cli": "^2.23.1",
