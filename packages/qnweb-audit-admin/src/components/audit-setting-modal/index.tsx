@@ -2,15 +2,15 @@ import React, { useEffect } from 'react';
 import {
 	Button,
 	Checkbox,
+	CheckboxOptionType,
 	Col,
 	Form,
+	FormProps,
 	InputNumber,
 	Modal,
 	ModalProps,
 	Row,
-	Space,
-	FormProps,
-	CheckboxOptionType
+	Space
 } from 'antd';
 import classNames from 'classnames';
 

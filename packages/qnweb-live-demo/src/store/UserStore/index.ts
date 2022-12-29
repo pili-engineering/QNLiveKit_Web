@@ -1,2 +1,2 @@
-export * from './UserStore';
 export * from './type';
+export * from './UserStore';

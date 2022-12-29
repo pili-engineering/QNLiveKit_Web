@@ -1,12 +1,13 @@
+import React, { useEffect, useRef } from 'react';
 import { CloseOutlined } from '@ant-design/icons';
 import { Avatar, Button, message } from 'antd';
 import classNames from 'classnames';
 import Clipboard from 'clipboard';
-import React, { useEffect, useRef } from 'react';
 
 import IconNoLive from '../_images/icon-nolive.svg';
 import IconShare from '../_images/icon-share.svg';
 import { nextPlayerTypeMap, playerTypeMap, RoomProps } from '../_types';
+
 import styles from './index.module.scss';
 
 export const RoomMobile: React.FC<

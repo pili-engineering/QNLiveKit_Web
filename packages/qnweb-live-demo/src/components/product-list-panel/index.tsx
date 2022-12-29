@@ -4,6 +4,7 @@ import classNames from 'classnames';
 
 import { createPrefixCls } from '../_utils';
 import { ProductCard, ProductCardInfo } from '..';
+
 import './index.scss';
 
 export interface ProductListPanelProps {

@@ -3,6 +3,7 @@ import { CloseOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 
 import { createPrefixCls } from '../_utils';
+
 import './index.scss';
 
 export interface Gift {

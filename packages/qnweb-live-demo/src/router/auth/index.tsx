@@ -1,10 +1,10 @@
-import './index.scss';
-
-import { Spin } from 'antd';
 import React, { useEffect, useState } from 'react';
+import { Spin } from 'antd';
 
 import { BaseApi, LiveApi } from '@/api';
 import { useUserStore } from '@/store';
+
+import './index.scss';
 
 export const Auth: React.FC = (props) => {
 	const { children } = props;

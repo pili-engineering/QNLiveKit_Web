@@ -1,12 +1,12 @@
-import './index.scss';
-
+import React from 'react';
 import { PlayCircleOutlined } from '@ant-design/icons';
 import { Button, Image, Tag } from 'antd';
 import classNames from 'classnames';
-import React from 'react';
 
-import { LiveAnimation } from '..';
 import { createPrefixCls } from '../_utils';
+import { LiveAnimation } from '..';
+
+import './index.scss';
 
 export interface ProductCardInfo {
 	/**

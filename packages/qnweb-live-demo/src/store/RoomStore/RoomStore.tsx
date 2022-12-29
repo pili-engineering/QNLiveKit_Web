@@ -1,6 +1,6 @@
 import React, { useContext, useReducer } from 'react';
 
-import { RoomStoreState, RoomStoreAction } from './type';
+import { RoomStoreAction, RoomStoreState } from './type';
 
 export const roomStoreContext = React.createContext<{
 	state: RoomStoreState;

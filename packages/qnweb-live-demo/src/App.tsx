@@ -1,9 +1,9 @@
-import 'antd/dist/antd.css';
 import './styles';
+import 'antd/dist/antd.css';
 
+import React, { useEffect } from 'react';
 import { ConfigProvider } from 'antd';
 import zhCN from 'antd/es/locale/zh_CN';
-import React, { useEffect } from 'react';
 
 import {
 	IMStore,

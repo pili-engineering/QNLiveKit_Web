@@ -43,6 +43,7 @@ import {
 } from '@/utils';
 
 import { isBarrageMessage, isChatMessage, isGiftMessage } from './messageUtil';
+
 import styles from './index.module.scss';
 
 export const LiveRoom: React.FC = () => {

@@ -1,6 +1,10 @@
+import 'xgplayer';
+
 import React, { useEffect, useState } from 'react';
+import { usePagination } from 'ahooks';
 import {
 	Alert,
+	AlertProps,
 	Button,
 	Checkbox,
 	Modal,
@@ -9,16 +13,13 @@ import {
 	Radio,
 	RadioChangeEvent,
 	Space,
-	Spin,
-	AlertProps
+	Spin
 } from 'antd';
-import { usePagination } from 'ahooks';
-import 'xgplayer';
-// @ts-ignore
-import FlvPlayer from 'xgplayer-flv';
 import classNames from 'classnames';
+import FlvPlayer from 'xgplayer-flv';
 
 import { DataEmpty } from '@/components';
+
 import { AuditImageCard } from './audit-image-card';
 import { getTags } from './utils';
 

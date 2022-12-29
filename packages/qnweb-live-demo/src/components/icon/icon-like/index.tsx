@@ -1,10 +1,10 @@
-import './index.scss';
-
-import classNames from 'classnames';
 import React, { useRef } from 'react';
+import classNames from 'classnames';
 
 import { IconLikeSvg } from '../../_images';
 import { createPrefixCls } from '../../_utils';
+
+import './index.scss';
 
 export interface IconLikeProps {
 	className?: string;

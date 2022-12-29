@@ -5,6 +5,7 @@ import moment from 'moment';
 import { IconUserCountSvg } from '../_images';
 import { createPrefixCls } from '../_utils';
 import { LiveAnimation } from '..';
+
 import './index.scss';
 
 export interface RoomCardProps {

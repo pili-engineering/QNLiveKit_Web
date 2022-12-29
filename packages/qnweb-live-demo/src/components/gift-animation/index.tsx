@@ -1,11 +1,11 @@
-import './index.scss';
-
+import React, { useEffect, useImperativeHandle, useState } from 'react';
 import { Avatar } from 'antd';
 import classNames from 'classnames';
-import React, { useEffect, useImperativeHandle, useState } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import { createPrefixCls } from '../_utils';
+
+import './index.scss';
 
 export interface GiftAnimationProps {
 	className?: string;

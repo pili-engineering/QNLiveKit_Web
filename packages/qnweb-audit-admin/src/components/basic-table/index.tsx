@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Table, TableProps, Tooltip } from 'antd';
-import moment from 'moment';
 import classNames from 'classnames';
+import moment from 'moment';
 
 import './index.scss';
 

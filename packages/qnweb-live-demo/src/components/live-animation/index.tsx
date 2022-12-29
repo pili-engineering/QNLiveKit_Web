@@ -1,9 +1,9 @@
-import './index.scss';
-
-import classNames from 'classnames';
 import React from 'react';
+import classNames from 'classnames';
 
 import { createPrefixCls } from '../_utils';
+
+import './index.scss';
 
 export interface IconLiveAnimationProps {
 	className?: string;

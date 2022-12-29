@@ -1,11 +1,11 @@
-import './index.scss';
-
+import React, { useRef, useState } from 'react';
 import { useInterval } from 'ahooks';
 import classNames from 'classnames';
 import moment from 'moment';
-import React, { useRef, useState } from 'react';
 
 import { createPrefixCls } from '../_utils';
+
+import './index.scss';
 
 export interface LiveTimerProps {
 	className?: string;

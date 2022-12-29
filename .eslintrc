@@ -76,9 +76,10 @@
             // Anything that starts with a dot
             "^\\.",
             // .html are not side effect imports
-            "^.+\\.html$",
-            // .scss/.css are not side effect imports
-            "^.+\\.s?css$"
+            "^.+\\.html$"
+          ],
+          [
+            "^(./|../).*.s?css$"
           ]
         ]
       }

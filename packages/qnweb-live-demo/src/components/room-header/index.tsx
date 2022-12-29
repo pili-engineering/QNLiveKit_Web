@@ -1,11 +1,11 @@
-import './index.scss';
-
+import React from 'react';
 import { CloseOutlined } from '@ant-design/icons';
 import { Avatar } from 'antd';
 import classNames from 'classnames';
-import React from 'react';
 
 import { createPrefixCls } from '../_utils';
+
+import './index.scss';
 
 interface User {
 	/**

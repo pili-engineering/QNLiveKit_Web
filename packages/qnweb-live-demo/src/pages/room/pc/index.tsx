@@ -1,9 +1,10 @@
+import React, { useEffect, useRef } from 'react';
 import { Button, Input, message } from 'antd';
 import classNames from 'classnames';
 import Clipboard from 'clipboard';
-import React, { useEffect, useRef } from 'react';
 
 import { nextPlayerTypeMap, playerTypeMap, RoomProps } from '../_types';
+
 import styles from './index.module.scss';
 
 export const RoomPC: React.FC<

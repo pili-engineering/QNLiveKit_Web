@@ -1,12 +1,12 @@
-import './index.scss';
-
+import React from 'react';
 import { Button, Form, Input } from 'antd';
 import classNames from 'classnames';
-import React from 'react';
 
 import IconChecked from './_images/icon-checked.svg';
 import IconUnchecked from './_images/icon-unchecked.svg';
 import BgPNG from './_images/login-card-bg.png';
+
+import './index.scss';
 
 export interface LoginData {
 	/**

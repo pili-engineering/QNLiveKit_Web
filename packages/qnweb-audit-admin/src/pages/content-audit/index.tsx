@@ -1,27 +1,27 @@
 import React, { useState } from 'react';
+import { useAntdTable, useRequest } from 'ahooks';
 import {
+	Button,
+	Checkbox,
 	Layout,
-	Space,
-	Switch,
+	message,
+	Modal,
 	Radio,
 	RadioChangeEvent,
-	Button,
-	message,
+	Space,
 	Spin,
-	Modal,
-	Checkbox
+	Switch
 } from 'antd';
 import { SwitchChangeEventHandler } from 'antd/es/switch';
-import { useAntdTable, useRequest } from 'ahooks';
 import moment from 'moment';
 
 import {
-	PostAdminCensorConfigParams,
-	PostAdminCensorConfigResult,
 	AdminApi,
 	GetAdminCensorLiveResult,
 	PostAdminCensorAuditParams,
 	PostAdminCensorAuditResult,
+	PostAdminCensorConfigParams,
+	PostAdminCensorConfigResult,
 	PostAdminCensorStopliveLiveIdParams,
 	PostAdminCensorStopliveLiveIdResult
 } from '@/api';
@@ -34,8 +34,9 @@ import {
 	BasicTableDataType,
 	BasicTableProps
 } from '@/components';
-import { getSettingTags, getStatus } from './utils';
+
 import logoPNG from './logo.png';
+import { getSettingTags, getStatus } from './utils';
 
 import styles from './index.module.scss';
 

@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { message, Modal } from 'antd';
+import axios from 'axios';
 
 import { liveRequestConfig, requestConfig } from '@/config';
 
@@ -78,4 +78,4 @@ liveRequest.interceptors.response.use(
 	}
 );
 
-export { request, liveRequest };
+export { liveRequest, request };

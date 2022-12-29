@@ -1,5 +1,5 @@
-import axios, { AxiosError } from 'axios';
 import { Modal } from 'antd';
+import axios, { AxiosError } from 'axios';
 
 import { requestConfig } from '@/config';
 
@@ -91,4 +91,4 @@ const mockRequest = <TData>(
 	});
 };
 
-export { request, mockRequest };
+export { mockRequest, request };

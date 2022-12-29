@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
-import { CheckboxChangeEvent } from 'antd/es/checkbox';
 import { Card, Checkbox, Image, Tooltip } from 'antd';
+import { CheckboxChangeEvent } from 'antd/es/checkbox';
 import classNames from 'classnames';
+import moment from 'moment';
 
 import './index.scss';
-import moment from 'moment';
 
 const prefixCls = 'audit-image-card';
 

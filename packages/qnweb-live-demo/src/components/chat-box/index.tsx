@@ -1,10 +1,10 @@
-import './index.scss';
-
+import React, { CSSProperties, useEffect } from 'react';
 import { Avatar } from 'antd';
 import classNames from 'classnames';
-import React, { CSSProperties, useEffect } from 'react';
 
 import { createPrefixCls } from '../_utils';
+
+import './index.scss';
 
 export interface ChatBoxListItem {
 	/**

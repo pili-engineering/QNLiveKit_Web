@@ -4,6 +4,7 @@ import classNames from 'classnames';
 
 import { IconRewardGiftSvg } from '../_images';
 import { createPrefixCls } from '../_utils';
+
 import './index.scss';
 
 export interface MorePanelItem {

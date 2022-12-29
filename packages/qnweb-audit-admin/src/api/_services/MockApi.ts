@@ -1,32 +1,20 @@
 import Mock from 'better-mock';
 
 import {
+	AdminApi,
 	GetAdminCensorConfigParams,
 	GetAdminCensorConfigResult,
 	GetAdminCensorLiveParams,
 	GetAdminCensorLiveResult,
-	PostAdminCensorConfigParams,
-	PostAdminCensorStopliveLiveIdParams,
-	mockRequest,
-	GetServerAuthAdminTokenParams,
-	PostAdminCensorAuditParams,
 	GetAdminCensorRecordParams,
 	GetAdminCensorRecordResult,
+	GetServerAuthAdminTokenParams,
+	mockRequest,
+	PostAdminCensorAuditParams,
+	PostAdminCensorConfigParams,
+	PostAdminCensorStopliveLiveIdParams,
 	PostManagerLoginParams
 } from '@/api';
-import { AdminApi } from './AdminApi';
-
-type IsOptional<Key extends keyof Obj, Obj> = {} extends Pick<Obj, Key>
-	? Key
-	: never;
-
-type DeepRequired<Obj> = Obj extends any
-	? {
-			[Key in keyof Obj]-?: IsOptional<Key, Obj> extends never
-				? Obj[Key]
-				: DeepRequired<Obj[Key]>;
-	  }
-	: never;
 
 export class MockApi {
 	/**

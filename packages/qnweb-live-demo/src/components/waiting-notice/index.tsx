@@ -1,10 +1,10 @@
-import './index.scss';
-
+import React from 'react';
 import classNames from 'classnames';
 import moment from 'moment';
-import React from 'react';
 
 import { createPrefixCls } from '../_utils';
+
+import './index.scss';
 
 export interface WaitingNoticeProps {
 	className?: string;

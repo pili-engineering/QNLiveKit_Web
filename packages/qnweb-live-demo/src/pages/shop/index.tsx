@@ -1,16 +1,16 @@
-import './index.scss';
-
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { LeftCircleOutlined } from '@ant-design/icons';
 import { useRequest } from 'ahooks';
 import { Button, Image } from 'antd';
 import classNames from 'classnames';
-import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { GetClientItemLiveIdResult, LiveApi } from '@/api';
 import { getUrlQuery } from '@/utils';
 
 import placeholderPNG from './placeholder.png';
+
+import './index.scss';
 
 export interface ShopProps {
 	className?: string;
