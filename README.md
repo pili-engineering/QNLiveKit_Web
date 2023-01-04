@@ -2,17 +2,24 @@
 
 一个基于pnpm，低代码互动直播的monorepo
 
+## 分支
+
+* main：生产环境分支
+* develop：测试环境分支
+
 ## 介绍
 
 * [qnweb-live-demo](./packages/qnweb-live-demo/README.md): 互动直播标准接入示例demo
 
-## 安装依赖
+## 如何运行/打包
+
+### 安装依赖
 
 ```shell
 $ pnpm install
 ```
 
-## 运行
+### 运行
 
 [packageName] 为项目名称，如 qnweb-live-demo
 
@@ -22,7 +29,7 @@ $ pnpm install
 $ pnpm --filter [packageName] dev
 ```
 
-## 打包
+### 打包
 
 [packageName] 为项目名称，如 qnweb-live-demo
 
@@ -31,3 +38,4 @@ $ pnpm --filter [packageName] dev
 ```shell
 $ pnpm --filter [packageName] build
 ```
+
