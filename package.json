@@ -19,7 +19,15 @@
     "lint": "eslint 'packages/**/src/**/*.{ts,tsx}'",
     "lint-fix": "eslint --fix 'packages/**/src/**/*.{ts,tsx}'",
     "pretty": "prettier --write 'packages/**/src/**/*.{ts,tsx}'",
-    "pretty-check": "prettier --check 'packages/**/src/**/*.{ts,tsx}'"
+    "pretty-check": "prettier --check 'packages/**/src/**/*.{ts,tsx}'",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged"
+  },
+  "lint-staged": {
+    "packages/**/src/**/*.{ts,tsx}": [
+      "prettier --write",
+      "eslint --cache --fix"
+    ]
   },
   "devDependencies": {
     "@changesets/cli": "^2.23.1",
@@ -35,6 +43,8 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "git-cz": "^4.9.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.0",
     "prettier": "^2.8.1"
   }
 }
