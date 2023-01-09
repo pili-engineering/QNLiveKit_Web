@@ -1,8 +1,16 @@
 const fs = require('fs');
 
-const projects = fs.readdirSync('./packages').filter((projectName) => {
-	return fs.statSync(`./packages/${projectName}`).isDirectory();
-});
+const projects = fs
+	.readdirSync('./packages')
+	.filter((dirName) => {
+		return fs.existsSync(`./packages/${dirName}/package.json`);
+	})
+	.map((dirName) => {
+		return fs.readFileSync(`./packages/${dirName}/package.json`, 'utf8');
+	})
+	.map((packageJson) => {
+		return JSON.parse(packageJson).name;
+	});
 
 module.exports = {
 	disableEmoji: true,
