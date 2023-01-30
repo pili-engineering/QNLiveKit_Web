@@ -22,12 +22,12 @@ const loginModal = () => {
 
 request.interceptors.request.use(
 	(config) => {
-		const Authorization = localStorage.getItem('Authorization');
+		const authorization = localStorage.getItem('authorization');
 		return {
 			...config,
 			headers: {
 				...config.headers,
-				Authorization
+				Authorization: authorization
 			}
 		};
 	},

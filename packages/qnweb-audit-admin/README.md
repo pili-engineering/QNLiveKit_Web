@@ -31,8 +31,6 @@ $ pnpm dev
 
 [src/config](./src/config)，主要包含 axios 请求配置以及默认登录使用的账号。
 
-demo中采用默认账号登录，账号信息在 [src/config](./src/config) 中的 `defaultLogin` 中配置。
-
 登录成功后将 `Authorization` 存入 localStorage，后续请求都会带上 `Authorization`。
 
 当登录状态过期后，请求拦截器（axios拦截器）会拦截响应值来判断登录状态是否失效，如果失效则跳转到登录页（/login）自动登录。

@@ -13,8 +13,8 @@ export const Router = () => {
 	return (
 		<BrowserRouter>
 			<Switch>
-				<Route path="/login" component={Login} />
-				<Route path="/content-audit" component={ContentAudit} />
+				<Route exact path="/login" component={Login} />
+				<Route exact path="/content-audit" component={ContentAudit} />
 				<Redirect to="/content-audit" />
 			</Switch>
 		</BrowserRouter>

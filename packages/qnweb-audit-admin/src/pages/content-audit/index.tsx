@@ -432,7 +432,7 @@ export const ContentAudit = () => {
 	};
 
 	return (
-		<Layout className={styles.container}>
+		<Layout className={styles.page}>
 			<AuditSettingModal
 				initialValues={{
 					interval: settingConfig?.interval || 1,

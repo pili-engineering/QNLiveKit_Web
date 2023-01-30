@@ -1,31 +1,74 @@
 import React from 'react';
 import { useRequest } from 'ahooks';
-import { Spin } from 'antd';
+import { Button, Card, Form, Input } from 'antd';
+import { useHistory } from 'react-router-dom';
 
-import { AdminApi } from '@/api';
-import { defaultLoginConfig } from '@/config';
+import {
+	AdminApi,
+	PostManagerLoginParams,
+	PostManagerLoginResult
+} from '@/api';
+
+import styles from './index.module.scss';
 
 export const Login = () => {
-	useRequest(() => {
-		return AdminApi.postManagerLogin({
-			user_name: defaultLoginConfig.username,
-			password: defaultLoginConfig.password
+	const history = useHistory();
+
+	const { loading, runAsync } = useRequest<
+		PostManagerLoginResult,
+		PostManagerLoginParams[]
+	>(
+		(params) => {
+			return AdminApi.postManagerLogin(params);
+		},
+		{
+			manual: true
+		}
+	);
+
+	const onFinish = (values: { username: string; password: string }) => {
+		runAsync({
+			user_name: values.username,
+			password: values.password
 		}).then((result) => {
-			localStorage.setItem('Authorization', result.data?.access_token || '');
-			window.location.href = '/content-audit';
+			localStorage.setItem('authorization', result.data?.access_token || '');
+			history.push('/content-audit');
 		});
-	});
+	};
 
 	return (
-		<Spin
-			style={{
-				position: 'fixed',
-				top: '50%',
-				left: '50%',
-				transform: 'translate(-50%, -50%)'
-			}}
-			spinning={true}
-			tip="登录中..."
-		/>
+		<div className={styles.page}>
+			<Card className={styles.card}>
+				<h1 className={styles.title}>系统登录</h1>
+				<Form
+					name="basic"
+					initialValues={{ remember: true }}
+					onFinish={onFinish}
+					autoComplete="off"
+				>
+					<Form.Item
+						label="账号"
+						name="username"
+						rules={[{ required: true, message: '请输入账号' }]}
+					>
+						<Input placeholder="账号" />
+					</Form.Item>
+
+					<Form.Item
+						label="密码"
+						name="password"
+						rules={[{ required: true, message: '请输入密码' }]}
+					>
+						<Input.Password placeholder="密码" />
+					</Form.Item>
+
+					<Form.Item>
+						<Button loading={loading} type="primary" htmlType="submit" block>
+							登录
+						</Button>
+					</Form.Item>
+				</Form>
+			</Card>
+		</div>
 	);
 };
