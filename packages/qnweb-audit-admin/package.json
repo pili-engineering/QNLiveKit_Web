@@ -1,6 +1,6 @@
 {
   "name": "qnweb-audit-admin",
-  "version": "0.0.1",
+  "version": "1.0.0-beta.0",
   "scripts": {
     "dev": "vite --mode dev",
     "build:staging": "tsc --skipLibCheck && vite build --mode staging",
